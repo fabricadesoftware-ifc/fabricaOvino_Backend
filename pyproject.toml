@@ -6,16 +6,13 @@ authors = ["Eduardo da Silva <eduardo.silva@ifc.edu.br>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+django = "^3.0.5"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
 flake8 = "^3.7.9"
 isort = "^4.3.21"
 pre-commit = "^2.2.0"
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
 
 [tool.black]
 line-length = 119
@@ -26,3 +23,7 @@ include_trailing_comma = true
 force_grid_wrap = 0
 use_parentheses = true
 line_length = 119
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
