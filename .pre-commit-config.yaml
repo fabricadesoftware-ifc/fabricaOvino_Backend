@@ -1,0 +1,20 @@
+- repo: local
+  hooks:
+    - id: black
+      name: "format code with black"
+      entry: black
+      language: system
+      types:
+        - python
+    - id: isort
+      name: "format imports with isort"
+      entry: isort
+      language: system
+      types:
+        - python
+    - id: flake8
+      name: "lint code with flake8"
+      entry: flake8
+      language: system
+      types:
+        - python
