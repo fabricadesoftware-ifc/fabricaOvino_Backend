@@ -1,0 +1,70 @@
+@import "~bulma/sass/utilities/_all";
+
+/**
+  * Alteração de variáveis básicas do Bulma
+  */
+
+$primary: rgb(25, 160, 97);
+$primary-light: hsl(138, 53%, 51%);
+$primary-dark: hsl(143, 88%, 6%);
+
+$secondary: hsl(129, 65%, 45%);
+
+$success: hsl(127, 67%, 55%);
+$warning: hsl(64, 68%, 54%);
+$danger: hsl(6, 61%, 52%);
+
+$colors: (
+  "white": (
+    $white,
+    $black,
+  ),
+  "black": (
+    $black,
+    $white,
+  ),
+  "light": (
+    $light,
+    $light-invert,
+  ),
+  "dark": (
+    $dark,
+    $dark-invert,
+  ),
+  "primary": (
+    $primary,
+    $primary-invert,
+  ),
+  "info": (
+    $info,
+    $info-invert,
+  ),
+  "success": (
+    $success,
+    $success-invert,
+  ),
+  "warning": (
+    $warning,
+    $warning-invert,
+  ),
+  "danger": (
+    $danger,
+    $danger-invert,
+  ),
+);
+
+/**
+  * Variáveis adicionais (que não existem no Bulma)
+  */
+
+$primary-grey: hsl(260, 17%, 45%);
+
+/**
+  * Alteração de variáveis dos componentes do Bulma
+  */
+
+$footer-background-color: $primary-grey;
+$footer-color: $white;
+
+@import "~bulma";
+@import "~buefy/src/scss/buefy";

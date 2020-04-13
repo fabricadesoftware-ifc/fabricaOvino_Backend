@@ -1,0 +1,45 @@
+{
+  "asideMenu": {
+    "general": "General",
+    "adminItems": {
+      "title": "Administration",
+      "category": "Categories",
+      "breed": "Breeds"
+    }
+  },
+
+  "pages": {
+    "admin": {
+      "category": {
+        "title": "Category management",
+        "subtitle": "Sheep categories",
+        "table": {
+          "id": "ID",
+          "name": "Name",
+          "actions": "Actions"
+        }
+      },
+      "breed": {
+        "title": "Breed management",
+        "subtitle": "Sheep breeds",
+        "table": {
+          "id": "ID",
+          "name": "Name",
+          "actions": "Actions"
+        }
+      },
+      "forms": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter the name"
+        }
+      }
+    }
+  },
+
+  "buttons": {
+    "save": "Save",
+    "delete": "Delete",
+    "reset": "Reset"
+  }
+}

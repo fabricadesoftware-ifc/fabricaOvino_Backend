@@ -1,0 +1,45 @@
+{
+  "asideMenu": {
+    "general": "Geral",
+    "adminItems": {
+      "title": "Administração",
+      "category": "Categorias",
+      "breed": "Raças"
+    }
+  },
+
+  "pages": {
+    "admin": {
+      "category": {
+        "title": "Gestão de categorias",
+        "subtitle": "Categorias das ovelhas",
+        "table": {
+          "id": "Código",
+          "name": "Nome",
+          "actions": "Ações"
+        }
+      },
+      "breed": {
+        "title": "Gestão de raças",
+        "subtitle": "Raças das ovelhas",
+        "table": {
+          "id": "Código",
+          "name": "Nome",
+          "actions": "Ações"
+        }
+      },
+      "forms": {
+        "name": {
+          "label": "Nome",
+          "placeholder": "Informe o nome"
+        }
+      }
+    }
+  },
+
+  "buttons": {
+    "save": "Salvar",
+    "delete": "Excluir",
+    "reset": "Cancelar"
+  }
+}

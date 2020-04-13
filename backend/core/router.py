@@ -5,3 +5,5 @@ from backend.core import views
 router = SimpleRouter()
 
 router.register(r"categories", views.CategoryViewSet, basename="category")
+router.register(r"breeds", views.BreedViewSet, basename="breed")
+router.register(r"sheeps", views.SheepViewSet, basename="sheep")
