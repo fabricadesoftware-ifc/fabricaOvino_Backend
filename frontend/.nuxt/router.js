@@ -7,6 +7,7 @@ const _cbce67e6 = () => interopDefault(import('../pages/index.vue' /* webpackChu
 const _117c1556 = () => interopDefault(import('../pages/inspire.vue' /* webpackChunkName: "pages/inspire" */))
 const _91a5f2a2 = () => interopDefault(import('../pages/admin/breed.vue' /* webpackChunkName: "pages/admin/breed" */))
 const _74f28513 = () => interopDefault(import('../pages/admin/category.vue' /* webpackChunkName: "pages/admin/category" */))
+const _fcd481d4 = () => interopDefault(import('../pages/admin/sheep.vue' /* webpackChunkName: "pages/admin/sheep" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -49,6 +50,10 @@ export const routerOptions = {
     component: _74f28513,
     name: "admin-category___en"
   }, {
+    path: "/en/admin/sheep",
+    component: _fcd481d4,
+    name: "admin-sheep___en"
+  }, {
     path: "/pt/admin/breed",
     component: _91a5f2a2,
     name: "admin-breed___pt"
@@ -56,6 +61,10 @@ export const routerOptions = {
     path: "/pt/admin/category",
     component: _74f28513,
     name: "admin-category___pt"
+  }, {
+    path: "/pt/admin/sheep",
+    component: _fcd481d4,
+    name: "admin-sheep___pt"
   }],
 
   fallback: false

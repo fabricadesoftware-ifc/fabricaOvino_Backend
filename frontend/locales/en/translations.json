@@ -4,7 +4,8 @@
     "adminItems": {
       "title": "Administration",
       "category": "Categories",
-      "breed": "Breeds"
+      "breed": "Breeds",
+      "sheep": "Sheeps"
     }
   },
 
@@ -26,6 +27,55 @@
           "id": "ID",
           "name": "Name",
           "actions": "Actions"
+        }
+      },
+      "sheep": {
+        "title": "Sheep management",
+        "subtitle": "Flock",
+        "table": {
+          "id": "ID",
+          "earringNumber": "Earring #",
+          "breed": "Breed",
+          "category": "Category",
+          "sex": "Sex",
+          "birthday": "Birthday",
+          "actions": "Action"
+        },
+        "forms": {
+          "earringNumber": {
+            "label": "Earring Number",
+            "placeholder": "Enter the earring tag number"
+          },
+          "breed": {
+            "label": "Breed",
+            "placeholder": "Select the breed"
+          },
+          "category": {
+            "label": "Category",
+            "placeholder": "Select the category"
+          },
+          "birthday": {
+            "label": "Birthdat",
+            "placeholder": "Enter the birthday"
+          },
+          "sex": {
+            "label": "Sex",
+            "placeholder": "Select the sex",
+            "male": "Male",
+            "female": "Female"
+          },
+          "teethQuantity": {
+            "label": "Quantity of teeth",
+            "placeholder": "Enter the quantity of teeth"
+          },
+          "mother": {
+            "label": "Mother",
+            "placeholder": "Select the mother"
+          },
+          "father": {
+            "label": "Father",
+            "placeholder": "Select the father"
+          }
         }
       },
       "forms": {

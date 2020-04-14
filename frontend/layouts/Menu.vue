@@ -9,8 +9,7 @@
           :to="localePath(item.to)"
           :icon="item.icon"
           :label="item.title"
-        >
-        </b-menu-item>
+        ></b-menu-item>
       </b-menu-list>
       <b-menu-list :label="$t('asideMenu.adminItems.title')">
         <b-menu-item
@@ -20,8 +19,7 @@
           :to="localePath(item.to)"
           :icon="item.icon"
           :label="item.title"
-        >
-        </b-menu-item>
+        ></b-menu-item>
       </b-menu-list>
     </b-menu>
   </aside>
@@ -44,7 +42,7 @@
         </nuxt-link>
       </li>
     </ul>
-  </aside> -->
+  </aside>-->
 </template>
 
 <script>
@@ -73,6 +71,11 @@ export default {
           title: this.$t("asideMenu.adminItems.breed"),
           icon: "puzzle",
           to: { name: "admin-breed" },
+        },
+        {
+          title: this.$t("asideMenu.adminItems.sheep"),
+          icon: "sheep",
+          to: { name: "admin-sheep" },
         },
       ],
     };

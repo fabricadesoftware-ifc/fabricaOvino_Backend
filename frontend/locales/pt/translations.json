@@ -4,7 +4,8 @@
     "adminItems": {
       "title": "Administração",
       "category": "Categorias",
-      "breed": "Raças"
+      "breed": "Raças",
+      "sheep": "Ovelhas"
     }
   },
 
@@ -26,6 +27,55 @@
           "id": "Código",
           "name": "Nome",
           "actions": "Ações"
+        }
+      },
+      "sheep": {
+        "title": "Gestão de ovelhas",
+        "subtitle": "Rebanho",
+        "table": {
+          "id": "Código",
+          "earringNumber": "Nº do brinco",
+          "breed": "Raça",
+          "category": "Categoria",
+          "sex": "Sexo",
+          "birthday": "Nascimento",
+          "actions": "Ações"
+        },
+        "forms": {
+          "earringNumber": {
+            "label": "Número do brinco",
+            "placeholder": "Informe o número do brinco"
+          },
+          "breed": {
+            "label": "Raça",
+            "placeholder": "Selecione a raça"
+          },
+          "category": {
+            "label": "Categoria",
+            "placeholder": "Selecione a categoria"
+          },
+          "birthday": {
+            "label": "Data de nascimento",
+            "placeholder": "Informe a data de nascimento"
+          },
+          "sex": {
+            "label": "Sexo",
+            "placeholder": "Informe o sexo",
+            "male": "Macho",
+            "female": "Fêmea"
+          },
+          "teethQuantity": {
+            "label": "Quantidade de dentes",
+            "placeholder": "Informe a quantidade de dentes"
+          },
+          "mother": {
+            "label": "Mãe",
+            "placeholder": "Selecione a mãe"
+          },
+          "father": {
+            "label": "Pai",
+            "placeholder": "Selecione o pai"
+          }
         }
       },
       "forms": {

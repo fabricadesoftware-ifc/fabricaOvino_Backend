@@ -66,6 +66,14 @@ export default {
           icon: "check",
         },
       },
+      {
+        name: "defaultError",
+        message: (payload) => (!payload.msg ? "Oops.. Erro inesperado" : payload.msg),
+        options: {
+          type: "error",
+          icon: "times",
+        },
+      },
     ],
   },
 

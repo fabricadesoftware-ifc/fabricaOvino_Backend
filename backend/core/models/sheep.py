@@ -9,7 +9,7 @@ class Sheep(models.Model):
         FEMALE = "F", _("Female")
         MALE = "M", _("Male")
 
-    earringNumber = models.IntegerField(unique=True, blank=True, null=True)
+    earringNumber = models.CharField(unique=True, blank=True, null=True, max_length=63)
     breed = models.ForeignKey(Breed, on_delete=models.PROTECT, related_name="sheeps")
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name="sheeps")
     birthday = models.DateField()
