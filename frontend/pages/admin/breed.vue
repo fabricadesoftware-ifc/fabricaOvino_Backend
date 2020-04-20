@@ -52,6 +52,7 @@ import PageTitle from "@/components/templates/PageTitle";
 
 import { showError } from "@/plugins/global";
 export default {
+  auth: false,
   components: { PageTitle },
   data: function () {
     return {

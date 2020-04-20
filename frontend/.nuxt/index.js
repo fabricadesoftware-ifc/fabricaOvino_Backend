@@ -8,6 +8,7 @@ import NuxtError from './components/nuxt-error.vue'
 import Nuxt from './components/nuxt.js'
 import App from './App.js'
 import { setContext, getLocation, getRouteData, normalizeError } from './utils'
+import { createStore } from './store.js'
 
 /* Plugins */
 
@@ -17,6 +18,8 @@ import nuxt_plugin_pluginmain_d57e8f4c from 'nuxt_plugin_pluginmain_d57e8f4c' //
 import nuxt_plugin_axios_78c601f1 from 'nuxt_plugin_axios_78c601f1' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_toast_44f64ea0 from 'nuxt_plugin_toast_44f64ea0' // Source: ./toast.js (mode: 'client')
 import nuxt_plugin_axios_3566aa80 from 'nuxt_plugin_axios_3566aa80' // Source: ../plugins/axios (mode: 'all')
+import nuxt_plugin_plugin_88f3d326 from 'nuxt_plugin_plugin_88f3d326' // Source: ./auth/plugin.js (mode: 'all')
+import nuxt_plugin_authlangredirect_aec5c32c from 'nuxt_plugin_authlangredirect_aec5c32c' // Source: ../plugins/auth-lang-redirect (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -50,13 +53,22 @@ const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearC
 async function createApp (ssrContext) {
   const router = await createRouter(ssrContext)
 
+  const store = createStore(ssrContext)
+  // Add this.$router into store actions/mutations
+  store.$router = router
+
+  // Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
+  const registerModule = store.registerModule
+  store.registerModule = (path, rawModule, options) => registerModule.call(store, path, rawModule, Object.assign({ preserveState: process.client }, options))
+
   // Create Root instance
 
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"Ovinos - NEPPA","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Ovinos - NEPPA"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002F\u002Fcdn.materialdesignicons.com\u002F5.0.45\u002Fcss\u002Fmaterialdesignicons.min.css"}],"style":[],"script":[]},
+    head: {"title":"Ovinos - NEPPA","htmlAttrs":{"lang":"pt-br"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Ovinos - NEPPA"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002F\u002Fcdn.materialdesignicons.com\u002F5.0.45\u002Fcss\u002Fmaterialdesignicons.min.css"}],"style":[],"script":[]},
 
+    store,
     router,
     nuxt: {
       defaultTransition,
@@ -101,6 +113,9 @@ async function createApp (ssrContext) {
     ...App
   }
 
+  // Make app available into store via this.app
+  store.app = app
+
   const next = ssrContext ? ssrContext.next : location => app.router.push(location)
   // Resolve route
   let route
@@ -113,6 +128,7 @@ async function createApp (ssrContext) {
 
   // Set context to app.context
   await setContext(app, {
+    store,
     route,
     next,
     error: app.nuxt.error.bind(app),
@@ -135,6 +151,9 @@ async function createApp (ssrContext) {
     // Add into app
     app[key] = value
 
+    // Add into store
+    store[key] = app[key]
+
     // Check if plugin not already installed
     const installKey = '__nuxt_' + key + '_installed__'
     if (Vue[installKey]) {
@@ -151,6 +170,13 @@ async function createApp (ssrContext) {
         })
       }
     })
+  }
+
+  if (process.client) {
+    // Replace store state before plugins execution
+    if (window.__NUXT__ && window.__NUXT__.state) {
+      store.replaceState(window.__NUXT__.state)
+    }
   }
 
   // Plugin execution
@@ -179,6 +205,14 @@ async function createApp (ssrContext) {
     await nuxt_plugin_axios_3566aa80(app.context, inject)
   }
 
+  if (typeof nuxt_plugin_plugin_88f3d326 === 'function') {
+    await nuxt_plugin_plugin_88f3d326(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_authlangredirect_aec5c32c === 'function') {
+    await nuxt_plugin_authlangredirect_aec5c32c(app.context, inject)
+  }
+
   // If server-side, wait for async component to be resolved first
   if (process.server && ssrContext && ssrContext.url) {
     await new Promise((resolve, reject) => {
@@ -197,6 +231,7 @@ async function createApp (ssrContext) {
   }
 
   return {
+    store,
     app,
     router
   }

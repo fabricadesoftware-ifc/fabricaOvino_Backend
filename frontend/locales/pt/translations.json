@@ -1,4 +1,8 @@
 {
+  "header": {
+    "signin": "Entrar",
+    "signup": "Cadastre-se"
+  },
   "asideMenu": {
     "general": "Geral",
     "adminItems": {
@@ -8,8 +12,31 @@
       "sheep": "Ovelhas"
     }
   },
+  "components": {
+    "userdropdown": {
+      "logout": "Sair"
+    }
+  },
 
   "pages": {
+    "login": {
+      "signin": "Entrar",
+      "signup": "Cadastre-se",
+      "withRegister": "Já tem cadastro? Acesse o Login!",
+      "withoutRegister": "Não tem cadastro? Registre-se aqui!",
+      "name": {
+        "placeholder": "Informe o nome"
+      },
+      "email": {
+        "placeholder": "Informe o e-email"
+      },
+      "password": {
+        "placeholder": "Informe a senha"
+      },
+      "confirmPassword": {
+        "placeholder": "Confirme a senha"
+      }
+    },
     "admin": {
       "category": {
         "title": "Gestão de categorias",

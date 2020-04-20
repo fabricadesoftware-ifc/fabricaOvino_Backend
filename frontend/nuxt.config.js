@@ -5,6 +5,9 @@ export default {
    */
   head: {
     title: "Ovinos - NEPPA",
+    htmlAttrs: {
+      lang: "pt-br",
+    },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -36,6 +39,7 @@ export default {
     "@nuxtjs/style-resources",
     "@nuxtjs/toast",
     "@nuxtjs/axios",
+    "@nuxtjs/auth",
     "nuxt-i18n",
     ["nuxt-buefy", { css: false, materialDesignIcons: true }],
   ],
@@ -50,6 +54,54 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {},
+  },
+
+  // pages: {
+  //   login: {
+  //     en: "/login",
+  //     pt: "/login",
+  //   },
+  // },
+
+  auth: {
+    localStorage: false,
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "/api/v1/signin/",
+            method: "post",
+            propertyName: "access",
+            altProperty: "refresh",
+          },
+          refresh: {
+            url: "/api/v1/token/refresh",
+            method: "post",
+            propertyName: "",
+          },
+          logout: {},
+          // user: false,
+          user: {
+            url: "/api/v1/users/logged/",
+            method: "get",
+            propertyName: false,
+          },
+        },
+      },
+    },
+    resetOnError: true,
+    redirect: {
+      login: "/login",
+      logout: "/logout",
+    },
+    plugins: ["@/plugins/auth-lang-redirect"],
+  },
+
+  router: {
+    middleware: [
+      // Needed for redirection to the login page when not authenticated
+      "auth",
+    ],
   },
 
   toast: {
@@ -101,12 +153,14 @@ export default {
         iso: "en-US",
         name: "English",
         file: "en/translations.json",
+        flag: "us",
       },
       {
         code: "pt",
         iso: "pt-BR",
         name: "Português",
         file: "pt/translations.json",
+        flag: "br",
       },
     ],
     defaultLocale: "pt",

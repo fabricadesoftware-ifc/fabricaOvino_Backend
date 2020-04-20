@@ -1,4 +1,8 @@
 {
+  "header": {
+    "signin": "Sign in",
+    "signup": "Sign up"
+  },
   "asideMenu": {
     "general": "General",
     "adminItems": {
@@ -9,7 +13,31 @@
     }
   },
 
+  "components": {
+    "userdropdown": {
+      "logout": "Logout"
+    }
+  },
+
   "pages": {
+    "login": {
+      "signin": "Sign in",
+      "signup": "Sign up",
+      "withRegister": "Have you an account? Access here!",
+      "withoutRegister": "Don't have an account? Register here!",
+      "name": {
+        "placeholder": "Enter the name"
+      },
+      "email": {
+        "placeholder": "Enter the e-email"
+      },
+      "password": {
+        "placeholder": "Enter the password"
+      },
+      "confirmPassword": {
+        "placeholder": "Confirm the password"
+      }
+    },
     "admin": {
       "category": {
         "title": "Category management",

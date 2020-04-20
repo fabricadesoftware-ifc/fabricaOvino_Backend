@@ -5,6 +5,9 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _cbce67e6 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 const _117c1556 = () => interopDefault(import('../pages/inspire.vue' /* webpackChunkName: "pages/inspire" */))
+const _63c06f24 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
+const _615e7ddf = () => interopDefault(import('../pages/logout.vue' /* webpackChunkName: "pages/logout" */))
+const _2bd6b526 = () => interopDefault(import('../pages/me.vue' /* webpackChunkName: "pages/me" */))
 const _91a5f2a2 = () => interopDefault(import('../pages/admin/breed.vue' /* webpackChunkName: "pages/admin/breed" */))
 const _74f28513 = () => interopDefault(import('../pages/admin/category.vue' /* webpackChunkName: "pages/admin/category" */))
 const _fcd481d4 = () => interopDefault(import('../pages/admin/sheep.vue' /* webpackChunkName: "pages/admin/sheep" */))
@@ -34,6 +37,18 @@ export const routerOptions = {
     component: _117c1556,
     name: "inspire___en"
   }, {
+    path: "/en/login",
+    component: _63c06f24,
+    name: "login___en"
+  }, {
+    path: "/en/logout",
+    component: _615e7ddf,
+    name: "logout___en"
+  }, {
+    path: "/en/me",
+    component: _2bd6b526,
+    name: "me___en"
+  }, {
     path: "/pt/",
     component: _cbce67e6,
     name: "index___pt"
@@ -41,6 +56,18 @@ export const routerOptions = {
     path: "/pt/inspire",
     component: _117c1556,
     name: "inspire___pt"
+  }, {
+    path: "/pt/login",
+    component: _63c06f24,
+    name: "login___pt"
+  }, {
+    path: "/pt/logout",
+    component: _615e7ddf,
+    name: "logout___pt"
+  }, {
+    path: "/pt/me",
+    component: _2bd6b526,
+    name: "me___pt"
   }, {
     path: "/en/admin/breed",
     component: _91a5f2a2,

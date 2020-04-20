@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import Header from "./Header";
-import Menu from "./Menu";
+import Header from "@/components/ui/Header";
+import Menu from "@/components/ui/Menu";
 export default {
   components: { Header, Menu },
 };

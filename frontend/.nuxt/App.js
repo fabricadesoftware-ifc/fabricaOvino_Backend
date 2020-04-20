@@ -16,10 +16,8 @@ import '../assets/css/style.scss'
 import '../node_modules/@mdi/font/css/materialdesignicons.css'
 
 import _6f6c098b from '../layouts/default.vue'
-import _3f290a23 from '../layouts/Header.vue'
-import _2d182a75 from '../layouts/Menu.vue'
 
-const layouts = { "_default": sanitizeComponent(_6f6c098b),"_Header": sanitizeComponent(_3f290a23),"_Menu": sanitizeComponent(_2d182a75) }
+const layouts = { "_default": sanitizeComponent(_6f6c098b) }
 
 export default {
   render (h, props) {

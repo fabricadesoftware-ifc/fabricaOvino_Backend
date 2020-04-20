@@ -1,6 +1,6 @@
 export const vueI18n = {"fallbackLocale":"pt","silentTranslationWarn":true,"silentFallbackWarn":false}
 export const vueI18nLoader = false
-export const locales = [{"code":"en","iso":"en-US","name":"English","file":"en/translations.json"},{"code":"pt","iso":"pt-BR","name":"Português","file":"pt/translations.json"}]
+export const locales = [{"code":"en","iso":"en-US","name":"English","file":"en/translations.json","flag":"us"},{"code":"pt","iso":"pt-BR","name":"Português","file":"pt/translations.json","flag":"br"}]
 export const defaultLocale = 'pt'
 export const routesNameSeparator = '___'
 export const defaultLocaleRouteNameSuffix = 'default'
