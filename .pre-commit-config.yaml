@@ -1,20 +1,42 @@
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v2.3.0
+  hooks:
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: detect-private-key
+
 - repo: local
   hooks:
-    - id: black
-      name: "format code with black"
-      entry: black
-      language: system
-      types:
-        - python
-    - id: isort
-      name: "format imports with isort"
-      entry: isort
-      language: system
-      types:
-        - python
-    - id: flake8
-      name: "lint code with flake8"
-      entry: flake8
-      language: system
-      types:
-        - python
+      - id: black
+        name: "format code with black"
+        entry: black
+        language: system
+        types:
+            - python
+      - id: isort
+        name: "format imports with isort"
+        entry: isort
+        language: system
+        types:
+            - python
+      - id: flake8
+        name: "lint code with flake8"
+        entry: flake8
+        language: system
+        types:
+            - python
+      - id: bandit
+        name: "backend: check security"
+        entry: bandit
+        language: system
+        args:
+            - --quiet
+            - --exclude=tests/
+        types:
+            - python
+      - id: pytest
+        name: "backend: run tests"
+        entry: pytest -v tests/
+        language: system
+        pass_filenames: false
+        stages: [push]
