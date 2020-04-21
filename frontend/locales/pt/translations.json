@@ -9,7 +9,8 @@
       "title": "Administração",
       "category": "Categorias",
       "breed": "Raças",
-      "sheep": "Ovelhas"
+      "sheep": "Ovelhas",
+      "pregnancyDiagnosis": "Diagnósticos de Gestação"
     }
   },
   "components": {
@@ -54,6 +55,26 @@
           "id": "Código",
           "name": "Nome",
           "actions": "Ações"
+        }
+      },
+      "pregnancyDiagnosis": {
+        "title": "Diagnósticos de Gestação",
+        "subtitle": "Gestão de ovelhas",
+        "table": {
+          "id": "Código",
+          "name": "Nome",
+          "actions": "Ações"
+        },
+        "forms": {
+          "sheep": {
+            "label": "Ovelha",
+            "placeholder": "Selecione a ovelha"
+          },
+          "dateTime": {
+            "label": "Data e Hora do diagnóstico",
+            "placeholder": "Selecione a Data e Hora do diagnótico"
+          },
+          "pregnancyDiagnosis": "Ovelha grávida?"
         }
       },
       "sheep": {

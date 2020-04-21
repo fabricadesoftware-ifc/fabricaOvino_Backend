@@ -4,6 +4,12 @@ from backend.core.models import Sheep
 
 
 class SheepSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sheep
+        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity", "mother", "father"]
+
+
+class SheepDetailSerializer(serializers.ModelSerializer):
     category = serializers.CharField(source="category.name", read_only=True)
     breed = serializers.CharField(source="breed.name", read_only=True)
     sex = serializers.CharField(source="get_sex_display", read_only=True)

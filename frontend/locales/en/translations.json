@@ -9,7 +9,8 @@
       "title": "Administration",
       "category": "Categories",
       "breed": "Breeds",
-      "sheep": "Sheeps"
+      "sheep": "Sheeps",
+      "pregnancyDiagnosis": "Pregnancy Diagnostics"
     }
   },
 
@@ -55,6 +56,25 @@
           "id": "ID",
           "name": "Name",
           "actions": "Actions"
+        }
+      },
+      "pregnancyDiagnosis": {
+        "title": "Pregnancy Diagnostics",
+        "subtitle": "Sheep Management",
+        "table": {
+          "id": "Código",
+          "name": "Nome",
+          "actions": "Ações"
+        },
+        "forms": {
+          "sheep": {
+            "label": "Sheep",
+            "placeholder": "Select the sheep"
+          },
+          "dateTime": {
+            "label": "Date and Time of diagnosis",
+            "placeholder": "Select Date and Time of diagnosis"
+          }
         }
       },
       "sheep": {

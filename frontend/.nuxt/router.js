@@ -10,6 +10,7 @@ const _615e7ddf = () => interopDefault(import('../pages/logout.vue' /* webpackCh
 const _2bd6b526 = () => interopDefault(import('../pages/me.vue' /* webpackChunkName: "pages/me" */))
 const _91a5f2a2 = () => interopDefault(import('../pages/admin/breed.vue' /* webpackChunkName: "pages/admin/breed" */))
 const _74f28513 = () => interopDefault(import('../pages/admin/category.vue' /* webpackChunkName: "pages/admin/category" */))
+const _24bd9b19 = () => interopDefault(import('../pages/admin/pregnancyDiagnosis.vue' /* webpackChunkName: "pages/admin/pregnancyDiagnosis" */))
 const _fcd481d4 = () => interopDefault(import('../pages/admin/sheep.vue' /* webpackChunkName: "pages/admin/sheep" */))
 
 // TODO: remove in Nuxt 3
@@ -77,6 +78,10 @@ export const routerOptions = {
     component: _74f28513,
     name: "admin-category___en"
   }, {
+    path: "/en/admin/pregnancyDiagnosis",
+    component: _24bd9b19,
+    name: "admin-pregnancyDiagnosis___en"
+  }, {
     path: "/en/admin/sheep",
     component: _fcd481d4,
     name: "admin-sheep___en"
@@ -88,6 +93,10 @@ export const routerOptions = {
     path: "/pt/admin/category",
     component: _74f28513,
     name: "admin-category___pt"
+  }, {
+    path: "/pt/admin/pregnancyDiagnosis",
+    component: _24bd9b19,
+    name: "admin-pregnancyDiagnosis___pt"
   }, {
     path: "/pt/admin/sheep",
     component: _fcd481d4,

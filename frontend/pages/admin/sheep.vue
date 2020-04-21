@@ -73,26 +73,6 @@
           required
         />
       </b-field>
-      <!-- <b-field :label="$t('pages.admin.sheep.forms.mother.label')" class="sheep-form-fields">
-        <b-input
-          :placeholder="$t('pages.admin.sheep.forms.mother.placeholder')"
-          type="text"
-          icon="tag"
-          v-model="sheep.mother"
-          :readonly="mode === 'remove'"
-          required
-        />
-      </b-field>
-      <b-field :label="$t('pages.admin.sheep.forms.father.label')" class="sheep-form-fields">
-        <b-input
-          :placeholder="$t('pages.admin.sheep.forms.father.placeholder')"
-          type="text"
-          icon="tag"
-          v-model="sheep.father"
-          :readonly="mode === 'remove'"
-          required
-        />
-      </b-field>-->
       <div class="sheep-form-buttons">
         <b-button
           v-if="mode === 'save'"

@@ -23,26 +23,6 @@
       </b-menu-list>
     </b-menu>
   </aside>
-  <!-- <aside class="column is-2 section">
-    <p class="menu-label is-hidden-touch"></p>
-    <ul class="menu-list">
-      <li v-for="(item, key) of items" :key="key">
-        <nuxt-link :to="localePath(item.to)" exact-active-class="is-info">
-          <b-icon :icon="item.icon" /> {{ item.title }}
-        </nuxt-link>
-      </li>
-    </ul>
-    <p class="menu-label is-hidden-touch">
-      {{ $t("asideMenu.adminItems.title") }}
-    </p>
-    <ul class="menu-list">
-      <li v-for="(item, key) of adminItems" :key="key">
-        <nuxt-link :to="localePath(item.to)" exact-active-class="is-info">
-          <b-icon :icon="item.icon" /> {{ item.title }}
-        </nuxt-link>
-      </li>
-    </ul>
-  </aside>-->
 </template>
 
 <script>
@@ -76,6 +56,11 @@ export default {
           title: this.$t("asideMenu.adminItems.sheep"),
           icon: "sheep",
           to: { name: "admin-sheep" },
+        },
+        {
+          title: this.$t("asideMenu.adminItems.pregnancyDiagnosis"),
+          icon: "human-pregnant",
+          to: { name: "admin-pregnancyDiagnosis" },
         },
       ],
     };
