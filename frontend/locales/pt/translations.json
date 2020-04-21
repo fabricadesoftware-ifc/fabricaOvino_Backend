@@ -1,7 +1,8 @@
 {
   "header": {
     "signin": "Entrar",
-    "signup": "Cadastre-se"
+    "signup": "Cadastre-se",
+    "admin": "Administração"
   },
   "asideMenu": {
     "general": "Geral",
@@ -14,6 +15,15 @@
     }
   },
   "components": {
+    "admin": {
+      "useradmin": {
+        "table": {
+          "id": "Código",
+          "email": "E-mail",
+          "name": "Nome"
+        }
+      }
+    },
     "userdropdown": {
       "logout": "Sair"
     }
@@ -39,6 +49,12 @@
       }
     },
     "admin": {
+      "title": "Administração",
+      "subtitle": "Painel de administração",
+      "tabs": {
+        "users": "Usuários",
+        "groups": "Grupos"
+      },
       "category": {
         "title": "Gestão de categorias",
         "subtitle": "Categorias das ovelhas",

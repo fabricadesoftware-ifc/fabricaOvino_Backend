@@ -1,7 +1,8 @@
 {
   "header": {
     "signin": "Sign in",
-    "signup": "Sign up"
+    "signup": "Sign up",
+    "admin": "Administration"
   },
   "asideMenu": {
     "general": "General",
@@ -15,6 +16,15 @@
   },
 
   "components": {
+    "admin": {
+      "useradmin": {
+        "table": {
+          "id": "ID",
+          "email": "Email",
+          "name": "Name"
+        }
+      }
+    },
     "userdropdown": {
       "logout": "Logout"
     }
@@ -40,6 +50,12 @@
       }
     },
     "admin": {
+      "title": "Administration",
+      "subtitle": "Administration dashboard",
+      "tabs": {
+        "users": "Users",
+        "groups": "Groups"
+      },
       "category": {
         "title": "Category management",
         "subtitle": "Sheep categories",

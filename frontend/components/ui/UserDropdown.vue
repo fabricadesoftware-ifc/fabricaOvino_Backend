@@ -6,53 +6,63 @@
         <b-icon icon="menu-down"></b-icon>
       </a>
 
-      <b-dropdown-item class="user-dropdown-userinfo" custom aria-role="menuitem">
+      <b-dropdown-item
+        class="user-dropdown-userinfo"
+        custom
+        aria-role="menuitem"
+      >
         <Gravatar :email="user.email" alt="user" />
         <span class="user-name">{{ user.name }}</span>
         <span class="user-email">{{ user.email }}</span>
-        <nuxt-link :to="localePath('me')" class="user-edit">Editar informações</nuxt-link>
+        <nuxt-link :to="localePath('me')" class="user-edit"
+          >Editar informações</nuxt-link
+        >
       </b-dropdown-item>
 
       <hr class="dropdown-section" />
-      <b-dropdown-item @click="$router.push('/')" value="home" aria-role="menuitem">
+      <b-dropdown-item
+        @click="$router.push('/')"
+        value="home"
+        aria-role="menuitem"
+      >
         <b-icon icon="home"></b-icon>Home
       </b-dropdown-item>
-      <b-dropdown-item value="products" aria-role="menuitem"> <b-icon icon="cart"></b-icon>TODO </b-dropdown-item>
+      <b-dropdown-item value="products" aria-role="menuitem">
+        <b-icon icon="cart"></b-icon>TODO
+      </b-dropdown-item>
       <b-dropdown-item value="blog" disabled aria-role="menuitem">
         <b-icon icon="book-open"></b-icon>TODO
       </b-dropdown-item>
       <hr class="dropdown-divider" aria-role="menuitem" />
-      <b-dropdown-item value="settings"> <b-icon icon="settings"></b-icon>Settings </b-dropdown-item>
+      <b-dropdown-item @click="$router.push(localePath('admin'))">
+        <b-icon icon="cogs"></b-icon>{{ $t('header.admin') }}
+      </b-dropdown-item>
       <b-dropdown-item @click="logout" value="logout" aria-role="menuitem">
-        <b-icon icon="logout"></b-icon>{{ $t("components.userdropdown.logout") }}
+        <b-icon icon="logout"></b-icon
+        >{{ $t('components.userdropdown.logout') }}
       </b-dropdown-item>
     </b-dropdown>
   </span>
 </template>
 
 <script>
-import { mapState } from "vuex";
-import Gravatar from "vue-gravatar";
+import { mapState } from 'vuex'
+import Gravatar from 'vue-gravatar'
 
 export default {
   components: { Gravatar },
   computed: {
-    ...mapState("auth", ["loggedIn", "user"]),
+    ...mapState('auth', ['loggedIn', 'user'])
   },
   methods: {
     async logout() {
-      await this.$auth.logout();
-    },
-  },
-};
+      await this.$auth.logout()
+    }
+  }
+}
 </script>
 
 <style>
-/* .user-dropdown {
-  position: relative;
-  height: 100%;
-} */
-
 .user-dropdown-userinfo {
   display: flex;
   flex-direction: column;
