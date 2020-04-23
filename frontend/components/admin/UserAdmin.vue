@@ -16,7 +16,12 @@
           field="actions"
           :label="$t('pages.admin.breed.table.actions')"
         >
-          <b-button type="is-warning" icon-left="pencil"> </b-button>
+          <b-button
+            type="is-warning"
+            @click="editUser(props.row)"
+            icon-left="pencil"
+          >
+          </b-button>
           <b-button type="is-danger" icon-left="trash-can-outline"> </b-button>
         </b-table-column>
       </template>
@@ -50,6 +55,15 @@ export default {
   },
   async fetch() {
     this.users = await this.$axios.$get('/api/v1/users')
+  },
+  methods: {
+    editUser(user) {
+      console.log(this.$i18n.locale)
+      this.$router.push({
+        name: `admin-user-edit___${this.$i18n.locale}`,
+        params: { user }
+      })
+    }
   }
 }
 </script>
