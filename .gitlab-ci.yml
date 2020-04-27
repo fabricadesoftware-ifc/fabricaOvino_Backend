@@ -1,0 +1,93 @@
+---
+
+image: nikolaik/python-nodejs:python3.7-nodejs12
+
+services:
+  - postgres:12
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  POETRY_VIRTUALENVS_PATH: "$CI_PROJECT_DIR/.cache/venvs"
+  POSTGRES_DB: ovino
+  POSTGRES_USER: ovino
+  POSTGRES_PASSWORD: unsafe-password-for-testing
+  DATABASE_URL: postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
+  SECRET_KEY: unsafe-key-for-testing
+  PROD_HOST: ovino@ovino.fabricadesoftware.ifc.edu.br
+  PROD_ROOT_DIR: /srv/ovino
+  PROD_DEPLOY_DIR: "$PROD_ROOT_DIR/current"
+
+
+stages:
+  - testing
+  - deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .cache/pip/
+    - .cache/venvs/
+
+default:
+  before_script:
+    - pip install poetry==1.0.5
+    - poetry install
+
+lint:
+  stage: testing
+  script:
+    - poetry run black --check backend tests
+    - poetry run isort -rc backend tests
+    - poetry run flake8 backend tests
+    - poetry run bandit --quiet --recursive backend
+
+test:
+  stage: testing
+  coverage: '/TOTAL.*\s+(\d+%)$/'
+  script:
+    - poetry run pytest --cov=backend
+
+deploy_prod:
+  stage: deploy
+  only:
+    - master
+  script:
+    - poetry export -f requirements.txt > requirements.txt
+    - |
+      cat << EOF >.env
+      SECRET_KEY=$PROD_SECRET_KEY
+      DATABASE_URL=postgres://ovino@/ovino
+      ALLOWED_HOSTS=ovino.fabricadesoftware.ifc.edu.br,127.0.0.1
+      DEBUG=false
+      EOF
+    - poetry run python manage.py collectstatic
+    # Allow web server (nginx) to traverse directories and read files,
+    # so that it can serve the static files.
+    - chmod -R u=rwX,go=rX static/
+    - rm -rf .cache
+    - apt-get update -y
+    - apt-get install -yqq openssh-client rsync
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "[ovino.fabricadesoftware.ifc.edu.br]:1022 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQHt8NDADsuuX0yyLocmnA+L4MLEyrQZvSV7M0KRz9m" >> ~/.ssh/known_hosts
+    - eval $(ssh-agent -s)
+    - echo "$PROD_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - ssh -p 1022 $PROD_HOST "sudo systemctl stop projeto-ovino-ovino-gunicorn.service"
+    - ssh -p 1022 $PROD_HOST "sudo systemctl stop projeto-ovino-ovino-nuxt.service"
+    - ssh -p 1022 $PROD_HOST "mkdir -p \"$PROD_DEPLOY_DIR/\""
+    - rsync -rtz -e 'ssh -p 1022' ./ "$PROD_HOST:$PROD_DEPLOY_DIR/"
+    - ssh -p 1022 $PROD_HOST "cd \"$PROD_DEPLOY_DIR/\" && virtualenv -p python3 venv && ./venv/bin/pip install -r requirements.txt"
+    - ssh -p 1022 $PROD_HOST "cd \"$PROD_DEPLOY_DIR/\" && PYTHONPATH='.' ./venv/bin/python manage.py migrate"
+    - ssh -p 1022 $PROD_HOST "cd \"$PROD_DEPLOY_DIR/frontend\" && npm install && npm run build"
+    - ssh -p 1022 $PROD_HOST "ln -sf $PROD_ROOT_DIR/media \"$PROD_DEPLOY_DIR/media\""
+    - ssh -p 1022 $PROD_HOST "sudo systemctl start projeto-ovino-ovino-gunicorn.service"
+    - ssh -p 1022 $PROD_HOST "sudo systemctl start projeto-ovino-ovino-nuxt.service"
+  artifacts:
+    when: always
+    name: ${CI_COMMIT_REF_SLUG}
+    expire_in: 1 week
+    paths:
+      - requirements.txt
+  environment:
+    name: prod
+    url: https://ovino.fabricadesoftware.ifc.edu.br
