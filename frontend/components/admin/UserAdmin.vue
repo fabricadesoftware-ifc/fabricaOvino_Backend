@@ -8,21 +8,11 @@
           :field="column.field"
           :sortable="column.sortable"
           :label="column.label"
-        >
-          {{ props.row[column.field] }}
-        </b-table-column>
+        >{{ props.row[column.field] }}</b-table-column>
 
-        <b-table-column
-          field="actions"
-          :label="$t('pages.admin.breed.table.actions')"
-        >
-          <b-button
-            type="is-warning"
-            @click="editUser(props.row)"
-            icon-left="pencil"
-          >
-          </b-button>
-          <b-button type="is-danger" icon-left="trash-can-outline"> </b-button>
+        <b-table-column field="actions" :label="$t('pages.admin.breed.table.actions')">
+          <b-button type="is-warning" @click="editUser(props.row)" icon-left="pencil"></b-button>
+          <b-button type="is-danger" icon-left="trash-can-outline"></b-button>
         </b-table-column>
       </template>
     </b-table>
@@ -58,7 +48,6 @@ export default {
   },
   methods: {
     editUser(user) {
-      console.log(this.$i18n.locale)
       this.$router.push({
         name: `admin-user-edit___${this.$i18n.locale}`,
         params: { user }

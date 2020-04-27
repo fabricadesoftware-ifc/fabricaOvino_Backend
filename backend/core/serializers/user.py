@@ -6,7 +6,7 @@ from backend.core.models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "email", "password", "name"]
+        fields = ["id", "email", "name"]
 
 
 class UserInfoSerializer(serializers.ModelSerializer):
@@ -18,4 +18,4 @@ class UserInfoSerializer(serializers.ModelSerializer):
 class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "email", "first_name", "last_name"]
+        fields = ["id", "first_name", "last_name"]

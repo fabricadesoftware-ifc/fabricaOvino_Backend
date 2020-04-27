@@ -6,27 +6,13 @@
       :sub="$t('pages.admin.user.edit.subtitle')"
     />
 
-    <div class="form">
-      <input type="hidden" id="user-id" v-model="user.id" />
-      <b-field
-        :label="$t('pages.admin.forms.name.label')"
-        class="user-form-fields"
-      >
-        <b-input
-          :placeholder="$t('pages.admin.forms.name.placeholder')"
-          type="text"
-          icon="tag"
-          v-model="user.name"
-          required
-        />
-      </b-field>
-      <div class="user-form-buttons">
-        <b-button type="is-info" icon-left="check" @click="save">
-          {{ $t('buttons.save') }}
-        </b-button>
-        <b-button type="is-dark" icon-left="redo" @click="reset">
-          {{ $t('buttons.reset') }}
-        </b-button>
+    <avatar :email="user.email" />
+    <personal-info :user="user" />
+
+    <div class="form-bottons columns is-mobile is-centered">
+      <div class="column is-4">
+        <b-button type="is-info" icon-left="check" @click="save">{{ $t('buttons.save') }}</b-button>
+        <b-button type="is-dark" icon-left="redo" @click="reset">{{ $t('buttons.reset') }}</b-button>
       </div>
     </div>
   </div>
@@ -34,9 +20,11 @@
 
 <script>
 import PageTitle from '@/components/templates/PageTitle'
+import Avatar from '@/components/user/Avatar'
+import PersonalInfo from '@/components/user/PersonalInfo'
 import { showError } from '@/plugins/global'
 export default {
-  components: { PageTitle },
+  components: { Avatar, PersonalInfo, PageTitle },
   fetch() {
     this.user = this.$route.params.user
     Object.assign(this.originalUser, this.user)
@@ -57,9 +45,10 @@ export default {
       const url = `/api/v1/users/${id}/`
       this.$axios
         .$put(url, this.user)
-        .then(() => {
+        .then(res => {
           this.$toasted.global.defaultSuccess()
           this.reset()
+          sthis.user = res
         })
         .catch(showError)
     }
@@ -67,4 +56,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.form-bottons {
+  margin-top: 20px;
+}
+</style>

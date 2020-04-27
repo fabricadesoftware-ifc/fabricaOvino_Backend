@@ -48,6 +48,10 @@
         "placeholder": "Confirme a senha"
       }
     },
+    "me": {
+      "title": "Meu perfil",
+      "subtitle": "Informações do perfil pessoal"
+    },
     "admin": {
       "title": "Administração",
       "subtitle": "Painel de administração",
@@ -152,6 +156,10 @@
         "name": {
           "label": "Nome",
           "placeholder": "Informe o nome"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Informe o e-mail"
         }
       }
     }

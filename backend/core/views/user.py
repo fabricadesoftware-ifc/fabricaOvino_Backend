@@ -31,11 +31,12 @@ class UserViewSet(viewsets.ModelViewSet):
         name = request.data.pop("name")
         request.data["first_name"] = name.split(" ")[0]
         request.data["last_name"] = " ".join(name.split(" ")[1:])
-        serializer = self.get_serializer(instance, data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_update(serializer)
+        in_serializer = self.get_serializer(instance, data=request.data)
+        in_serializer.is_valid(raise_exception=True)
+        self.perform_update(in_serializer)
+        out_serializer = UserInfoSerializer(instance)
 
-        return Response(serializer.data)
+        return Response(out_serializer.data)
 
     @action(
         detail=False, url_path="logged",

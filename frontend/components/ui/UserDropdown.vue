@@ -37,6 +37,9 @@
       <b-dropdown-item @click="$router.push(localePath('admin'))">
         <b-icon icon="cogs"></b-icon>{{ $t('header.admin') }}
       </b-dropdown-item>
+      <b-dropdown-item @click="$router.push(localePath('me'))">
+        <b-icon icon="face"></b-icon>{{ $t('header.profile') }}
+      </b-dropdown-item>
       <b-dropdown-item @click="logout" value="logout" aria-role="menuitem">
         <b-icon icon="logout"></b-icon
         >{{ $t('components.userdropdown.logout') }}

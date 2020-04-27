@@ -49,6 +49,10 @@
         "placeholder": "Confirm the password"
       }
     },
+    "me": {
+      "title": "My profile",
+      "subtitle": "Personal profile information"
+    },
     "admin": {
       "title": "Administration",
       "subtitle": "Administration dashboard",
@@ -152,6 +156,10 @@
         "name": {
           "label": "Name",
           "placeholder": "Enter the name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter the email"
         }
       }
     }
