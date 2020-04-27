@@ -10,9 +10,17 @@ O sistema é composto por duas partes: o **backend**, construído em Django, imp
 
 Requisitos:
 
+* [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
 * [Poetry](https://poetry.eustace.io/docs/)
 
 ```sh
+# Inicializar o banco de dados
+sudo docker-compose up -d
+
+# Configurações (editar se necessário)
+cp .env.sample .env
+
 # Instalar as dependências
 poetry install
 # Executar os comandos dentro do virtualenv (criado automaticamente)
