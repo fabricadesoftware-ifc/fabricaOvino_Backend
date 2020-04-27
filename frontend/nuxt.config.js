@@ -1,32 +1,32 @@
 export default {
-  mode: "universal",
+  mode: 'universal',
   /*
    ** Headers of the page
    */
   head: {
-    title: "Ovinos - NEPPA",
+    title: 'Ovinos - NEPPA',
     htmlAttrs: {
-      lang: "pt-br",
+      lang: 'pt-br'
     },
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "Ovinos - NEPPA" },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: 'Ovinos - NEPPA' }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: { color: '#fff' },
   /*
    ** Global CSS
    */
-  css: ["~/assets/css/style.scss", "@mdi/font/css/materialdesignicons.css"],
+  css: ['~/assets/css/style.scss', '@mdi/font/css/materialdesignicons.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/axios"],
+  plugins: ['~/plugins/axios'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -36,15 +36,15 @@ export default {
    */
   modules: [
     // Doc: https://buefy.github.io/#/documentation
-    "@nuxtjs/style-resources",
-    "@nuxtjs/toast",
-    "@nuxtjs/axios",
-    "@nuxtjs/auth",
-    "nuxt-i18n",
-    ["nuxt-buefy", { css: false, materialDesignIcons: true }],
+    '@nuxtjs/style-resources',
+    '@nuxtjs/toast',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    'nuxt-i18n',
+    ['nuxt-buefy', { css: false, materialDesignIcons: true }]
   ],
 
-  styleResources: { scss: ["~/assets/css/style.scss"] },
+  styleResources: { scss: ['~/assets/css/style.scss'] },
 
   /*
    ** Build configuration
@@ -53,7 +53,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
+    extend(config, ctx) {}
   },
 
   // pages: {
@@ -65,114 +65,124 @@ export default {
 
   auth: {
     localStorage: false,
+    // cookie: {
+    //   options: {
+    //     expires: 7
+    //   }
+    // },
     strategies: {
       local: {
         endpoints: {
           login: {
-            url: "/api/v1/signin/",
-            method: "post",
-            propertyName: "access",
-            altProperty: "refresh",
+            url: '/api/v1/token/',
+            method: 'post',
+            propertyName: 'access',
+            altProperty: 'refresh'
           },
-          refresh: {
-            url: "/api/v1/token/refresh",
-            method: "post",
-            propertyName: "",
-          },
+          // refresh: {
+          //   url: '/api/v1/token_refresh',
+          //   method: 'post',
+          //   propertyName: ''
+          // },
           logout: {},
           // user: false,
           user: {
-            url: "/api/v1/users/logged/",
-            method: "get",
-            propertyName: false,
-          },
-        },
-      },
+            url: '/api/v1/users/logged/',
+            method: 'get',
+            propertyName: false
+          }
+        }
+      }
     },
     resetOnError: true,
     redirect: {
-      login: "/login",
-      logout: "/logout",
+      login: '/login',
+      logout: '/logout'
     },
-    plugins: ["@/plugins/auth-lang-redirect"],
+    plugins: [
+      '@/plugins/auth-lang-redirect',
+      '@/plugins/axios-conf.js',
+      { src: '@/plugins/auth.js', mode: 'client' }
+    ]
   },
 
   router: {
     middleware: [
       // Needed for redirection to the login page when not authenticated
-      "auth",
-    ],
+      'auth'
+    ]
   },
 
   toast: {
-    position: "top-center",
-    iconPack: "fontawesome",
+    position: 'top-center',
+    iconPack: 'fontawesome',
     duration: 3000,
     register: [
       // Register custom toasts
       {
-        name: "defaultSuccess",
-        message: "Operação realizada com sucesso",
+        name: 'defaultSuccess',
+        message: 'Operação realizada com sucesso',
         options: {
-          type: "success",
-          icon: "check",
-        },
+          type: 'success',
+          icon: 'check'
+        }
       },
       {
-        name: "defaultError",
-        message: (payload) => (!payload.msg ? "Oops.. Erro inesperado" : payload.msg),
+        name: 'defaultError',
+        message: payload =>
+          !payload.msg ? 'Oops.. Erro inesperado' : payload.msg,
         options: {
-          type: "error",
-          icon: "times",
-        },
-      },
-    ],
+          type: 'error',
+          icon: 'times'
+        }
+      }
+    ]
   },
 
   axios: {
-    proxy: true,
+    baseURL: 'http://localhost:8000'
   },
 
-  proxy: {
-    "/api/": "http://localhost:8000/",
-  },
+  // proxy: {
+  //   '/api/': 'http://localhost:8000/'
+  // },
 
   fontawesome: {
     imports: [
       {
-        set: "@fortawesome/free-solid-svg-icons",
-        icons: ["fas"],
-      },
-    ],
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas']
+      }
+    ]
   },
 
   i18n: {
     locales: [
       {
-        code: "en",
-        iso: "en-US",
-        name: "English",
-        file: "en/translations.json",
-        flag: "us",
+        code: 'en',
+        iso: 'en-US',
+        name: 'English',
+        file: 'en/translations.json',
+        flag: 'us'
       },
       {
-        code: "pt",
-        iso: "pt-BR",
-        name: "Português",
-        file: "pt/translations.json",
-        flag: "br",
-      },
+        code: 'pt',
+        iso: 'pt-BR',
+        name: 'Português',
+        file: 'pt/translations.json',
+        flag: 'br'
+      }
     ],
-    defaultLocale: "pt",
+    defaultLocale: 'pt',
     vueI18n: {
-      fallbackLocale: "pt",
+      fallbackLocale: 'pt',
       silentTranslationWarn: true,
-      silentFallbackWarn: false,
+      silentFallbackWarn: false
     },
-    strategy: "prefix",
+    strategy: 'prefix',
     lazy: true,
-    langDir: "locales/",
-    rootRedirect: "pt",
-    seo: false,
-  },
-};
+    langDir: 'locales/',
+    rootRedirect: 'pt',
+    seo: false
+  }
+}

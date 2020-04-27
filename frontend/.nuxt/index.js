@@ -20,6 +20,8 @@ import nuxt_plugin_toast_44f64ea0 from 'nuxt_plugin_toast_44f64ea0' // Source: .
 import nuxt_plugin_axios_3566aa80 from 'nuxt_plugin_axios_3566aa80' // Source: ../plugins/axios (mode: 'all')
 import nuxt_plugin_plugin_88f3d326 from 'nuxt_plugin_plugin_88f3d326' // Source: ./auth/plugin.js (mode: 'all')
 import nuxt_plugin_authlangredirect_aec5c32c from 'nuxt_plugin_authlangredirect_aec5c32c' // Source: ../plugins/auth-lang-redirect (mode: 'all')
+import nuxt_plugin_axiosconf_0197b888 from 'nuxt_plugin_axiosconf_0197b888' // Source: ../plugins/axios-conf.js (mode: 'all')
+import nuxt_plugin_auth_37218adb from 'nuxt_plugin_auth_37218adb' // Source: ../plugins/auth.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -211,6 +213,14 @@ async function createApp (ssrContext) {
 
   if (typeof nuxt_plugin_authlangredirect_aec5c32c === 'function') {
     await nuxt_plugin_authlangredirect_aec5c32c(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_axiosconf_0197b888 === 'function') {
+    await nuxt_plugin_axiosconf_0197b888(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_auth_37218adb === 'function') {
+    await nuxt_plugin_auth_37218adb(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first
