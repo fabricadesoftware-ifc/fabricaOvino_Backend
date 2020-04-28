@@ -99,7 +99,7 @@ LANGUAGES = [
     ("pt-br", _("Portuguese")),
 ]
 
-STATIC_URL = "/static/"
+STATIC_URL = "/api/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 REST_FRAMEWORK = {
