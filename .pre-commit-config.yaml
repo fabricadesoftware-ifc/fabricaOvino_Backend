@@ -2,6 +2,7 @@
   rev: v2.3.0
   hooks:
       - id: check-added-large-files
+        args: [--maxkb=1100]
       - id: check-merge-conflict
       - id: detect-private-key
 
