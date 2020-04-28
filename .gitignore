@@ -160,5 +160,6 @@ sketch
 node_modules/
 npm-debug.log
 yarn-error.log
+.nuxt/
 
 # End of https://www.gitignore.io/api/vue,vuejs,django,visualstudiocode
