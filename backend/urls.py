@@ -12,6 +12,6 @@ urlpatterns = [
     path("api/v1/", include(router.urls)),
     path("api/v1/token/", TokenObtainPairView.as_view(), name="token"),
     path("api/v1/refresh_token/", TokenRefreshView.as_view(), name="refresh_token"),
-    path("admin/", admin.site.urls),
+    path("api/admin/", admin.site.urls),
     path("swagger/", schema_view.with_ui()),
 ]
