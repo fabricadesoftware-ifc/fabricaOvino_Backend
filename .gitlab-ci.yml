@@ -78,7 +78,7 @@ deploy_prod:
     - rsync -rtz -e 'ssh -p 1022' ./ "$PROD_HOST:$PROD_DEPLOY_DIR/"
     - ssh -p 1022 $PROD_HOST "cd \"$PROD_DEPLOY_DIR/\" && virtualenv -p python3 venv && ./venv/bin/pip install -r requirements.txt"
     - ssh -p 1022 $PROD_HOST "cd \"$PROD_DEPLOY_DIR/\" && PYTHONPATH='.' ./venv/bin/python manage.py migrate"
-    - ssh -p 1022 $PROD_HOST "cd \"$PROD_DEPLOY_DIR/frontend\" && npm install && npm run build"
+    - ssh -p 1022 $PROD_HOST "cd \"$PROD_DEPLOY_DIR/frontend\" && npm install && API_URL=/ npm run build"
     - ssh -p 1022 $PROD_HOST "ln -sf $PROD_ROOT_DIR/media \"$PROD_DEPLOY_DIR/media\""
     - ssh -p 1022 $PROD_HOST "sudo systemctl start projeto-ovino-ovino-gunicorn.service"
     - ssh -p 1022 $PROD_HOST "sudo systemctl start projeto-ovino-ovino-nuxt.service"
