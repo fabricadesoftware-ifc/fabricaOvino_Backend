@@ -152,6 +152,12 @@
           "subtitle": "Gerenciamento de usuários"
         }
       },
+      "group": {
+        "edit": {
+          "title": "Edição do grupo",
+          "subtitle": "Gerenciamento de grupos"
+        }
+      },
       "forms": {
         "name": {
           "label": "Nome",

@@ -152,6 +152,12 @@
           "subtitle": "Users management"
         }
       },
+      "group": {
+        "edit": {
+          "title": "Group edit",
+          "subtitle": "Groups management"
+        }
+      },
       "forms": {
         "name": {
           "label": "Name",
