@@ -1,21 +1,25 @@
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework import viewsets
+from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from backend.core.models import User
-from backend.core.serializers import UserInfoSerializer, UserSerializer, UserUpdateSerializer
+from backend.core.permissions import IsAdminOrSelf
+from backend.core.serializers import (
+    UserInfoSerializer,
+    UserPasswordUpdateSerializer,
+    UserSerializer,
+    UserUpdateSerializer,
+)
 
 
 class UserViewSet(viewsets.ModelViewSet):
     lookup_field = "id"
 
     queryset = User.objects.all()
-    serializer_classes = {
-        "update": UserUpdateSerializer,
-    }
+    serializer_classes = {"update": UserUpdateSerializer, "password": UserPasswordUpdateSerializer}
     default_serializer_class = UserSerializer
 
     def get_serializer_class(self):
@@ -47,3 +51,16 @@ class UserViewSet(viewsets.ModelViewSet):
             raise PermissionDenied()
         serializer = UserInfoSerializer(self.request.user)
         return Response(serializer.data)
+
+    @action(detail=True, methods=["post"], name="password", permission_classes=[IsAdminOrSelf])
+    def password(self, request, id=None):
+        user = self.get_object()
+        serializer = UserPasswordUpdateSerializer(data=request.data)
+        if serializer.is_valid():
+            if not (request.user.is_superuser or user.check_password(serializer.data.get("current_password"))):
+                return Response({"status": ["Senha atual inválida!"]}, status=status.HTTP_400_BAD_REQUEST)
+            user.set_password(serializer.data["new_password"])
+            user.save()
+            return Response({"status": ["Senha alterada com sucesso!"]}, status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
