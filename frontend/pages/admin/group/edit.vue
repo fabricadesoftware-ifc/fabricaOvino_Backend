@@ -23,6 +23,39 @@
         </b-field>
       </div>
     </div>
+    <div class="tile is-parent">
+      <div class="tile is-child is-3">
+        <strong>Permissões</strong>
+      </div>
+      <div class="tile is-child is-5">
+        <b-field>
+          <b-select multiple native-size="10" v-model="selectPermissionsFrom">
+            <option
+              v-for="permission in permissions_core"
+              :key="permission.id"
+              :value="permission.id"
+            >{{permission.name}}</option>
+          </b-select>
+        </b-field>
+      </div>
+      <div class="tile is-child">
+        <b-button type="is-info" @click="selectPerm">></b-button>
+        <b-button type="is-info" @click="selectAllPerm">>></b-button>
+        <b-button type="is-info" @click="removePerm"><</b-button>
+        <b-button type="is-info" @click="removeAllPerm"><<</b-button>
+      </div>
+      <div class="tile is-child is-5">
+        <b-field>
+          <b-select multiple native-size="10" v-model="selectPermissionsTo">
+            <option
+              v-for="permission in choosed_permissions"
+              :key="permission.id"
+              :value="permission.id"
+            >{{permission.name}}</option>
+          </b-select>
+        </b-field>
+      </div>
+    </div>
 
     <div class="form-bottons columns is-mobile is-centered">
       <div class="column is-4">
@@ -38,20 +71,59 @@ import PageTitle from '@/components/templates/PageTitle'
 import { showError } from '@/plugins/global'
 export default {
   components: { PageTitle },
-  fetch() {
-    this.group = this.$route.params.group
-    Object.assign(this.originalGroup, this.group)
-  },
   data() {
     return {
+      selectPermissionsFrom: [],
+      selectPermissionsTo: [],
+      choosedIds: [],
       group: {},
+      permissions: [],
       originalGroup: {}
     }
   },
+  async fetch() {
+    this.group = this.$route.params.group
+    Object.assign(this.originalGroup, this.group)
+    this.permissions = await this.$axios.$get("/api/v1/permissions/");
+  },
+  computed: {
+    permissions_core() {
+      let choosed = this.choosedIds
+
+      var perms = this.permissions.filter(function(permission) {
+        return permission.content_type.startsWith('core') && (choosed.includes(permission.id) == false);
+      });
+      return perms;
+    },
+    choosed_permissions() {
+      let choosed = this.choosedIds
+      var perms = this.permissions.filter(function(permission) {
+        return choosed.includes(permission.id)
+      });
+      return perms;
+    }
+  },
+
 
   methods: {
     reset() {
       Object.assign(this.group, this.originalGroup)
+    },
+    selectPerm() {
+      this.choosedIds = [ ...this.choosedIds, ...this.selectPermissionsFrom]
+      this.selectPermissionsFrom = []
+    },
+    selectAllPerm() {
+      this.choosedIds = [ ...this.choosedIds, ...this.permissions_core.map( ({id}) => id)]
+      this.selectPermissionsFrom = []
+    },
+    removePerm() {
+      this.choosedIds = this.choosedIds.filter( (id) => !this.selectPermissionsTo.includes(id))
+      this.selectPermissionsTo = []
+    },
+    removeAllPerm() {
+      this.choosedIds = []
+      this.selectPermissionsTo = []
     },
     save() {
       const id = this.group.id
