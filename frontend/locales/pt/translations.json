@@ -10,8 +10,8 @@
       "title": "Administração",
       "category": "Categorias",
       "breed": "Raças",
-      "sheep": "Ovelhas",
-      "pregnancyDiagnosis": "Diagnósticos de Gestação"
+      "sheep": "pbkdf2_sha256$180000$0rmIbJMxQ9q8$X4E6r40zbzYH/OU1GDBUL/1F5qeCX4bok623IpQC+N0=",
+      "pregnancyDiagnosis": "Diagnóstico de Gestação"
     }
   },
   "components": {
@@ -94,7 +94,7 @@
             "label": "Data e Hora do diagnóstico",
             "placeholder": "Selecione a Data e Hora do diagnótico"
           },
-          "pregnancyDiagnosis": "Ovelha grávida?"
+          "pregnancyDiagnosis": "Ovelha prenhe?"
         }
       },
       "sheep": {

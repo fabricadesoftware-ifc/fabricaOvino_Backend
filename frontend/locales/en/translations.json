@@ -10,8 +10,8 @@
       "title": "Administration",
       "category": "Categories",
       "breed": "Breeds",
-      "sheep": "Sheeps",
-      "pregnancyDiagnosis": "Pregnancy Diagnostics"
+      "sheep": "Animals",
+      "pregnancyDiagnosis": "Pregnancy Diagnosis"
     }
   },
 
@@ -123,7 +123,7 @@
             "placeholder": "Select the category"
           },
           "birthday": {
-            "label": "Birthdat",
+            "label": "Birthday",
             "placeholder": "Enter the birthday"
           },
           "sex": {
