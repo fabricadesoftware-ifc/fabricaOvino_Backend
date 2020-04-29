@@ -85,13 +85,17 @@ export default {
     this.group = this.$route.params.group
     Object.assign(this.originalGroup, this.group)
     this.permissions = await this.$axios.$get("/api/v1/permissions/");
+    this.choosedIds= this.group.permissions.map( ({id}) => id)
   },
   computed: {
     permissions_core() {
       let choosed = this.choosedIds
 
       var perms = this.permissions.filter(function(permission) {
-        return permission.content_type.startsWith('core') && (choosed.includes(permission.id) == false);
+        return (
+          (permission.content_type.startsWith('core') || permission.content_type.startsWith('auth')) &&
+          (choosed.includes(permission.id) == false)
+        );
       });
       return perms;
     },
