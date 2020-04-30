@@ -26,6 +26,16 @@
     },
     "userdropdown": {
       "logout": "Sair"
+    },
+    "user": {
+      "changepassword": {
+        "title": "Alterar senha",
+        "cancel": "Cancelar",
+        "email": "E-mail",
+        "currentPassword": "Senha atual",
+        "newPassword": "Nova senha",
+        "confirmPassword": "Confirmação de senha"
+      }
     }
   },
 

@@ -22,9 +22,10 @@
 import PageTitle from '@/components/templates/PageTitle'
 import Avatar from '@/components/user/Avatar'
 import PersonalInfo from '@/components/user/PersonalInfo'
+import ChangePassword from '@/components/user/ChangePassword'
 import { showError } from '@/plugins/global'
 export default {
-  components: { Avatar, PersonalInfo, PageTitle },
+  components: { Avatar, ChangePassword, PersonalInfo, PageTitle },
   fetch() {
     this.user = this.$route.params.user
     Object.assign(this.originalUser, this.user)

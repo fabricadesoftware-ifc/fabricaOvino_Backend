@@ -25,6 +25,7 @@
     "nuxt-buefy": "^0.3.2",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-i18n": "^6.8.1",
+    "vee-validate": "^3.3.0",
     "vue-country-flag": "^2.0.0",
     "vue-gravatar": "^1.3.1"
   },

@@ -26,7 +26,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/axios'],
+  plugins: ['~/plugins/axios', '~/plugins/vee-validate.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -53,6 +53,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    transpile: ['vee-validate/dist/rules'],
     extend(config, ctx) {}
   },
 

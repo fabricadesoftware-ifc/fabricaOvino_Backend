@@ -27,6 +27,16 @@
     },
     "userdropdown": {
       "logout": "Logout"
+    },
+    "user": {
+      "changepassword": {
+        "title": "Change password",
+        "cancel": "Cancel",
+        "email": "Email",
+        "currentPassword": "Current password",
+        "newPassword": "New password",
+        "confirmPassword": "Confirm password"
+      }
     }
   },
 
