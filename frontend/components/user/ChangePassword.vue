@@ -83,7 +83,12 @@ export default {
           this.$toasted.global.defaultSuccess()
           this.reset()
         })
-        .catch(showError)
+        .catch(e => {
+          // console.log(e.response)
+          for (var item in e.response.data) {
+            this.$toast.error(e.response.data[item])
+          }
+        })
     }
   }
 }

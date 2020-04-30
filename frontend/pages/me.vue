@@ -6,9 +6,10 @@
       :sub="$t('pages.me.subtitle')"
     />
 
-    {{ user }}
     <b-button @click="editUser(user)">Editar Perfil</b-button>
-    <b-button @click="isChangingPassword = true">Alterar Senha</b-button>
+    <b-button type="is-warning" @click="isChangingPassword = true"
+      >Alterar Senha</b-button
+    >
     <avatar :email="user.email" />
     <personal-info :user="user" />
 
