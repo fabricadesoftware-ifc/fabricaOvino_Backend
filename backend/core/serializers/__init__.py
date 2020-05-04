@@ -1,6 +1,6 @@
 from .breed import BreedSerializer
 from .category import CategorySerializer
-from .group import GroupSerializer
+from .group import GroupDetailSerializer, GroupSerializer
 from .permission import PermissionSerializer
 from .pregnancyDiagnosis import PregnancyDiagnosisSerializer
 from .sheep import SheepDetailSerializer, SheepSerializer
