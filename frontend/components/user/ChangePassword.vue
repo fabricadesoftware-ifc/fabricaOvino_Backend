@@ -3,14 +3,14 @@
     <form action>
       <div class="modal-card" style="width: auto;">
         <header class="modal-card-head">
-          <p class="modal-card-title">
-            {{ $t('components.user.changepassword.title') }}
-          </p>
+          <p class="modal-card-title">{{ $t('components.user.changepassword.title') }}</p>
         </header>
         <section class="modal-card-body">
-          <b-field :label="$t('components.user.changepassword.email')">{{
+          <b-field :label="$t('components.user.changepassword.email')">
+            {{
             email
-          }}</b-field>
+            }}
+          </b-field>
 
           <BInputWithValidation
             v-if="!isAdmin"
@@ -37,12 +37,15 @@
           />
         </section>
         <footer class="modal-card-foot">
-          <button class="button" type="button" @click="$parent.close()">
-            {{ $t('components.user.changepassword.cancel') }}
-          </button>
-          <button class="button is-primary" @click.prevent="updatePassword">
-            {{ $t('components.user.changepassword.title') }}
-          </button>
+          <button
+            class="button"
+            type="button"
+            @click="$parent.close()"
+          >{{ $t('components.user.changepassword.cancel') }}</button>
+          <button
+            class="button is-primary"
+            @click.prevent="updatePassword"
+          >{{ $t('components.user.changepassword.title') }}</button>
         </footer>
       </div>
     </form>
