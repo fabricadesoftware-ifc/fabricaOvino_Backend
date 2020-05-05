@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div class="columns is-mobile">
-      <card title="Free" icon="github-circle">
+      <!-- <card title="Free" icon="github-circle">
         Open source on
         <a href="https://github.com/buefy/buefy">
           GitHub
@@ -28,7 +28,7 @@
 
       <card title="Lightweight" icon="arrange-bring-to-front">
         No other internal dependency
-      </card>
+      </card>-->
     </div>
   </section>
 </template>
