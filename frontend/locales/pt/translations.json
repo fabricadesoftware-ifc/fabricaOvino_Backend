@@ -36,6 +36,11 @@
         "newPassword": "Nova senha",
         "confirmPassword": "Confirmação de senha"
       }
+    },
+    "group": {
+      "generalInfo": {
+        "title": "Configurações Gerais"
+      }
     }
   },
 

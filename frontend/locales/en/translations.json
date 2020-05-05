@@ -37,6 +37,11 @@
         "newPassword": "New password",
         "confirmPassword": "Confirm password"
       }
+    },
+    "group": {
+      "generalInfo": {
+        "title": "General Settings"
+      }
     }
   },
 
