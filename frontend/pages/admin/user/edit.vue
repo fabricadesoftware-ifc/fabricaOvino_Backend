@@ -48,10 +48,13 @@ export default {
         .$put(url, this.user)
         .then(res => {
           this.$toasted.global.defaultSuccess()
-          this.reset()
           sthis.user = res
         })
-        .catch(showError)
+        .catch(e => {
+          for (var item in e.response.data) {
+            this.$toast.error(e.response.data[item])
+          }
+        })
     }
   }
 }

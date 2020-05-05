@@ -51,10 +51,13 @@ export default {
         .$post(url, this.group)
         .then(res => {
           this.$toasted.global.defaultSuccess()
-          this.reset()
           sthis.group = res
         })
-        .catch(showError)
+        .catch(e => {
+          for (var item in e.response.data) {
+            this.$toast.error(e.response.data[item])
+          }
+        })
     }
   }
 }

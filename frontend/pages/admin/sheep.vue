@@ -122,7 +122,7 @@ export default {
   data: function () {
     return {
       mode: "save",
-      sheep: {},
+      sheep: {teethQuantity: 0},
       categories: [],
       breeds: [],
       sheeps: [],
@@ -148,10 +148,10 @@ export default {
       this.sheep = {
         id: sheep.id,
         earringNumber: sheep.earringNumber,
-        breed: sheep.breed,
-        category: sheep.category,
+        breed: this.breeds.find( elem => elem.name == sheep.breed).id,
+        category: this.categories.find( elem => elem.name == sheep.category).id,
         birthday: sheep.birthday,
-        sex: sheep.sex,
+        sex: sheep.sex == 'Male' ? 'M' : 'F',
         teethQuantity: sheep.teethQuantity,
         mother: sheep.mother,
         father: sheep.father
@@ -173,14 +173,11 @@ export default {
           this.$toasted.global.defaultSuccess();
           this.reset();
         })
-        .catch(e  => {
-          for (const key in e.response.data) {
-            if (e.response.data.hasOwnProperty(key)) {
-              const element = e.response.data[key];
-              showError(element[0])
-            }
+       .catch(e => {
+          for (var item in e.response.data) {
+            this.$toast.error(item + ': ' + e.response.data[item])
           }
-        });
+        })
     },
     remove() {
       const id = this.sheep.id;

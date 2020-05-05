@@ -1,6 +1,10 @@
 <template>
   <div class="breed-admin">
-    <PageTitle icon="puzzle" :main="$t('pages.admin.breed.title')" :sub="$t('pages.admin.breed.subtitle')" />
+    <PageTitle
+      icon="puzzle"
+      :main="$t('pages.admin.breed.title')"
+      :sub="$t('pages.admin.breed.subtitle')"
+    />
     <div class="form">
       <input type="hidden" id="breed-id" v-model="breed.id" />
       <b-field :label="$t('pages.admin.forms.name.label')" class="breed-form-fields">
@@ -14,15 +18,19 @@
         />
       </b-field>
       <div class="breed-form-buttons">
-        <b-button v-if="mode === 'save'" type="is-info" icon-left="check" @click="save">
-          {{ $t("buttons.save") }}
-        </b-button>
-        <b-button v-else type="is-danger" icon-left="trash-can-outline" @click="remove">
-          {{ $t("buttons.delete") }}
-        </b-button>
-        <b-button type="is-dark" icon-left="redo" @click="reset">
-          {{ $t("buttons.reset") }}
-        </b-button>
+        <b-button
+          v-if="mode === 'save'"
+          type="is-info"
+          icon-left="check"
+          @click="save"
+        >{{ $t("buttons.save") }}</b-button>
+        <b-button
+          v-else
+          type="is-danger"
+          icon-left="trash-can-outline"
+          @click="remove"
+        >{{ $t("buttons.delete") }}</b-button>
+        <b-button type="is-dark" icon-left="redo" @click="reset">{{ $t("buttons.reset") }}</b-button>
       </div>
     </div>
     <hr />
@@ -34,13 +42,15 @@
           :field="column.field"
           :sortable="column.sortable"
           :label="column.label"
-        >
-          {{ props.row[column.field] }}
-        </b-table-column>
+        >{{ props.row[column.field] }}</b-table-column>
 
         <b-table-column field="actions" :label="$t('pages.admin.breed.table.actions')">
-          <b-button type="is-warning" icon-left="pencil" @click="loadBreed(props.row)"> </b-button>
-          <b-button type="is-danger" icon-left="trash-can-outline" @click="loadBreed(props.row, 'remove')"> </b-button>
+          <b-button type="is-warning" icon-left="pencil" @click="loadBreed(props.row)"></b-button>
+          <b-button
+            type="is-danger"
+            icon-left="trash-can-outline"
+            @click="loadBreed(props.row, 'remove')"
+          ></b-button>
         </b-table-column>
       </template>
     </b-table>
@@ -91,7 +101,11 @@ export default {
           this.$toasted.global.defaultSuccess();
           this.reset();
         })
-        .catch(showError);
+        .catch(e => {
+          for (var item in e.response.data) {
+            this.$toast.error(item + ': ' +  e.response.data[item])
+          }
+        })
     },
     remove() {
       const id = this.breed.id;
@@ -102,7 +116,11 @@ export default {
           this.$toasted.global.defaultSuccess();
           this.reset();
         })
-        .catch(showError);
+        .catch(e => {
+          for (var item in e.response.data) {
+            this.$toast.error(item + ': ' +  e.response.data[item])
+          }
+        })
     },
   },
 };

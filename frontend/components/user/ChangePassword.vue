@@ -87,7 +87,6 @@ export default {
           this.reset()
         })
         .catch(e => {
-          // console.log(e.response)
           for (var item in e.response.data) {
             this.$toast.error(e.response.data[item])
           }
