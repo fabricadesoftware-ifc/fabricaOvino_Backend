@@ -1,5 +1,11 @@
 <template>
   <div>
+    <b-button
+      type="is-primary"
+      tag="nuxt-link"
+      :to="localePath({ name: 'admin-group-add' })"
+      icon-left="account-group"
+    >{{$t('components.admin.groupadmin.add')}}</b-button>
     <b-table striped :data="groups">
       <template slot-scope="props">
         <b-table-column
@@ -16,6 +22,12 @@
         </b-table-column>
       </template>
     </b-table>
+    <b-button
+      type="is-primary"
+      tag="nuxt-link"
+      :to="localePath({ name: 'admin-group-add' })"
+      icon-left="account-group"
+    >{{$t('components.admin.groupadmin.add')}}</b-button>
   </div>
 </template>
 
@@ -52,4 +64,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+table {
+  padding: 20px 0px;
+}
+</style>

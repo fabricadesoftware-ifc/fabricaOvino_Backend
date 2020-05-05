@@ -22,6 +22,9 @@
           "email": "E-mail",
           "name": "Nome"
         }
+      },
+      "groupadmin": {
+        "add": "Adicionar novo grupo"
       }
     },
     "userdropdown": {
@@ -170,6 +173,10 @@
       "group": {
         "edit": {
           "title": "Edição do grupo",
+          "subtitle": "Gerenciamento de grupos"
+        },
+        "add": {
+          "title": "Adicionar novo grupo",
           "subtitle": "Gerenciamento de grupos"
         }
       },
