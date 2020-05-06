@@ -1,3 +1,4 @@
+from .birth import BirthViewSet
 from .breed import BreedViewSet
 from .category import CategoryViewSet
 from .group import GroupViewSet

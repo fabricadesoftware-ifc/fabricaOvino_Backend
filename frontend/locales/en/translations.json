@@ -11,7 +11,8 @@
       "category": "Categories",
       "breed": "Breeds",
       "sheep": "Animals",
-      "pregnancyDiagnosis": "Pregnancy Diagnosis"
+      "pregnancyDiagnosis": "Pregnancy Diagnosis",
+      "birth": "Births"
     }
   },
 
@@ -49,6 +50,28 @@
   },
 
   "pages": {
+    "birth": {
+      "title": "Births",
+      "subtitle": "Sheep management",
+      "forms": {
+        "sheep": {
+          "label": "Sheep",
+          "placeholder": "Select the sheep"
+        },
+        "dateTime": {
+          "label": "Date and Time of birth",
+          "placeholder": "Select Date and Time of birth"
+        },
+        "newbornsQuantity": {
+          "label": "Newborns quantity",
+          "placeholder": "Enter the quatity of newborns"
+        }
+      },
+      "tabs": {
+        "main": "Birth",
+        "newborn": "Newborn"
+      }
+    },
     "login": {
       "signin": "Sign in",
       "signup": "Sign up",

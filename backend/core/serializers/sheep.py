@@ -6,7 +6,7 @@ from backend.core.models import Sheep
 class SheepSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sheep
-        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity", "mother", "father"]
+        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity"]
 
 
 class SheepDetailSerializer(serializers.ModelSerializer):
@@ -16,4 +16,4 @@ class SheepDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sheep
-        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity", "mother", "father"]
+        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity"]

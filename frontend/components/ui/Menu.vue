@@ -57,6 +57,11 @@ export default {
           icon: "human-pregnant",
           to: { name: "admin-pregnancyDiagnosis" },
         },
+        {
+          title: this.$t("asideMenu.adminItems.birth"),
+          icon: "lightbulb-outline",
+          to: { name: "birth" },
+        },
       ],
     };
   },

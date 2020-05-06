@@ -11,7 +11,8 @@
       "category": "Categorias",
       "breed": "Raças",
       "sheep": "Animais",
-      "pregnancyDiagnosis": "Diagnóstico de Gestação"
+      "pregnancyDiagnosis": "Diagnóstico de Gestação",
+      "birth": "Partos"
     }
   },
   "components": {
@@ -48,6 +49,28 @@
   },
 
   "pages": {
+    "birth": {
+      "title": "Partos",
+      "subtitle": "Gerenciamento de ovelhas",
+      "forms": {
+        "sheep": {
+          "label": "Ovelha",
+          "placeholder": "Selecione a ovelha"
+        },
+        "dateTime": {
+          "label": "Data e Hora do parto",
+          "placeholder": "Selecione a Data e Hora do parto"
+        },
+        "newbornsQuantity": {
+          "label": "Número de filhotes",
+          "placeholder": "Informe o número de filhotes do parto"
+        }
+      },
+      "tabs": {
+        "main": "Parto",
+        "newborn": "Filhote"
+      }
+    },
     "login": {
       "signin": "Entrar",
       "signup": "Cadastre-se",

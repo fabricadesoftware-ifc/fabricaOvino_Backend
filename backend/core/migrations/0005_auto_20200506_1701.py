@@ -39,7 +39,12 @@ class Migration(migrations.Migration):
             model_name="sheep",
             name="birth",
             field=models.ForeignKey(
-                default=None, on_delete=django.db.models.deletion.PROTECT, related_name="broods", to="core.Birth"
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="broods",
+                to="core.Birth",
             ),
         ),
     ]

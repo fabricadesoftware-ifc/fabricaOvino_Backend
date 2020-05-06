@@ -14,4 +14,6 @@ class Sheep(models.Model):
     birthday = models.DateField()
     sex = models.CharField(max_length=1, choices=Sex.choices, default=Sex.FEMALE)
     teethQuantity = models.IntegerField()
-    birth = models.ForeignKey("Birth", on_delete=models.PROTECT, related_name="broods", default=None)
+    birth = models.ForeignKey(
+        "Birth", on_delete=models.SET_NULL, related_name="broods", default=None, null=True, blank=True
+    )
