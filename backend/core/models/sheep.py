@@ -1,6 +1,6 @@
 from django.db import models
 
-from backend.core.models import Breed, Category
+from backend.core.models import Birth, Breed, Category
 
 
 class Sheep(models.Model):
@@ -14,5 +14,4 @@ class Sheep(models.Model):
     birthday = models.DateField()
     sex = models.CharField(max_length=1, choices=Sex.choices, default=Sex.FEMALE)
     teethQuantity = models.IntegerField()
-    mother = models.ForeignKey("self", related_name="mother_children", on_delete=models.PROTECT, blank=True, null=True)
-    father = models.ForeignKey("self", related_name="father_children", on_delete=models.PROTECT, blank=True, null=True)
+    birth = models.ForeignKey(Birth, on_delete=models.PROTECT, related_name="broods")

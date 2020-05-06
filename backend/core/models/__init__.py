@@ -1,3 +1,4 @@
+from .birth import Birth
 from .breed import Breed
 from .category import Category
 from .pregnancyDiagnosis import PregnancyDiagnosis
