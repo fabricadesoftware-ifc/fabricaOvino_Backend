@@ -14,7 +14,8 @@
               icon="sheep"
               rules="required"
               :label="$t('pages.birth.forms.sheep.label')"
-              v-model="form.sheep"
+              :value="form.sheep"
+              @input="updateSheep"
               :readonly="mode === 'remove'"
             >
               <option
@@ -65,11 +66,11 @@
           </b-tab-item>
 
           <b-tab-item
-            v-for="n in form.newbornsQuantity"
-            :key="n"
-            :label="$t('pages.birth.tabs.newborn') + ' ' + n"
+            v-for="(newborn, index) in form.newborns"
+            :key="index"
+            :label="$t('pages.birth.tabs.newborn') + ' ' + (+index+1)"
           >
-            <!-- <GroupAdmin /> -->
+            <newborn :newborn="newborn" :index="index" />
           </b-tab-item>
         </b-tabs>
         <input type="hidden" id="birth-id" v-model="pregnancyDiagnosis.id" />
@@ -99,9 +100,10 @@
 import { ValidationObserver } from 'vee-validate'
 import PageTitle from '@/components/templates/PageTitle'
 import VSelect from '@/components/templates/VSelect'
+import Newborn from '@/components/birth/Newborn'
 import { mapState, mapGetters } from 'vuex'
 export default {
-  components: { PageTitle, VSelect, ValidationObserver },
+  components: { Newborn, PageTitle, VSelect, ValidationObserver },
   computed: {
     ...mapState("birth", ["form"]),
   },
@@ -121,14 +123,20 @@ export default {
     this.sheeps = await this.$axios.$get("/api/v1/sheeps/");
   },
   methods: {
-    // updateSheep(value) {
-    //   this.$store.commit('birth/sheep', value)
-    // },
+    updateSheep(value) {
+      this.$store.commit('birth/sheep', value)
+    },
     updateDate(value) {
       this.$store.commit('birth/date', value)
     },
     updateNewbornsQuantity(value) {
-      this.$store.commit('birth/newbornsQuantity', value)
+      if (value > this.form.newbornsQuantity) {
+        let diff = value - this.form.newbornsQuantity
+        this.$store.commit('birth/addNewborns', { value, diff })
+      } else{
+        let diff = this.form.newbornsQuantity - value
+        this.$store.commit('birth/removeNewborns', { value, diff })
+      }
     },
     reset() {
       this.$store.commit('birth/reset')
