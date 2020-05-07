@@ -5,97 +5,106 @@
       :main="$t('pages.birth.title')"
       :sub="$t('pages.birth.subtitle')"
     />
-
-    <div class="form">
-      <b-tabs>
-        <b-tab-item :label="$t('pages.birth.tabs.main')">
-          <b-field
-            :label="$t('pages.birth.forms.sheep.label')"
-            class="pregnancyDiagnosis-form-fields"
-          >
-            <b-select
+    <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
+      <div class="form">
+        <b-tabs>
+          <b-tab-item :label="$t('pages.birth.tabs.main')">
+            <v-select
               :placeholder="$t('pages.birth.forms.sheep.placeholder')"
               icon="sheep"
-              v-model="pregnancyDiagnosis.sheep"
+              rules="required"
+              :label="$t('pages.birth.forms.sheep.label')"
+              v-model="form.sheep"
               :readonly="mode === 'remove'"
-              required
             >
               <option
                 v-for="sheep in sheeps"
                 :value="sheep.id"
                 :key="sheep.id"
               >{{ sheep.earringNumber }}</option>
-            </b-select>
-          </b-field>
-          <b-field
-            :label="$t('pages.birth.forms.dateTime.label')"
-            class="pregnancyDiagnosis-form-fields"
-          >
-            <b-datetimepicker
-              :placeholder="$t('pages.birth.forms.dateTime.placeholder')"
-              icon="calendar-today"
-              v-model="date"
-              :readonly="mode === 'remove'"
+            </v-select>
+            <b-field
+              :label="$t('pages.birth.forms.dateTime.label')"
+              class="pregnancyDiagnosis-form-fields"
             >
-              <template slot="left">
-                <button class="button is-primary" @click="datetime = new Date()">
-                  <b-icon icon="clock"></b-icon>
-                  <span>Now</span>
-                </button>
-              </template>
-              <template slot="right">
-                <button class="button is-danger" @click="datetime = null">
-                  <b-icon icon="close"></b-icon>
-                  <span>Clear</span>
-                </button>
-              </template>
-            </b-datetimepicker>
-          </b-field>
-          <b-field
-            :label="$t('pages.birth.forms.newbornsQuantity.label')"
-            class="birth-form-fields"
+              <b-datetimepicker
+                :placeholder="$t('pages.birth.forms.dateTime.placeholder')"
+                icon="calendar-today"
+                v-model="form.date"
+                :readonly="mode === 'remove'"
+              >
+                <template slot="left">
+                  <button class="button is-primary" @click="datetime = new Date()">
+                    <b-icon icon="clock"></b-icon>
+                    <span>Now</span>
+                  </button>
+                </template>
+                <template slot="right">
+                  <button class="button is-danger" @click="datetime = null">
+                    <b-icon icon="close"></b-icon>
+                    <span>Clear</span>
+                  </button>
+                </template>
+              </b-datetimepicker>
+            </b-field>
+            <b-field
+              :label="$t('pages.birth.forms.newbornsQuantity.label')"
+              class="birth-form-fields"
+            >
+              <b-numberinput
+                rounded
+                :placeholder="$t('pages.birth.forms.newbornsQuantity.placeholder')"
+                icon="mdi-tooth"
+                min="0"
+                max="5"
+                :value="form.newbornsQuantity"
+                @input="updateNewbornsQuantity"
+                :readonly="mode === 'remove'"
+              />
+            </b-field>
+          </b-tab-item>
+
+          <b-tab-item
+            v-for="n in form.newbornsQuantity"
+            :key="n"
+            :label="$t('pages.birth.tabs.newborn') + ' ' + n"
           >
-            <b-numberinput
-              rounded
-              :placeholder="$t('pages.birth.forms.newbornsQuantity.placeholder')"
-              icon="mdi-tooth"
-              v-model="number"
-              :readonly="mode === 'remove'"
-              required
-            />
-          </b-field>
-        </b-tab-item>
+            <!-- <GroupAdmin /> -->
+          </b-tab-item>
+        </b-tabs>
+        <input type="hidden" id="birth-id" v-model="pregnancyDiagnosis.id" />
 
-        <b-tab-item v-for="n in number" :key="n" :label="$t('pages.birth.tabs.newborn') + ' ' + n">
-          <GroupAdmin />
-        </b-tab-item>
-      </b-tabs>
-      <input type="hidden" id="birth-id" v-model="pregnancyDiagnosis.id" />
-
-      <div class="sheep-form-buttons">
-        <b-button
-          v-if="mode === 'save'"
-          type="is-info"
-          icon-left="check"
-          @click="save"
-        >{{ $t("buttons.save") }}</b-button>
-        <b-button
-          v-else
-          type="is-danger"
-          icon-left="trash-can-outline"
-          @click="remove"
-        >{{ $t("buttons.delete") }}</b-button>
-        <b-button type="is-dark" icon-left="redo" @click="reset">{{ $t("buttons.reset") }}</b-button>
+        <div class="sheep-form-buttons">
+          <b-button
+            v-if="mode === 'save'"
+            type="is-info"
+            @click.prevent="handleSubmit(save)"
+            icon-left="check"
+          >{{ $t("buttons.save") }}</b-button>
+          <b-button
+            v-else
+            type="is-danger"
+            icon-left="trash-can-outline"
+            @click="remove"
+          >{{ $t("buttons.delete") }}</b-button>
+          <b-button type="is-dark" icon-left="redo" @click="reset">{{ $t("buttons.reset") }}</b-button>
+        </div>
       </div>
-    </div>
+    </ValidationObserver>
     <hr />
   </div>
 </template>
 
 <script>
+import { ValidationObserver } from 'vee-validate'
 import PageTitle from '@/components/templates/PageTitle'
+import VSelect from '@/components/templates/VSelect'
+import { mapState, mapGetters } from 'vuex'
 export default {
-  components: { PageTitle },
+  components: { PageTitle, VSelect, ValidationObserver },
+  computed: {
+    ...mapState("birth", ["form"]),
+  },
   data () {
     return {
       mode: "save",
@@ -108,13 +117,21 @@ export default {
     }
   },
   async fetch() {
-    this.pregnancyDiagnostics = await this.$axios.$get("/api/v1/pregnancy-diagnosis")
     this.users = await this.$axios.$get("/api/v1/users")
     this.sheeps = await this.$axios.$get("/api/v1/sheeps/");
   },
   methods: {
+    // updateSheep(value) {
+    //   this.$store.commit('birth/sheep', value)
+    // },
+    updateDate(value) {
+      this.$store.commit('birth/date', value)
+    },
+    updateNewbornsQuantity(value) {
+      this.$store.commit('birth/newbornsQuantity', value)
+    },
     reset() {
-      this.sheep = {};
+      this.$store.commit('birth/reset')
       this.mode = "save";
       this.$fetch();
     },
@@ -138,6 +155,12 @@ export default {
           }
         });
     },
+  },
+
+  created() {
+    if (!this.form.date) {
+      this.updateDate(new Date())
+    }
   }
 }
 </script>

@@ -12,7 +12,7 @@
             }}
           </b-field>
 
-          <BInputWithValidation
+          <v-input
             v-if="!isAdmin"
             rules="required"
             type="password"
@@ -20,7 +20,7 @@
             v-model="password.current_password"
           />
 
-          <BInputWithValidation
+          <v-input
             rules="required"
             type="password"
             :label="$t('components.user.changepassword.newPassword')"
@@ -28,7 +28,7 @@
             v-model="password.new_password"
           />
 
-          <BInputWithValidation
+          <v-input
             rules="required|confirmed:newPassword"
             name="Password"
             type="password"
@@ -53,12 +53,12 @@
 </template>
 
 <script>
-import { ValidationObserver, ValidationProvider } from 'vee-validate'
-import BInputWithValidation from '@/components/templates/BInputWithValidation'
+import { ValidationObserver } from 'vee-validate'
+import VInput from '@/components/templates/VInput'
 import { showError } from '@/plugins/global'
 
 export default {
-  components: { BInputWithValidation, ValidationObserver, ValidationProvider },
+  components: { VInput, ValidationObserver },
   props: {
     id: {},
     email: {},

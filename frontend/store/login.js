@@ -1,9 +1,9 @@
 export const state = () => ({
-  showSignup: false,
-});
+  showSignup: false
+})
 
 export const mutations = {
   toggleShowSignup(state) {
-    state.showSignup = !state.showSignup;
-  },
-};
+    state.showSignup = !state.showSignup
+  }
+}
