@@ -99,6 +99,10 @@
           :sortable="column.sortable"
           :label="column.label"
         >{{ props.row[column.field] }}</b-table-column>
+        <b-table-column field="pregnant" :label="$t('pages.admin.sheep.table.pregnant')">
+          <span v-if="props.row.pregnant">{{$t('true')}}</span>
+          <span v-else>{{$t('false')}}</span>
+        </b-table-column>
 
         <b-table-column field="actions" :label="$t('pages.admin.sheep.table.actions')">
           <b-button type="is-warning" icon-left="pencil" @click="loadSheep(props.row)"></b-button>

@@ -1,4 +1,6 @@
 {
+  "false": "No",
+  "true": "Yes",
   "header": {
     "signin": "Sign in",
     "signup": "Sign up",
@@ -149,6 +151,7 @@
           "category": "Category",
           "sex": "Sex",
           "birthday": "Birthday",
+          "pregnant": "Pregnant?",
           "actions": "Action"
         },
         "forms": {

@@ -1,4 +1,6 @@
 {
+  "false": "Não",
+  "true": "Sim",
   "header": {
     "signin": "Entrar",
     "signup": "Cadastre-se",
@@ -149,6 +151,7 @@
           "category": "Categoria",
           "sex": "Sexo",
           "birthday": "Nascimento",
+          "pregnant": "Prenhe?",
           "actions": "Ações"
         },
         "forms": {
