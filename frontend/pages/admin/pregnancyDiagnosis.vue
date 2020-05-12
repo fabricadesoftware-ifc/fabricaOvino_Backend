@@ -75,48 +75,44 @@
 
 <script>
 import PageTitle from '@/components/templates/PageTitle'
+import { mapState } from 'vuex'
 export default {
   components: { PageTitle },
+  computed: {
+    ...mapState('auth', ['user'])
+  },
   data () {
     return {
       mode: "save",
       date: new Date(),
-      pregnancyDiagnosis: {},
+      pregnancyDiagnosis: {
+        diagnosis: false,
+      },
       sheeps: [],
-      users: [],
-      pregnancyDiagnostics: []
     }
   },
   async fetch() {
-    this.pregnancyDiagnostics = await this.$axios.$get("/api/v1/pregnancy-diagnosis")
-    this.users = await this.$axios.$get("/api/v1/users")
-    this.sheeps = await this.$axios.$get("/api/v1/sheeps/?pregnant=False");
+    this.sheeps = await this.$axios.$get("/api/v1/sheeps/?pregnant=False")
   },
   methods: {
     reset() {
-      this.sheep = {};
-      this.mode = "save";
-      this.$fetch();
+      this.sheep = {}
+      this.mode = "save"
+      this.$fetch()
     },
     save() {
-      const method = this.sheep.id ? "put" : "post";
-      const id = this.sheep.id ? `/${this.sheep.id}` : "";
-      const url = `/api/v1/sheeps${id}/`;
-      this.sheep.birthday = this.birthday.toLocaleDateString('fr-CA')
-      console.log(this.sheep)
-      this.$axios[method](url, this.sheep)
+      this.pregnancyDiagnosis.date = this.date.toISOString()
+      this.pregnancyDiagnosis.user = this.user.id
+      this.$axios.$post('/api/v1/pregnancy-diagnosis/', this.pregnancyDiagnosis)
         .then(() => {
-          this.$toasted.global.defaultSuccess();
-          this.reset();
+          this.$toasted.global.defaultSuccess()
+          this.reset()
         })
-        .catch(e  => {
-          for (const key in e.response.data) {
-            if (e.response.data.hasOwnProperty(key)) {
-              const element = e.response.data[key];
-              showError(element[0])
-            }
+        .catch(e => {
+          for (var item in e.response.data) {
+            this.$toast.error(item + ': ' +  e.response.data[item])
           }
-        });
+        })
     },
   }
 }
