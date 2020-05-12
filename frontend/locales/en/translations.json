@@ -26,7 +26,8 @@
         }
       },
       "groupadmin": {
-        "add": "Add new group"
+        "add": "Add new group",
+        "confirmDeletion": "Confirm deletion"
       }
     },
     "userdropdown": {

@@ -25,7 +25,8 @@
         }
       },
       "groupadmin": {
-        "add": "Adicionar novo grupo"
+        "add": "Adicionar novo grupo",
+        "confirmDeletion": "Confirmar exclusão"
       }
     },
     "userdropdown": {
