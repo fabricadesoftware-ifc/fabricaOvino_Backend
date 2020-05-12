@@ -13,10 +13,10 @@ class SheepViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         pregnant = self.request.query_params.get("pregnant", None)
-        print("Oi")
-        print(pregnant)
-        if pregnant is not None:
+        if pregnant == "True":
             queryset = Sheep.objects.filter(pregnant=True)
+        elif pregnant == "False":
+            queryset = Sheep.objects.filter(pregnant=False)
         else:
             queryset = Sheep.objects.all()
         return queryset

@@ -90,7 +90,7 @@ export default {
   async fetch() {
     this.pregnancyDiagnostics = await this.$axios.$get("/api/v1/pregnancy-diagnosis")
     this.users = await this.$axios.$get("/api/v1/users")
-    this.sheeps = await this.$axios.$get("/api/v1/sheeps/");
+    this.sheeps = await this.$axios.$get("/api/v1/sheeps/?pregnant=False");
   },
   methods: {
     reset() {

@@ -120,7 +120,7 @@ export default {
   },
   async fetch() {
     this.users = await this.$axios.$get("/api/v1/users")
-    this.sheeps = await this.$axios.$get("/api/v1/sheeps/");
+    this.sheeps = await this.$axios.$get("/api/v1/sheeps/?pregnant=True");
   },
   methods: {
     updateSheep(value) {
