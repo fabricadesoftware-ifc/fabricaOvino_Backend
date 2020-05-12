@@ -54,7 +54,7 @@ export default {
         },
         {
           title: this.$t("asideMenu.adminItems.pregnancyDiagnosis"),
-          icon: "human-pregnant",
+          icon: "medical-bag",
           to: { name: "admin-pregnancyDiagnosis" },
         },
         {

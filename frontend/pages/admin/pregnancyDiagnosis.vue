@@ -1,7 +1,7 @@
 <template>
   <div class="pregnancy-diagnosis">
     <PageTitle
-      icon="human-pregnant"
+      icon="medical-bag"
       :main="$t('pages.admin.pregnancyDiagnosis.title')"
       :sub="$t('pages.admin.pregnancyDiagnosis.subtitle')"
     />
