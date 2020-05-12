@@ -17,3 +17,4 @@ class Sheep(models.Model):
     birth = models.ForeignKey(
         "Birth", on_delete=models.SET_NULL, related_name="broods", default=None, null=True, blank=True
     )
+    pregnant = models.BooleanField(default=False)
