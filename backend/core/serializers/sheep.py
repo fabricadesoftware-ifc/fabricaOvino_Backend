@@ -16,4 +16,4 @@ class SheepDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sheep
-        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity"]
+        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity", "pregnant"]
