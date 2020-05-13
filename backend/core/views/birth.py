@@ -1,7 +1,7 @@
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 
-from backend.core.models import Birth
+from backend.core.models import Birth, Sheep
 from backend.core.serializers import BirthCreateSerializer, BirthDetailSerializer, SheepCreateNewbornSerializer
 
 
@@ -26,6 +26,9 @@ class BirthViewSet(viewsets.ModelViewSet):
             newborn_serializer = SheepCreateNewbornSerializer(data=newborn)
             newborn_serializer.is_valid(raise_exception=True)
             self.perform_create(newborn_serializer)
+        sheep = Sheep.objects.get(id=request.data["sheep"])
+        sheep.pregnant = False
+        sheep.save()
         # if request.data["diagnosis"]:
         #     sheep.pregnant = True
         #     sheep.save()
