@@ -144,24 +144,25 @@ export default {
       this.$fetch();
     },
     save() {
-      const method = this.sheep.id ? "put" : "post";
-      const id = this.sheep.id ? `/${this.sheep.id}` : "";
-      const url = `/api/v1/sheeps${id}/`;
-      this.sheep.birthday = this.birthday.toLocaleDateString('fr-CA')
-      console.log(this.sheep)
-      this.$axios[method](url, this.sheep)
-        .then(() => {
-          this.$toasted.global.defaultSuccess();
-          this.reset();
-        })
-        .catch(e  => {
-          for (const key in e.response.data) {
-            if (e.response.data.hasOwnProperty(key)) {
-              const element = e.response.data[key];
-              showError(element[0])
-            }
-          }
-        });
+      console.log(this.form)
+      // const method = this.sheep.id ? "put" : "post";
+      // const id = this.sheep.id ? `/${this.sheep.id}` : "";
+      // const url = `/api/v1/sheeps${id}/`;
+      // this.sheep.birthday = this.birthday.toLocaleDateString('fr-CA')
+      // console.log(this.sheep)
+      // this.$axios[method](url, this.sheep)
+      //   .then(() => {
+      //     this.$toasted.global.defaultSuccess();
+      //     this.reset();
+      //   })
+      //   .catch(e  => {
+      //     for (const key in e.response.data) {
+      //       if (e.response.data.hasOwnProperty(key)) {
+      //         const element = e.response.data[key];
+      //         showError(element[0])
+      //       }
+      //     }
+      //   });
     },
   },
 
