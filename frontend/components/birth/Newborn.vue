@@ -5,7 +5,7 @@
       icon="tag"
       :label="$t('pages.admin.sheep.forms.earringNumber.label')"
       :value="newborn.earringNumber"
-      @input="updateName"
+      @input="updateEarringNumber"
     />
 
     <v-select
@@ -14,7 +14,7 @@
       rules="required"
       :label="$t('pages.admin.sheep.forms.breed.label')"
       :value="newborn.breed"
-      @input="updateName"
+      @input="updateBreed"
     >
       <option v-for="breed in breeds" :value="breed.id" :key="breed.id">{{ breed.name }}</option>
     </v-select>
@@ -25,7 +25,7 @@
       rules="required"
       :label="$t('pages.admin.sheep.forms.category.label')"
       :value="newborn.category"
-      @input="updateName"
+      @input="updateCategory"
     >
       <option
         v-for="category in categories"
@@ -34,14 +34,16 @@
       >{{ category.name }}</option>
     </v-select>
 
-    <b-field :label="$t('pages.admin.sheep.forms.sex.label')" class="sheep-form-fields">
+    <b-field :label="$t('pages.admin.sheep.forms.sex.label')">
       <b-radio
-        v-model="newborn.sex"
+        :value="newborn.sex"
+        @input="updateSex"
         name="form-sex"
         native-value="M"
       >{{ $t('pages.admin.sheep.forms.sex.male') }}</b-radio>
       <b-radio
-        v-model="newborn.sex"
+        :value="newborn.sex"
+        @input="updateSex"
         name="form-sex"
         native-value="F"
       >{{ $t('pages.admin.sheep.forms.sex.female') }}</b-radio>
@@ -71,8 +73,17 @@ export default {
     index: Number,
   },
   methods: {
-    updateName(name) {
-      this.$store.commit('birth/newbornName', {name, index: this.index})
+    updateEarringNumber(earringNumber) {
+      this.$store.commit('birth/newbornEarringNumber', {earringNumber, index: this.index})
+    },
+    updateBreed(breed) {
+      this.$store.commit('birth/newbornBreed', {breed, index: this.index})
+    },
+    updateCategory(category) {
+      this.$store.commit('birth/newbornCategory', {category, index: this.index})
+    },
+    updateSex(sex) {
+      this.$store.commit('birth/newbornSex', {sex, index: this.index})
     },
     updateWeight(weight) {
       this.$store.commit('birth/newbornWeight', {weight, index: this.index})

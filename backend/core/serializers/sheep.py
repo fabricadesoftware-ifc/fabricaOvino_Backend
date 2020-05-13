@@ -9,6 +9,12 @@ class SheepSerializer(serializers.ModelSerializer):
         fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity"]
 
 
+class SheepCreateNewbornSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sheep
+        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "weight"]
+
+
 class SheepDetailSerializer(serializers.ModelSerializer):
     category = serializers.CharField(source="category.name", read_only=True)
     breed = serializers.CharField(source="breed.name", read_only=True)

@@ -13,8 +13,9 @@ class Sheep(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name="sheeps")
     birthday = models.DateField()
     sex = models.CharField(max_length=1, choices=Sex.choices, default=Sex.FEMALE)
-    teethQuantity = models.IntegerField()
+    teethQuantity = models.IntegerField(default=0)
     birth = models.ForeignKey(
         "Birth", on_delete=models.SET_NULL, related_name="broods", default=None, null=True, blank=True
     )
     pregnant = models.BooleanField(default=False)
+    weight = models.FloatField(default=0)

@@ -1,6 +1,6 @@
 export const state = () => ({
   form: {
-    newbornsQuantity: 0,
+    newborns_quantity: 0,
     newborns: []
   }
 })
@@ -12,17 +12,26 @@ export const mutations = {
   date(state, value) {
     state.form.date = value
   },
-  newbornName(state, payload) {
-    state.form.newborns[payload.index].name = payload.name
+  newbornEarringNumber(state, payload) {
+    state.form.newborns[payload.index].earringNumber = payload.earringNumber
   },
   newbornWeight(state, payload) {
     state.form.newborns[payload.index].weight = payload.weight
   },
+  newbornBreed(state, payload) {
+    state.form.newborns[payload.index].breed = payload.breed
+  },
+  newbornCategory(state, payload) {
+    state.form.newborns[payload.index].category = payload.category
+  },
+  newbornSex(state, payload) {
+    state.form.newborns[payload.index].sex = payload.sex
+  },
   addNewborns(state, payload) {
-    state.form.newbornsQuantity = payload.value
-    let obj = {}
+    state.form.newborns_quantity = payload.value
+    let newNewborn = { sex: 'F' }
     state.form.newborns = state.form.newborns.concat(
-      new Array(payload.diff).fill(obj)
+      new Array(payload.diff).fill(newNewborn)
     )
   },
   removeNewborns(state, { value, diff }) {
@@ -30,7 +39,7 @@ export const mutations = {
       state.form.newborns.length - diff,
       state.form.newborns.length
     ),
-      (state.form.newbornsQuantity = value)
+      (state.form.newborns_quantity = value)
   },
   reset(state) {
     state.form = {}

@@ -58,7 +58,7 @@
                 icon="mdi-tooth"
                 min="0"
                 max="5"
-                :value="form.newbornsQuantity"
+                :value="form.newborns_quantity"
                 @input="updateNewbornsQuantity"
                 :readonly="mode === 'remove'"
               />
@@ -106,6 +106,7 @@ export default {
   components: { Newborn, PageTitle, VSelect, ValidationObserver },
   computed: {
     ...mapState("birth", ["form"]),
+    ...mapState('auth', ['user'])
   },
   data () {
     return {
@@ -130,11 +131,11 @@ export default {
       this.$store.commit('birth/date', value)
     },
     updateNewbornsQuantity(value) {
-      if (value > this.form.newbornsQuantity) {
-        let diff = value - this.form.newbornsQuantity
+      if (value > this.form.newborns_quantity) {
+        let diff = value - this.form.newborns_quantity
         this.$store.commit('birth/addNewborns', { value, diff })
       } else{
-        let diff = this.form.newbornsQuantity - value
+        let diff = this.form.newborns_quantity - value
         this.$store.commit('birth/removeNewborns', { value, diff })
       }
     },
@@ -144,25 +145,27 @@ export default {
       this.$fetch();
     },
     save() {
+      this.form.user = this.user.id
+      this.form.birthday = this.form.date.toLocaleDateString('fr-CA')
+      this.form.date = this.form.date.toISOString()
+
       console.log(this.form)
+      const url = '/api/v1/births'
       // const method = this.sheep.id ? "put" : "post";
       // const id = this.sheep.id ? `/${this.sheep.id}` : "";
       // const url = `/api/v1/sheeps${id}/`;
       // this.sheep.birthday = this.birthday.toLocaleDateString('fr-CA')
       // console.log(this.sheep)
-      // this.$axios[method](url, this.sheep)
-      //   .then(() => {
-      //     this.$toasted.global.defaultSuccess();
-      //     this.reset();
-      //   })
-      //   .catch(e  => {
-      //     for (const key in e.response.data) {
-      //       if (e.response.data.hasOwnProperty(key)) {
-      //         const element = e.response.data[key];
-      //         showError(element[0])
-      //       }
-      //     }
-      //   });
+      this.$axios.$post('/api/v1/births/', this.form)
+        .then(() => {
+          this.$toasted.global.defaultSuccess()
+          this.reset()
+        })
+        .catch(e => {
+          for (var item in e.response.data) {
+            this.$toast.error(item + ': ' +  e.response.data[item])
+          }
+        })
     },
   },
 
