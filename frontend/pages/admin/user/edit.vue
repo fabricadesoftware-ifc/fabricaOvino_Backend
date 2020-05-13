@@ -6,6 +6,18 @@
       :sub="$t('pages.admin.user.edit.subtitle')"
     />
 
+    <b-button type="is-warning" @click="isChangingPassword = true">Alterar Senha</b-button>
+    <b-modal
+      :active.sync="isChangingPassword"
+      has-modal-card
+      trap-focus
+      :destroy-on-hide="false"
+      aria-role="dialog"
+      aria-modal
+    >
+      <change-password isAdmin :id="user.id" :email="user.email"></change-password>
+    </b-modal>
+
     <avatar :email="user.email" />
     <personal-info :user="user" />
 
@@ -33,7 +45,8 @@ export default {
   data() {
     return {
       user: {},
-      originalUser: {}
+      originalUser: {},
+      isChangingPassword: false
     }
   },
 

@@ -70,7 +70,7 @@ export default {
   data() {
     return {
       password: {
-        current_password: '',
+        current_password: 'x',
         new_password: '',
         confirm_password: ''
       }
