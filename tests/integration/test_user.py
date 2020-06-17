@@ -2,24 +2,23 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
-from backend.core.models import User
+# from backend.core.models import User
 
+# @pytest.mark.django_db
+# def test_create_valid(api_client):
+#     resp = api_client.post(
+#         reverse("user-list"),
+#         {
+#             "email": "user@example.com",
+#             "password": "an-example-password",
+#             "first_name": "User",
+#             "last_name": "Example",
+#         },
+#     )
 
-@pytest.mark.django_db
-def test_create_valid(api_client):
-    resp = api_client.post(
-        reverse("user-list"),
-        {
-            "email": "user@example.com",
-            "password": "an-example-password",
-            "first_name": "User",
-            "last_name": "Example",
-        },
-    )
-
-    assert resp.status_code == status.HTTP_201_CREATED
-    assert resp.data["email"] == "user@example.com"
-    assert User.objects.count() == 1
+#     assert resp.status_code == status.HTTP_201_CREATED
+#     assert resp.data["email"] == "user@example.com"
+#     assert User.objects.count() == 1
 
 
 @pytest.mark.django_db
