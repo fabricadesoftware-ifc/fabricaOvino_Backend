@@ -10,3 +10,8 @@ class User(AbstractUser):
     @property
     def name(self):
         return " ".join((self.first_name, self.last_name))
+
+    @name.setter
+    def name(self, value):
+        self.first_name = value.split(" ")[0]
+        self.last_name = " ".join(value.split(" ")[1:])

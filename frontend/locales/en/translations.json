@@ -25,7 +25,8 @@
           "id": "ID",
           "email": "Email",
           "name": "Name"
-        }
+        },
+        "addNew": "Add new user"
       },
       "groupadmin": {
         "add": "Add new group",

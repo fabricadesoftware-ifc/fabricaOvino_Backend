@@ -6,7 +6,9 @@
       :sub="$t('pages.admin.user.edit.subtitle')"
     />
 
-    <b-button type="is-warning" @click="isChangingPassword = true">Alterar Senha</b-button>
+    <b-button type="is-warning" @click="isChangingPassword = true"
+      >Alterar Senha</b-button
+    >
     <b-modal
       :active.sync="isChangingPassword"
       has-modal-card
@@ -15,16 +17,29 @@
       aria-role="dialog"
       aria-modal
     >
-      <change-password isAdmin :id="user.id" :email="user.email"></change-password>
+      <change-password
+        isAdmin
+        :id="user.id"
+        :email="user.email"
+      ></change-password>
     </b-modal>
 
     <avatar :email="user.email" />
     <personal-info :user="user" />
+    <user-groups
+      :choosedIds="choosedIds"
+      @update-choosed="updateChoosed"
+      edit
+    />
 
     <div class="form-bottons columns is-mobile is-centered">
       <div class="column is-4">
-        <b-button type="is-info" icon-left="check" @click="save">{{ $t('buttons.save') }}</b-button>
-        <b-button type="is-dark" icon-left="redo" @click="reset">{{ $t('buttons.reset') }}</b-button>
+        <b-button type="is-info" icon-left="check" @click="save">{{
+          $t('buttons.save')
+        }}</b-button>
+        <b-button type="is-dark" icon-left="redo" @click="reset">{{
+          $t('buttons.reset')
+        }}</b-button>
       </div>
     </div>
   </div>
@@ -35,9 +50,11 @@ import PageTitle from '@/components/templates/PageTitle'
 import Avatar from '@/components/user/Avatar'
 import PersonalInfo from '@/components/user/PersonalInfo'
 import ChangePassword from '@/components/user/ChangePassword'
+import UserGroups from '@/components/user/UserGroups'
+
 import { showError } from '@/plugins/global'
 export default {
-  components: { Avatar, ChangePassword, PersonalInfo, PageTitle },
+  components: { Avatar, ChangePassword, PersonalInfo, PageTitle, UserGroups },
   fetch() {
     this.user = this.$route.params.user
     Object.assign(this.originalUser, this.user)
@@ -46,6 +63,7 @@ export default {
     return {
       user: {},
       originalUser: {},
+      choosedIds: [],
       isChangingPassword: false
     }
   },
@@ -56,6 +74,7 @@ export default {
     },
     save() {
       const id = this.user.id
+      this.user.groups = this.choosedIds
       const url = `/api/v1/users/${id}/`
       this.$axios
         .$put(url, this.user)
@@ -68,6 +87,9 @@ export default {
             this.$toast.error(e.response.data[item])
           }
         })
+    },
+    updateChoosed(ids) {
+      this.choosedIds = ids
     }
   }
 }

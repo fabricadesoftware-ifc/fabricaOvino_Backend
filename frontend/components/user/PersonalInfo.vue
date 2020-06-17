@@ -4,18 +4,24 @@
       <strong>Configurações pessoais</strong>
     </div>
     <div class="tile is-child is-8">
-      <input type="hidden" id="user-id" v-model="user.id" />
-      <b-field :label="$t('pages.admin.forms.email.label')" class="user-form-fields">
+      <input v-if="!newUser" type="hidden" id="user-id" v-model="user.id" />
+      <b-field
+        :label="$t('pages.admin.forms.email.label')"
+        class="user-form-fields"
+      >
         <b-input
           :placeholder="$t('pages.admin.forms.email.placeholder')"
           type="text"
           icon="tag"
-          disabled
+          :disabled="!newUser"
           v-model="user.email"
           required
         />
       </b-field>
-      <b-field :label="$t('pages.admin.forms.name.label')" class="user-form-fields">
+      <b-field
+        :label="$t('pages.admin.forms.name.label')"
+        class="user-form-fields"
+      >
         <b-input
           :placeholder="$t('pages.admin.forms.name.placeholder')"
           type="text"
@@ -34,7 +40,13 @@ export default {
     user: Object,
     edit: {
       type: Boolean,
-      default () {
+      default() {
+        return false
+      }
+    },
+    newUser: {
+      type: Boolean,
+      default() {
         return false
       }
     }
@@ -42,5 +54,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

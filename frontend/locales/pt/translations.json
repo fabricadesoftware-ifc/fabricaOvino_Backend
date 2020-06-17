@@ -24,7 +24,9 @@
           "id": "Código",
           "email": "E-mail",
           "name": "Nome"
-        }
+        },
+        "addNew": "Adicionar novo usuário",
+        "confirmDeletion": "Confirmar exclusão"
       },
       "groupadmin": {
         "add": "Adicionar novo grupo",
@@ -194,6 +196,10 @@
       "user": {
         "edit": {
           "title": "Edição do usuário",
+          "subtitle": "Gerenciamento de usuários"
+        },
+        "add": {
+          "title": "Adicionar novo usuário",
           "subtitle": "Gerenciamento de usuários"
         }
       },

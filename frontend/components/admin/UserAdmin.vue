@@ -1,5 +1,19 @@
 <template>
   <div>
+    <b-button
+      v-if="!deleteMode"
+      type="is-primary"
+      tag="nuxt-link"
+      :to="localePath({ name: 'admin-user-add' })"
+      icon-left="account-plus"
+      >{{ $t('components.admin.useradmin.addNew') }}</b-button
+    >
+    <span v-else>
+      <b-button type="is-danger" @click="deleteUser()" icon-left="account-group"
+        >{{ $t('components.admin.useradmin.confirmDeletion') }} -
+        {{ userToDelete.name }}</b-button
+      >
+    </span>
     <b-table striped :data="users">
       <template slot-scope="props">
         <b-table-column
@@ -8,10 +22,18 @@
           :field="column.field"
           :sortable="column.sortable"
           :label="column.label"
-        >{{ props.row[column.field] }}</b-table-column>
+          >{{ props.row[column.field] }}</b-table-column
+        >
 
-        <b-table-column field="actions" :label="$t('pages.admin.breed.table.actions')">
-          <b-button type="is-warning" @click="editUser(props.row)" icon-left="pencil"></b-button>
+        <b-table-column
+          field="actions"
+          :label="$t('pages.admin.breed.table.actions')"
+        >
+          <b-button
+            type="is-warning"
+            @click="editUser(props.row)"
+            icon-left="pencil"
+          ></b-button>
           <b-button type="is-danger" icon-left="trash-can-outline"></b-button>
         </b-table-column>
       </template>

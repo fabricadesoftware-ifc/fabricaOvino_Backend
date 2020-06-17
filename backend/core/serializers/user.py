@@ -3,6 +3,8 @@ from rest_framework import serializers
 
 from backend.core.models import User
 
+from .group import GroupUserDetailSerializer
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,16 +12,26 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["id", "email", "name"]
 
 
-class UserInfoSerializer(serializers.ModelSerializer):
+class UserCreateSerializer(serializers.ModelSerializer):
+    name = serializers.CharField()
+
     class Meta:
         model = User
-        fields = ["id", "email", "name"]
+        fields = ["email", "username", "name", "groups"]
+
+
+class UserInfoSerializer(serializers.ModelSerializer):
+    groups = GroupUserDetailSerializer(many=True)
+
+    class Meta:
+        model = User
+        fields = ["id", "email", "name", "groups"]
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "first_name", "last_name"]
+        fields = ["id", "first_name", "last_name", "groups"]
 
 
 class UserPasswordUpdateSerializer(serializers.Serializer):
