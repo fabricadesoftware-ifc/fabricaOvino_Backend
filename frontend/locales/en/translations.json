@@ -153,6 +153,7 @@
           "sex": "Sex",
           "birthday": "Birthday",
           "pregnant": "Pregnant?",
+          "lactating": "Lactating?",
           "actions": "Action"
         },
         "forms": {
@@ -189,7 +190,8 @@
           "father": {
             "label": "Father",
             "placeholder": "Select the father"
-          }
+          },
+          "lactating": "Lactating?"
         }
       },
       "user": {

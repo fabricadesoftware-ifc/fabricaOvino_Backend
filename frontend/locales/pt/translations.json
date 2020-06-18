@@ -154,6 +154,7 @@
           "sex": "Sexo",
           "birthday": "Nascimento",
           "pregnant": "Prenhe?",
+          "lactating": "Lactante?",
           "actions": "Ações"
         },
         "forms": {
@@ -190,7 +191,8 @@
           "father": {
             "label": "Pai",
             "placeholder": "Selecione o pai"
-          }
+          },
+          "lactating": "Lactante?"
         }
       },
       "user": {

@@ -90,6 +90,13 @@
           required
         />
       </b-field>
+      <b-switch
+        v-model="sheep.lactating"
+        :true-value="true"
+        :false-value="false"
+      >
+        <strong>{{ $t('pages.admin.sheep.forms.lactating') }}</strong>
+      </b-switch>
       <div class="sheep-form-buttons">
         <b-button
           v-if="mode === 'save'"
@@ -127,6 +134,13 @@
           <span v-else>
             {{ props.row[column.field] }}
           </span>
+        </b-table-column>
+        <b-table-column
+          field="lactating"
+          :label="$t('pages.admin.sheep.table.lactating')"
+        >
+          <span v-if="props.row.lactating">{{ $t('true') }}</span>
+          <span v-else>{{ $t('false') }}</span>
         </b-table-column>
         <b-table-column
           field="pregnant"
@@ -220,9 +234,9 @@ export default {
         birthday: sheep.birthday,
         sex: sheep.sex == 'Male' ? 'M' : 'F',
         teethQuantity: sheep.teethQuantity,
-        mother: sheep.mother,
-        father: sheep.father
+        lactating: sheep.lactating
       }
+      this.birthday = new Date(this.sheep.birthday)
     },
     reset() {
       this.sheep = {}
@@ -234,7 +248,6 @@ export default {
       const id = this.sheep.id ? `/${this.sheep.id}` : ''
       const url = `/api/v1/sheeps${id}/`
       this.sheep.birthday = this.birthday.toLocaleDateString('fr-CA')
-      console.log(this.sheep)
       this.$axios[method](url, this.sheep)
         .then(() => {
           this.$toasted.global.defaultSuccess()
