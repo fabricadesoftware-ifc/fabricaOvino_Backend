@@ -6,13 +6,13 @@ from backend.core.models import Sheep
 class SheepSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sheep
-        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity"]
+        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity", "lactating"]
 
 
 class SheepCreateNewbornSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sheep
-        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "weight"]
+        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "weight", "lactating"]
 
 
 class SheepDetailSerializer(serializers.ModelSerializer):
@@ -22,4 +22,14 @@ class SheepDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sheep
-        fields = ["id", "earringNumber", "breed", "category", "birthday", "sex", "teethQuantity", "pregnant"]
+        fields = [
+            "id",
+            "earringNumber",
+            "breed",
+            "category",
+            "birthday",
+            "sex",
+            "teethQuantity",
+            "pregnant",
+            "lactating",
+        ]
