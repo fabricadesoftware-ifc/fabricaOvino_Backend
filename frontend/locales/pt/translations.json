@@ -188,10 +188,6 @@
             "label": "Mãe",
             "placeholder": "Selecione a mãe"
           },
-          "father": {
-            "label": "Pai",
-            "placeholder": "Selecione o pai"
-          },
           "lactating": "Lactante?"
         }
       },
