@@ -18,4 +18,5 @@ class Sheep(models.Model):
         "Birth", on_delete=models.SET_NULL, related_name="broods", default=None, null=True, blank=True
     )
     pregnant = models.BooleanField(default=False)
+    lactating = models.BooleanField(default=False)
     weight = models.FloatField(default=0)
