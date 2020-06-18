@@ -7,7 +7,10 @@
     />
     <div class="form">
       <input type="hidden" id="breed-id" v-model="breed.id" />
-      <b-field :label="$t('pages.admin.forms.name.label')" class="breed-form-fields">
+      <b-field
+        :label="$t('pages.admin.forms.name.label')"
+        class="breed-form-fields"
+      >
         <b-input
           :placeholder="$t('pages.admin.forms.name.placeholder')"
           type="text"
@@ -23,14 +26,18 @@
           type="is-info"
           icon-left="check"
           @click="save"
-        >{{ $t("buttons.save") }}</b-button>
+          >{{ $t('buttons.save') }}</b-button
+        >
         <b-button
           v-else
           type="is-danger"
           icon-left="trash-can-outline"
           @click="remove"
-        >{{ $t("buttons.delete") }}</b-button>
-        <b-button type="is-dark" icon-left="redo" @click="reset">{{ $t("buttons.reset") }}</b-button>
+          >{{ $t('buttons.delete') }}</b-button
+        >
+        <b-button type="is-dark" icon-left="redo" @click="reset">{{
+          $t('buttons.reset')
+        }}</b-button>
       </div>
     </div>
     <hr />
@@ -42,10 +49,18 @@
           :field="column.field"
           :sortable="column.sortable"
           :label="column.label"
-        >{{ props.row[column.field] }}</b-table-column>
+          >{{ props.row[column.field] }}</b-table-column
+        >
 
-        <b-table-column field="actions" :label="$t('pages.admin.breed.table.actions')">
-          <b-button type="is-warning" icon-left="pencil" @click="loadBreed(props.row)"></b-button>
+        <b-table-column
+          field="actions"
+          :label="$t('pages.admin.breed.table.actions')"
+        >
+          <b-button
+            type="is-warning"
+            icon-left="pencil"
+            @click="loadBreed(props.row)"
+          ></b-button>
           <b-button
             type="is-danger"
             icon-left="trash-can-outline"
@@ -58,72 +73,80 @@
 </template>
 
 <script>
-import PageTitle from "@/components/templates/PageTitle";
+import PageTitle from '@/components/templates/PageTitle'
 
-import { showError } from "@/plugins/global";
+import { showError } from '@/plugins/global'
 export default {
   auth: false,
   components: { PageTitle },
   data: function () {
     return {
-      mode: "save",
+      mode: 'save',
       breed: {},
       breeds: [],
       columns: [
-        { field: "id", label: this.$t("pages.admin.breed.table.id"), sortable: true },
-        { field: "name", label: this.$t("pages.admin.breed.table.name"), sortable: true },
-      ],
-    };
+        {
+          field: 'id',
+          label: this.$t('pages.admin.breed.table.id'),
+          sortable: true
+        },
+        {
+          field: 'name',
+          label: this.$t('pages.admin.breed.table.name'),
+          sortable: true
+        }
+      ]
+    }
   },
   async fetch() {
-    this.breeds = await this.$axios.$get("/api/v1/breeds/");
+    this.breeds = await this.$axios.$get('/api/v1/breeds/')
   },
   methods: {
-    loadBreed(breed, mode = "save") {
-      this.mode = mode;
+    loadBreed(breed, mode = 'save') {
+      this.mode = mode
       this.breed = {
         id: breed.id,
-        name: breed.name,
-      };
+        name: breed.name
+      }
     },
     reset() {
-      this.breed = {};
-      this.path = "";
-      this.mode = "save";
-      this.$fetch();
+      this.breed = {}
+      this.path = ''
+      this.mode = 'save'
+      this.$fetch()
     },
     save() {
-      const method = this.breed.id ? "put" : "post";
-      const id = this.breed.id ? `/${this.breed.id}` : "";
-      const url = `/api/v1/breeds${id}/`;
+      const method = this.breed.id ? 'put' : 'post'
+      const id = this.breed.id ? `/${this.breed.id}` : ''
+      const url = `/api/v1/breeds${id}/`
       this.$axios[method](url, this.breed)
         .then(() => {
-          this.$toasted.global.defaultSuccess();
-          this.reset();
+          this.$toasted.global.defaultSuccess()
+          this.reset()
         })
         .catch(e => {
           for (var item in e.response.data) {
-            this.$toast.error(item + ': ' +  e.response.data[item])
+            this.$toast.error(item + ': ' + e.response.data[item])
           }
         })
     },
     remove() {
-      const id = this.breed.id;
-      const url = `/api/v1/breeds/${id}`;
+      const id = this.breed.id
+      const url = `/api/v1/breeds/${id}`
       this.$axios
         .delete(url)
         .then(() => {
-          this.$toasted.global.defaultSuccess();
-          this.reset();
+          this.$toasted.global.defaultSuccess()
+          this.reset()
         })
         .catch(e => {
           for (var item in e.response.data) {
-            this.$toast.error(item + ': ' +  e.response.data[item])
+            this.$toast.error(item + ': ' + e.response.data[item])
           }
         })
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style></style>
