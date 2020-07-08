@@ -41,7 +41,17 @@
       </div>
     </div>
     <hr />
-    <b-table striped :data="breeds">
+    <b-table
+      striped
+      :data="breeds"
+      paginated
+      paginate-position="bottom"
+      aria-next-label="Next page"
+      aria-previous-label="Previous page"
+      aria-page-label="Page"
+      aria-current-label="Current page"
+      per-page="10"
+    >
       <template slot-scope="props">
         <b-table-column
           v-for="(column, index) in columns"

@@ -118,7 +118,17 @@
       </div>
     </div>
     <hr />
-    <b-table striped :data="sheeps">
+    <b-table
+      striped
+      :data="sheeps"
+      paginated
+      paginate-position="bottom"
+      aria-next-label="Next page"
+      aria-previous-label="Previous page"
+      aria-page-label="Page"
+      aria-current-label="Current page"
+      per-page="10"
+    >
       <template slot-scope="props">
         <b-table-column
           v-for="(column, index) in columns"
@@ -137,6 +147,7 @@
         </b-table-column>
         <b-table-column
           field="lactating"
+          sortable
           :label="$t('pages.admin.sheep.table.lactating')"
         >
           <span v-if="props.row.lactating">{{ $t('true') }}</span>
@@ -144,6 +155,7 @@
         </b-table-column>
         <b-table-column
           field="pregnant"
+          sortable
           :label="$t('pages.admin.sheep.table.pregnant')"
         >
           <span v-if="props.row.pregnant">{{ $t('true') }}</span>
