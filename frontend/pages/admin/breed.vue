@@ -84,6 +84,7 @@
 
 <script>
 import PageTitle from '@/components/templates/PageTitle'
+import { mapActions } from 'vuex'
 
 import { showError } from '@/plugins/global'
 export default {
@@ -112,6 +113,7 @@ export default {
     this.breeds = await this.$axios.$get('/api/v1/breeds/')
   },
   methods: {
+    ...mapActions('breeds', ['getBreeds']),
     loadBreed(breed, mode = 'save') {
       this.mode = mode
       this.breed = {
@@ -130,8 +132,9 @@ export default {
       const id = this.breed.id ? `/${this.breed.id}` : ''
       const url = `/api/v1/breeds${id}/`
       this.$axios[method](url, this.breed)
-        .then(() => {
+        .then(res => {
           this.$toasted.global.defaultSuccess()
+          this.getBreeds()
           this.reset()
         })
         .catch(e => {
@@ -147,6 +150,7 @@ export default {
         .delete(url)
         .then(() => {
           this.$toasted.global.defaultSuccess()
+          this.getBreeds()
           this.reset()
         })
         .catch(e => {

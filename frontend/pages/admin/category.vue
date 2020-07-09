@@ -88,6 +88,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import PageTitle from '@/components/templates/PageTitle'
 
 import { showError } from '@/plugins/global'
@@ -116,6 +117,7 @@ export default {
     this.categories = await this.$axios.$get('/api/v1/categories/')
   },
   methods: {
+    ...mapActions('categories', ['getCategories']),
     loadCategory(category, mode = 'save') {
       this.mode = mode
       this.category = {
@@ -129,12 +131,12 @@ export default {
       this.$fetch()
     },
     save() {
-      const method = this.category.id ? 'put' : 'post'
       const id = this.category.id ? `/${this.category.id}` : ''
       const url = `/api/v1/categories${id}/`
       this.$axios[method](url, this.category)
         .then(() => {
           this.$toasted.global.defaultSuccess()
+          this.getCategories()
           this.reset()
         })
         .catch(showError)
@@ -146,6 +148,7 @@ export default {
         .delete(url)
         .then(() => {
           this.$toasted.global.defaultSuccess()
+          this.getCategories()
           this.reset()
         })
         .catch(showError)

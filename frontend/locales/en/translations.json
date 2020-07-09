@@ -4,7 +4,8 @@
   "header": {
     "signin": "Sign in",
     "signup": "Sign up",
-    "admin": "Administration"
+    "admin": "Administration",
+    "profile": "My profile"
   },
   "asideMenu": {
     "general": "General",
@@ -54,6 +55,13 @@
   },
 
   "pages": {
+    "pagetitle": {
+      "sheep_edit": {
+        "title": "Sheep edition",
+        "subtitle": "Sheep management"
+      }
+    },
+
     "birth": {
       "title": "Births",
       "subtitle": "Sheep management",
@@ -219,6 +227,11 @@
           "label": "Email",
           "placeholder": "Enter the email"
         }
+      }
+    },
+    "sheeps": {
+      "edit": {
+        "generalInfo": "General Info"
       }
     }
   },

@@ -22,7 +22,8 @@
                 v-for="sheep in sheeps"
                 :value="sheep.id"
                 :key="sheep.id"
-              >{{ sheep.earringNumber }}</option>
+                >{{ sheep.earringNumber }}</option
+              >
             </v-select>
             <b-field
               :label="$t('pages.birth.forms.dateTime.label')"
@@ -35,7 +36,10 @@
                 :readonly="mode === 'remove'"
               >
                 <template slot="left">
-                  <button class="button is-primary" @click="datetime = new Date()">
+                  <button
+                    class="button is-primary"
+                    @click="datetime = new Date()"
+                  >
                     <b-icon icon="clock"></b-icon>
                     <span>Now</span>
                   </button>
@@ -54,7 +58,9 @@
             >
               <b-numberinput
                 rounded
-                :placeholder="$t('pages.birth.forms.newbornsQuantity.placeholder')"
+                :placeholder="
+                  $t('pages.birth.forms.newbornsQuantity.placeholder')
+                "
                 icon="mdi-tooth"
                 min="0"
                 max="5"
@@ -68,7 +74,7 @@
           <b-tab-item
             v-for="(newborn, index) in form.newborns"
             :key="index"
-            :label="$t('pages.birth.tabs.newborn') + ' ' + (+index+1)"
+            :label="$t('pages.birth.tabs.newborn') + ' ' + (+index + 1)"
           >
             <newborn :newborn="newborn" :index="index" />
           </b-tab-item>
@@ -81,14 +87,18 @@
             type="is-info"
             @click.prevent="handleSubmit(save)"
             icon-left="check"
-          >{{ $t("buttons.save") }}</b-button>
+            >{{ $t('buttons.save') }}</b-button
+          >
           <b-button
             v-else
             type="is-danger"
             icon-left="trash-can-outline"
             @click="remove"
-          >{{ $t("buttons.delete") }}</b-button>
-          <b-button type="is-dark" icon-left="redo" @click="reset">{{ $t("buttons.reset") }}</b-button>
+            >{{ $t('buttons.delete') }}</b-button
+          >
+          <b-button type="is-dark" icon-left="redo" @click="reset">{{
+            $t('buttons.reset')
+          }}</b-button>
         </div>
       </div>
     </ValidationObserver>
@@ -105,12 +115,12 @@ import { mapState, mapGetters } from 'vuex'
 export default {
   components: { Newborn, PageTitle, VSelect, ValidationObserver },
   computed: {
-    ...mapState("birth", ["form"]),
+    ...mapState('birth', ['form']),
     ...mapState('auth', ['user'])
   },
-  data () {
+  data() {
     return {
-      mode: "save",
+      mode: 'save',
       number: 0,
       date: new Date(),
       pregnancyDiagnosis: {},
@@ -120,8 +130,8 @@ export default {
     }
   },
   async fetch() {
-    this.users = await this.$axios.$get("/api/v1/users")
-    this.sheeps = await this.$axios.$get("/api/v1/sheeps/?pregnant=True");
+    this.users = await this.$axios.$get('/api/v1/users')
+    this.sheeps = await this.$axios.$get('/api/v1/sheeps/?pregnant=True')
   },
   methods: {
     updateSheep(value) {
@@ -134,39 +144,39 @@ export default {
       if (value > this.form.newborns_quantity) {
         let diff = value - this.form.newborns_quantity
         this.$store.commit('birth/addNewborns', { value, diff })
-      } else{
+      } else {
         let diff = this.form.newborns_quantity - value
         this.$store.commit('birth/removeNewborns', { value, diff })
       }
     },
     reset() {
       this.$store.commit('birth/reset')
-      this.mode = "save";
-      this.$fetch();
+      this.mode = 'save'
+      this.$fetch()
     },
     save() {
       this.form.user = this.user.id
       this.form.birthday = this.form.date.toLocaleDateString('fr-CA')
       this.form.date = this.form.date.toISOString()
 
-      console.log(this.form)
       const url = '/api/v1/births'
       // const method = this.sheep.id ? "put" : "post";
       // const id = this.sheep.id ? `/${this.sheep.id}` : "";
       // const url = `/api/v1/sheeps${id}/`;
       // this.sheep.birthday = this.birthday.toLocaleDateString('fr-CA')
       // console.log(this.sheep)
-      this.$axios.$post('/api/v1/births/', this.form)
+      this.$axios
+        .$post('/api/v1/births/', this.form)
         .then(() => {
           this.$toasted.global.defaultSuccess()
           this.reset()
         })
         .catch(e => {
           for (var item in e.response.data) {
-            this.$toast.error(item + ': ' +  e.response.data[item])
+            this.$toast.error(item + ': ' + e.response.data[item])
           }
         })
-    },
+    }
   },
 
   created() {
@@ -177,5 +187,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

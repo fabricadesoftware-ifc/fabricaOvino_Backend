@@ -4,7 +4,8 @@
   "header": {
     "signin": "Entrar",
     "signup": "Cadastre-se",
-    "admin": "Administração"
+    "admin": "Administração",
+    "profile": "Meu perfil"
   },
   "asideMenu": {
     "general": "Geral",
@@ -54,6 +55,13 @@
   },
 
   "pages": {
+    "pagetitle": {
+      "sheep_edit": {
+        "title": "Edição de ovelhas",
+        "subtitle": "Gerenciamento de ovelhas"
+      }
+    },
+
     "birth": {
       "title": "Partos",
       "subtitle": "Gerenciamento de ovelhas",
@@ -220,6 +228,11 @@
           "label": "E-mail",
           "placeholder": "Informe o e-mail"
         }
+      }
+    },
+    "sheeps": {
+      "edit": {
+        "generalInfo": "Informações Gerais"
       }
     }
   },
