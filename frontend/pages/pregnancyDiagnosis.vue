@@ -7,23 +7,29 @@
     />
 
     <div class="form">
-      <input type="hidden" id="pregnancyDiagnosis-id" v-model="pregnancyDiagnosis.id" />
+      <input
+        type="hidden"
+        id="pregnancyDiagnosis-id"
+        v-model="pregnancyDiagnosis.id"
+      />
       <b-field
         :label="$t('pages.admin.pregnancyDiagnosis.forms.sheep.label')"
         class="pregnancyDiagnosis-form-fields"
       >
         <b-select
-          :placeholder="$t('pages.admin.pregnancyDiagnosis.forms.sheep.placeholder')"
+          :placeholder="
+            $t('pages.admin.pregnancyDiagnosis.forms.sheep.placeholder')
+          "
           icon="sheep"
           v-model="pregnancyDiagnosis.sheep"
-          :readonly="mode === 'remove'"
           required
         >
           <option
-            v-for="sheep in sheeps"
+            v-for="sheep in notPregnantSheeps"
             :value="sheep.id"
             :key="sheep.id"
-          >{{ sheep.earringNumber }}</option>
+            >{{ sheep.earringNumber }}</option
+          >
         </b-select>
       </b-field>
       <b-field
@@ -31,10 +37,11 @@
         class="pregnancyDiagnosis-form-fields"
       >
         <b-datetimepicker
-          :placeholder="$t('pages.admin.pregnancyDiagnosis.forms.dateTime.placeholder')"
+          :placeholder="
+            $t('pages.admin.pregnancyDiagnosis.forms.dateTime.placeholder')
+          "
           icon="calendar-today"
           v-model="date"
-          :readonly="mode === 'remove'"
         >
           <template slot="left">
             <button class="button is-primary" @click="datetime = new Date()">
@@ -50,23 +57,22 @@
           </template>
         </b-datetimepicker>
       </b-field>
-      <b-switch v-model="pregnancyDiagnosis.diagnosis" :true-value="true" :false-value="false">
-        <strong>{{$t('pages.admin.pregnancyDiagnosis.forms.pregnancyDiagnosis') }}</strong>
+      <b-switch
+        v-model="pregnancyDiagnosis.diagnosis"
+        :true-value="true"
+        :false-value="false"
+      >
+        <strong>{{
+          $t('pages.admin.pregnancyDiagnosis.forms.pregnancyDiagnosis')
+        }}</strong>
       </b-switch>
       <div class="sheep-form-buttons">
-        <b-button
-          v-if="mode === 'save'"
-          type="is-info"
-          icon-left="check"
-          @click="save"
-        >{{ $t("buttons.save") }}</b-button>
-        <b-button
-          v-else
-          type="is-danger"
-          icon-left="trash-can-outline"
-          @click="remove"
-        >{{ $t("buttons.delete") }}</b-button>
-        <b-button type="is-dark" icon-left="redo" @click="reset">{{ $t("buttons.reset") }}</b-button>
+        <b-button type="is-info" icon-left="check" @click="save">{{
+          $t('buttons.save')
+        }}</b-button>
+        <b-button type="is-dark" icon-left="redo" @click="reset">{{
+          $t('buttons.reset')
+        }}</b-button>
       </div>
     </div>
     <hr />
@@ -75,48 +81,47 @@
 
 <script>
 import PageTitle from '@/components/templates/PageTitle'
-import { mapState } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 export default {
   components: { PageTitle },
   computed: {
-    ...mapState('auth', ['user'])
+    ...mapState('auth', ['user']),
+    ...mapGetters('sheeps', ['notPregnantSheeps'])
   },
-  data () {
+  data() {
     return {
-      mode: "save",
       date: new Date(),
       pregnancyDiagnosis: {
-        diagnosis: false,
-      },
-      sheeps: [],
+        diagnosis: false
+      }
     }
   },
-  async fetch() {
-    this.sheeps = await this.$axios.$get("/api/v1/sheeps/?pregnant=False")
-  },
   methods: {
+    ...mapActions('sheeps', ['getSheeps']),
     reset() {
-      this.sheep = {}
-      this.mode = "save"
-      this.$fetch()
+      this.pregnancyDiagnosis = {
+        diagnosis: false
+      }
     },
-    save() {
+    async save() {
       this.pregnancyDiagnosis.date = this.date.toISOString()
       this.pregnancyDiagnosis.user = this.user.id
-      this.$axios.$post('/api/v1/pregnancy-diagnosis/', this.pregnancyDiagnosis)
-        .then(() => {
-          this.$toasted.global.defaultSuccess()
-          this.reset()
-        })
-        .catch(e => {
-          for (var item in e.response.data) {
-            this.$toast.error(item + ': ' +  e.response.data[item])
-          }
-        })
-    },
+      try {
+        await this.$axios.$post(
+          '/api/v1/pregnancy-diagnosis/',
+          this.pregnancyDiagnosis
+        )
+        this.$toasted.global.defaultSuccess()
+        this.getSheeps()
+        this.reset()
+      } catch (err) {
+        for (const item in err.response.data) {
+          this.$toast.error(item + ': ' + err.response.data[item])
+        }
+      }
+    }
   }
 }
 </script>
 
-<style>
-</style>
+<style></style>

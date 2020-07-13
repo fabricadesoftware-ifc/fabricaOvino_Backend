@@ -14,3 +14,12 @@ export const actions = {
     commit('loadSheeps', sheeps)
   }
 }
+
+export const getters = {
+  pregnantSheeps: state => {
+    return state.sheeps.filter(sheep => sheep.pregnant)
+  },
+  notPregnantSheeps: state => {
+    return state.sheeps.filter(sheep => !sheep.pregnant)
+  }
+}

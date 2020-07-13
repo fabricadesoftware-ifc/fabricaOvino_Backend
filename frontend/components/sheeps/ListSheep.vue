@@ -1,7 +1,7 @@
 <template>
   <b-table
     striped
-    :data="value"
+    :data="sheeps"
     paginated
     paginate-position="bottom"
     aria-next-label="Next page"
@@ -63,13 +63,13 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
-  props: {
-    value: {
-      type: Array
-    }
-  },
+  // props: {
+  //   value: {
+  //     type: Array
+  //   }
+  // },
   data() {
     return {
       columns: [
@@ -96,11 +96,14 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapState('sheeps', ['sheeps'])
+  },
   methods: {
     ...mapActions('sheeps', ['getSheeps']),
     editSheep(sheep) {
       this.$router.push({
-        name: `sheeps-edit___${this.$i18n.locale}`,
+        name: `sheeps-detail___${this.$i18n.locale}`,
         params: { sheep }
       })
     },
@@ -129,6 +132,9 @@ export default {
         }
       }
     }
+  },
+  created() {
+    this.getSheeps()
   }
 }
 </script>

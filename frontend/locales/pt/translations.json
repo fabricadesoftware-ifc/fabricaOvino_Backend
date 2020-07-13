@@ -231,6 +231,7 @@
       }
     },
     "sheeps": {
+      "add": "Adicionar novo animal",
       "edit": {
         "generalInfo": "Informações Gerais"
       }
@@ -240,6 +241,7 @@
   "buttons": {
     "save": "Salvar",
     "delete": "Excluir",
-    "reset": "Cancelar"
+    "reset": "Cancelar",
+    "edit": "Editar"
   }
 }

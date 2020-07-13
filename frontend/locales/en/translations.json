@@ -230,6 +230,7 @@
       }
     },
     "sheeps": {
+      "add": "Add new sheep",
       "edit": {
         "generalInfo": "General Info"
       }
@@ -239,6 +240,7 @@
   "buttons": {
     "save": "Save",
     "delete": "Delete",
-    "reset": "Reset"
+    "reset": "Reset",
+    "edit": "Edit"
   }
 }

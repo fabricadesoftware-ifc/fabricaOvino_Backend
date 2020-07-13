@@ -1,15 +1,11 @@
-import Vue from "vue";
+import Vue from 'vue'
 
-export const userKey = "__ovinos_systemuser ";
+export const userKey = '__ovinos_systemuser '
 
 export function showError(e) {
-  if (e && e.response && e.response.data) {
-    Vue.toasted.global.defaultError({ msg: e.response.data });
-  } else if (typeof e === "string") {
-    Vue.toasted.global.defaultError({ msg: e });
-  } else {
-    Vue.toasted.global.defaultError();
+  for (var item in e.response.data) {
+    this.$toast.error(item + ': ' + e.response.data[item])
   }
 }
 
-export default { showError, userKey };
+export default { showError, userKey }

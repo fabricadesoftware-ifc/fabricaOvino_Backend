@@ -31,41 +31,41 @@ export default {
     return {
       items: [
         {
-          title: "Home",
-          icon: "home",
-          to: { name: "index" },
-        },
+          title: 'Home',
+          icon: 'home',
+          to: { name: 'index' }
+        }
       ],
       adminItems: [
         {
-          title: this.$t("asideMenu.adminItems.category"),
-          icon: "alpha-c-circle-outline",
-          to: { name: "admin-category" },
+          title: this.$t('asideMenu.adminItems.category'),
+          icon: 'alpha-c-circle-outline',
+          to: { name: 'category' }
         },
         {
-          title: this.$t("asideMenu.adminItems.breed"),
-          icon: "puzzle",
-          to: { name: "admin-breed" },
+          title: this.$t('asideMenu.adminItems.breed'),
+          icon: 'puzzle',
+          to: { name: 'breed' }
         },
         {
-          title: this.$t("asideMenu.adminItems.sheep"),
-          icon: "sheep",
-          to: { name: "admin-sheep" },
+          title: this.$t('asideMenu.adminItems.sheep'),
+          icon: 'sheep',
+          to: { name: 'sheep' }
         },
         {
-          title: this.$t("asideMenu.adminItems.pregnancyDiagnosis"),
-          icon: "medical-bag",
-          to: { name: "admin-pregnancyDiagnosis" },
+          title: this.$t('asideMenu.adminItems.pregnancyDiagnosis'),
+          icon: 'medical-bag',
+          to: { name: 'pregnancyDiagnosis' }
         },
         {
-          title: this.$t("asideMenu.adminItems.birth"),
-          icon: "lightbulb-outline",
-          to: { name: "birth" },
-        },
-      ],
-    };
-  },
-};
+          title: this.$t('asideMenu.adminItems.birth'),
+          icon: 'lightbulb-outline',
+          to: { name: 'birth' }
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style>
