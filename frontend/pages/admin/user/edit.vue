@@ -18,8 +18,8 @@
       aria-modal
     >
       <change-password
-        isAdmin
         :id="user.id"
+        is-admin
         :email="user.email"
       ></change-password>
     </b-modal>
@@ -27,9 +27,9 @@
     <avatar :email="user.email" />
     <personal-info :user="user" />
     <user-groups
-      :choosedIds="choosedIds"
-      @update-choosed="updateChoosed"
+      :choosed-ids="choosedIds"
       edit
+      @update-choosed="updateChoosed"
     />
 
     <div class="form-bottons columns is-mobile is-centered">
@@ -52,7 +52,6 @@ import PersonalInfo from '@/components/user/PersonalInfo'
 import ChangePassword from '@/components/user/ChangePassword'
 import UserGroups from '@/components/user/UserGroups'
 
-import { showError } from '@/plugins/global'
 export default {
   components: { Avatar, ChangePassword, PersonalInfo, PageTitle, UserGroups },
   fetch() {
@@ -80,7 +79,7 @@ export default {
         .$put(url, this.user)
         .then(res => {
           this.$toasted.global.defaultSuccess()
-          sthis.user = res
+          this.user = res
         })
         .catch(e => {
           for (var item in e.response.data) {

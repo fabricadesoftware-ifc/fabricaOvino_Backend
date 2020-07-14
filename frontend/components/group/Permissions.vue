@@ -6,39 +6,56 @@
     <div class="tile is-child is-9 permissions">
       <div class="select-perms">
         <b-field>
-          <b-select multiple size="10" native-size="10" v-model="selectPermissionsFrom">
+          <b-select
+            v-model="selectPermissionsFrom"
+            multiple
+            size="10"
+            native-size="10"
+          >
             <option
               v-for="permission in permissions_from"
               :key="permission.id"
               :value="permission.id"
-            >{{permission.name}}</option>
+              >{{ permission.name }}</option
+            >
           </b-select>
         </b-field>
         <b-button
           type="is-info"
-          @click="selectAllPerm"
           icon-right="arrow-right-bold-outline"
-        >Escolher todos</b-button>
+          @click="selectAllPerm"
+          >Escolher todos</b-button
+        >
       </div>
       <div class="select-buttons">
-        <b-button type="is-info" @click="selectPerm" icon-right="arrow-right-bold-outline"></b-button>
-        <b-button type="is-info" @click="removePerm" icon-right="arrow-left-bold-outline"></b-button>
+        <b-button
+          type="is-info"
+          icon-right="arrow-right-bold-outline"
+          @click="selectPerm"
+        ></b-button>
+        <b-button
+          type="is-info"
+          icon-right="arrow-left-bold-outline"
+          @click="removePerm"
+        ></b-button>
       </div>
       <div class="select-perms">
         <b-field>
-          <b-select multiple native-size="10" v-model="selectPermissionsTo">
+          <b-select v-model="selectPermissionsTo" multiple native-size="10">
             <option
               v-for="permission in choosed_permissions"
               :key="permission.id"
               :value="permission.id"
-            >{{permission.name}}</option>
+              >{{ permission.name }}</option
+            >
           </b-select>
         </b-field>
         <b-button
           type="is-info"
-          @click="removeAllPerm"
           icon-right="arrow-left-bold-outline"
-        >Remover todos</b-button>
+          @click="removeAllPerm"
+          >Remover todos</b-button
+        >
       </div>
     </div>
   </div>
@@ -50,59 +67,64 @@ export default {
     choosedIds: Array,
     edit: {
       type: Boolean,
-      default () {
+      default() {
         return false
       }
     }
   },
-  data () {
+  async fetch() {
+    this.permissions = await this.$axios.$get('/api/v1/permissions/')
+  },
+  data() {
     return {
       selectPermissionsFrom: [],
       selectPermissionsTo: [],
-      permissions: [],
+      permissions: []
     }
-  },
-  async fetch() {
-    this.permissions = await this.$axios.$get("/api/v1/permissions/");
   },
   computed: {
     permissions_from() {
       let choosed = this.choosedIds
 
-      var perms = this.permissions.filter(function(permission) {
-        return (choosed.includes(permission.id) == false)
+      var perms = this.permissions.filter(function (permission) {
+        return choosed.includes(permission.id) == false
       })
       return perms
     },
     choosed_permissions() {
       let choosed = this.choosedIds
-      var perms = this.permissions.filter(function(permission) {
+      var perms = this.permissions.filter(function (permission) {
         return choosed.includes(permission.id)
-      });
-      return perms;
+      })
+      return perms
     }
   },
   methods: {
     selectPerm() {
-      this.choosedIds = [ ...this.choosedIds, ...this.selectPermissionsFrom]
+      this.choosedIds = [...this.choosedIds, ...this.selectPermissionsFrom]
       this.selectPermissionsFrom = []
-      this.$emit("update-choosed", this.choosedIds)
+      this.$emit('update-choosed', this.choosedIds)
     },
     selectAllPerm() {
-      this.choosedIds = [ ...this.choosedIds, ...this.permissions_from.map( ({id}) => id)]
+      this.choosedIds = [
+        ...this.choosedIds,
+        ...this.permissions_from.map(({ id }) => id)
+      ]
       this.selectPermissionsFrom = []
-      this.$emit("update-choosed", this.choosedIds)
+      this.$emit('update-choosed', this.choosedIds)
     },
     removePerm() {
-      this.choosedIds = this.choosedIds.filter( (id) => !this.selectPermissionsTo.includes(id))
+      this.choosedIds = this.choosedIds.filter(
+        id => !this.selectPermissionsTo.includes(id)
+      )
       this.selectPermissionsTo = []
-      this.$emit("update-choosed", this.choosedIds)
+      this.$emit('update-choosed', this.choosedIds)
     },
     removeAllPerm() {
       this.choosedIds = []
       this.selectPermissionsTo = []
-      this.$emit("update-choosed", this.choosedIds)
-    },
+      this.$emit('update-choosed', this.choosedIds)
+    }
   }
 }
 </script>

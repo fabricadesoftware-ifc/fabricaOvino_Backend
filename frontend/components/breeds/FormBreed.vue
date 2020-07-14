@@ -1,15 +1,15 @@
 <template>
   <div class="form">
-    <input type="hidden" id="breed-id" v-model="value.id" />
+    <input id="breed-id" v-model="value.id" type="hidden" />
     <b-field
       :label="$t('pages.admin.forms.name.label')"
       class="breed-form-fields"
     >
       <b-input
+        v-model="value.name"
         :placeholder="$t('pages.admin.forms.name.placeholder')"
         type="text"
         icon="tag"
-        v-model="value.name"
         required
       />
     </b-field>

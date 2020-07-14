@@ -12,26 +12,26 @@
     >
     <hr />
     <div class="form">
-      <input type="hidden" id="sheep-id" v-model="sheep.id" />
+      <input id="sheep-id" v-model="sheep.id" type="hidden" />
       <b-field :label="$t('pages.admin.sheep.forms.earringNumber.label')">
         <b-input
+          v-model="sheep.earringNumber"
           :placeholder="$t('pages.admin.sheep.forms.earringNumber.placeholder')"
           type="text"
           icon="tag"
-          v-model="sheep.earringNumber"
           :disabled="!edit"
           required
         />
       </b-field>
       <b-field :label="$t('pages.admin.sheep.forms.breed.label')">
         <b-select
+          v-model="sheep.breed"
           :placeholder="$t('pages.admin.sheep.forms.breed.placeholder')"
           icon="puzzle"
-          v-model="sheep.breed"
           :disabled="!edit"
           required
         >
-          <option v-for="breed in breeds" :value="breed.id" :key="breed.id">{{
+          <option v-for="breed in breeds" :key="breed.id" :value="breed.id">{{
             breed.name
           }}</option>
         </b-select>
@@ -41,40 +41,40 @@
         class="sheep-form-fields"
       >
         <b-select
+          v-model="sheep.category"
           :placeholder="$t('pages.admin.sheep.forms.category.placeholder')"
           icon="alpha-c-circle-outline"
-          v-model="sheep.category"
           :disabled="!edit"
           required
         >
           <option
             v-for="category in categories"
-            :value="category.id"
             :key="category.id"
+            :value="category.id"
             >{{ category.name }}</option
           >
         </b-select>
       </b-field>
       <b-field :label="$t('pages.admin.sheep.forms.birthday.label')">
         <b-datepicker
+          v-model="birthday"
           :placeholder="$t('pages.admin.sheep.forms.birthday.placeholder')"
           icon="calendar-today"
-          v-model="birthday"
           :disabled="!edit"
         />
       </b-field>
       <b-field :label="$t('pages.admin.sheep.forms.sex.label')">
         <div>
           <b-radio
-            :disabled="!edit"
             v-model="sheep.sex"
+            :disabled="!edit"
             name="form-sex"
             native-value="M"
             >{{ $t('pages.admin.sheep.forms.sex.male') }}</b-radio
           >
           <b-radio
-            :disabled="!edit"
             v-model="sheep.sex"
+            :disabled="!edit"
             name="form-sex"
             native-value="F"
             >{{ $t('pages.admin.sheep.forms.sex.female') }}</b-radio

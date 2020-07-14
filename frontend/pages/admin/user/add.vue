@@ -6,11 +6,11 @@
       :sub="$t('pages.admin.user.add.subtitle')"
     />
 
-    <personal-info :user="user" newUser />
+    <personal-info :user="user" new-user />
     <user-groups
-      :choosedIds="choosedIds"
-      @update-choosed="updateChoosed"
+      :choosed-ids="choosedIds"
       edit
+      @update-choosed="updateChoosed"
     />
 
     <div class="form-bottons columns is-mobile is-centered">
@@ -31,7 +31,6 @@ import PageTitle from '@/components/templates/PageTitle'
 import PersonalInfo from '@/components/user/PersonalInfo'
 import UserGroups from '@/components/user/UserGroups'
 
-import { showError } from '@/plugins/global'
 export default {
   components: { PageTitle, PersonalInfo, UserGroups },
   data() {
@@ -56,7 +55,7 @@ export default {
       this.user.username = this.user.email
       this.$axios
         .$post(url, this.user)
-        .then(res => {
+        .then(() => {
           this.$toasted.global.defaultSuccess()
           this.$router.push({
             name: `admin___${this.$i18n.locale}`

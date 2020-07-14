@@ -1,9 +1,9 @@
 <template>
   <ValidationProvider
+    v-slot="{ errors, valid }"
     :vid="vid"
     :name="$attrs.name || $attrs.label"
     :rules="rules"
-    v-slot="{ errors, valid }"
   >
     <b-field
       v-bind="$attrs"

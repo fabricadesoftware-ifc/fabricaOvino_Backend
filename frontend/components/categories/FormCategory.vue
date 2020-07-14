@@ -1,15 +1,15 @@
 <template>
   <div class="form">
-    <input type="hidden" id="category-id" v-model="value.id" />
+    <input id="category-id" v-model="value.id" type="hidden" />
     <b-field
       :label="$t('pages.admin.forms.name.label')"
       class="category-form-fields"
     >
       <b-input
+        v-model="value.name"
         :placeholder="$t('pages.admin.forms.name.placeholder')"
         type="text"
         icon="tag"
-        v-model="value.name"
         required
       />
     </b-field>

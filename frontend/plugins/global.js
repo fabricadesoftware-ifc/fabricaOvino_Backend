@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 export const userKey = '__ovinos_systemuser '
 
 export function showError(e) {

@@ -1,53 +1,54 @@
 <template>
-  <span>
-    <b-dropdown position="is-bottom-left" append-to-body aria-role="menu">
-      <a class="user-dropdown-img navbar-item" slot="trigger" role="button">
+  <b-dropdown
+    position="is-bottom-left"
+    append-to-body
+    aria-role="menu"
+    trap-focus
+  >
+    <template v-slot:trigger>
+      <a class="user-dropdown-img navbar-item" role="button">
         <Gravatar :email="user.email" alt="user" />
         <b-icon icon="menu-down"></b-icon>
       </a>
+    </template>
 
-      <b-dropdown-item
-        class="user-dropdown-userinfo"
-        custom
-        aria-role="menuitem"
+    <b-dropdown-item class="user-dropdown-userinfo" custom aria-role="menuitem">
+      <Gravatar :email="user.email" alt="user" />
+      <span class="user-name">{{ user.name }}</span>
+      <span class="user-email">{{ user.email }}</span>
+      <nuxt-link :to="localePath('me')" class="user-edit"
+        >Editar informações</nuxt-link
       >
-        <Gravatar :email="user.email" alt="user" />
-        <span class="user-name">{{ user.name }}</span>
-        <span class="user-email">{{ user.email }}</span>
-        <nuxt-link :to="localePath('me')" class="user-edit"
-          >Editar informações</nuxt-link
-        >
-      </b-dropdown-item>
+    </b-dropdown-item>
 
-      <hr class="dropdown-section" />
-      <b-dropdown-item
-        @click="$router.push('/')"
-        value="home"
-        aria-role="menuitem"
-      >
-        <b-icon icon="home"></b-icon>Home
-      </b-dropdown-item>
-      <!-- <b-dropdown-item value="products" aria-role="menuitem">
+    <hr class="dropdown-section" />
+    <b-dropdown-item
+      value="home"
+      aria-role="menuitem"
+      @click="$router.push('/')"
+    >
+      <b-icon icon="home"></b-icon>Home
+    </b-dropdown-item>
+    <!-- <b-dropdown-item value="products" aria-role="menuitem">
         <b-icon icon="cart"></b-icon>TODO
       </b-dropdown-item>
       <b-dropdown-item value="blog" disabled aria-role="menuitem">
         <b-icon icon="book-open"></b-icon>TODO
       </b-dropdown-item> -->
-      <hr class="dropdown-divider" aria-role="menuitem" />
-      <b-dropdown-item @click="$router.push(localePath('admin'))">
-        <b-icon icon="cogs"></b-icon>
-        {{ $t('header.admin') }}
-      </b-dropdown-item>
-      <b-dropdown-item @click="$router.push(localePath('me'))">
-        <b-icon icon="face"></b-icon>
-        {{ $t('header.profile') }}
-      </b-dropdown-item>
-      <b-dropdown-item @click="logout" value="logout" aria-role="menuitem">
-        <b-icon icon="logout"></b-icon>
-        {{ $t('components.userdropdown.logout') }}
-      </b-dropdown-item>
-    </b-dropdown>
-  </span>
+    <hr class="dropdown-divider" aria-role="menuitem" />
+    <b-dropdown-item @click="$router.push(localePath('admin'))">
+      <b-icon icon="cogs"></b-icon>
+      {{ $t('header.admin') }}
+    </b-dropdown-item>
+    <b-dropdown-item @click="$router.push(localePath('me'))">
+      <b-icon icon="face"></b-icon>
+      {{ $t('header.profile') }}
+    </b-dropdown-item>
+    <b-dropdown-item value="logout" aria-role="menuitem" @click="logout">
+      <b-icon icon="logout"></b-icon>
+      {{ $t('components.userdropdown.logout') }}
+    </b-dropdown-item>
+  </b-dropdown>
 </template>
 
 <script>

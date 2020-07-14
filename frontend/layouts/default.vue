@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Header />
+    <HeaderUI />
     <div class="tile is-ancestor">
       <div class="tile is-parent is-2">
-        <Menu />
+        <MenuUI />
       </div>
       <div class="tile is-parent">
         <div class="tile is-child is-11">
@@ -15,16 +15,16 @@
 </template>
 
 <script>
-import Header from "@/components/ui/Header";
-import Menu from "@/components/ui/Menu";
+import HeaderUI from '@/components/ui/HeaderUI'
+import MenuUI from '@/components/ui/MenuUI'
 export default {
-  components: { Header, Menu },
-};
+  components: { HeaderUI, MenuUI }
+}
 </script>
 
 <style>
 * {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 body {
   margin: 0;

@@ -15,13 +15,13 @@
               rules="required"
               :label="$t('pages.birth.forms.sheep.label')"
               :value="form.sheep"
-              @input="updateSheep"
               :readonly="mode === 'remove'"
+              @input="updateSheep"
             >
               <option
                 v-for="sheep in sheeps"
-                :value="sheep.id"
                 :key="sheep.id"
+                :value="sheep.id"
                 >{{ sheep.earringNumber }}</option
               >
             </v-select>
@@ -30,12 +30,12 @@
               class="pregnancyDiagnosis-form-fields"
             >
               <b-datetimepicker
+                v-model="form.date"
                 :placeholder="$t('pages.birth.forms.dateTime.placeholder')"
                 icon="calendar-today"
-                v-model="form.date"
                 :readonly="mode === 'remove'"
               >
-                <template slot="left">
+                <template v-slot:left>
                   <button
                     class="button is-primary"
                     @click="datetime = new Date()"
@@ -44,7 +44,7 @@
                     <span>Now</span>
                   </button>
                 </template>
-                <template slot="right">
+                <template v-slot:right>
                   <button class="button is-danger" @click="datetime = null">
                     <b-icon icon="close"></b-icon>
                     <span>Clear</span>
@@ -65,8 +65,8 @@
                 min="0"
                 max="5"
                 :value="form.newborns_quantity"
-                @input="updateNewbornsQuantity"
                 :readonly="mode === 'remove'"
+                @input="updateNewbornsQuantity"
               />
             </b-field>
           </b-tab-item>
@@ -79,14 +79,14 @@
             <newborn :newborn="newborn" :index="index" />
           </b-tab-item>
         </b-tabs>
-        <input type="hidden" id="birth-id" v-model="pregnancyDiagnosis.id" />
+        <input id="birth-id" v-model="pregnancyDiagnosis.id" type="hidden" />
 
         <div class="sheep-form-buttons">
           <b-button
             v-if="mode === 'save'"
             type="is-info"
-            @click.prevent="handleSubmit(save)"
             icon-left="check"
+            @click.prevent="handleSubmit(save)"
             >{{ $t('buttons.save') }}</b-button
           >
           <b-button
@@ -111,12 +111,16 @@ import { ValidationObserver } from 'vee-validate'
 import PageTitle from '@/components/templates/PageTitle'
 import VSelect from '@/components/templates/VSelect'
 import Newborn from '@/components/birth/Newborn'
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 export default {
   components: { Newborn, PageTitle, VSelect, ValidationObserver },
   computed: {
     ...mapState('birth', ['form']),
     ...mapState('auth', ['user'])
+  },
+  async fetch() {
+    this.users = await this.$axios.$get('/api/v1/users')
+    this.sheeps = await this.$axios.$get('/api/v1/sheeps/?pregnant=True')
   },
   data() {
     return {
@@ -129,9 +133,11 @@ export default {
       pregnancyDiagnostics: []
     }
   },
-  async fetch() {
-    this.users = await this.$axios.$get('/api/v1/users')
-    this.sheeps = await this.$axios.$get('/api/v1/sheeps/?pregnant=True')
+
+  created() {
+    if (!this.form.date) {
+      this.updateDate(new Date())
+    }
   },
   methods: {
     updateSheep(value) {
@@ -159,7 +165,6 @@ export default {
       this.form.birthday = this.form.date.toLocaleDateString('fr-CA')
       this.form.date = this.form.date.toISOString()
 
-      const url = '/api/v1/births'
       // const method = this.sheep.id ? "put" : "post";
       // const id = this.sheep.id ? `/${this.sheep.id}` : "";
       // const url = `/api/v1/sheeps${id}/`;
@@ -176,12 +181,6 @@ export default {
             this.$toast.error(item + ': ' + e.response.data[item])
           }
         })
-    }
-  },
-
-  created() {
-    if (!this.form.date) {
-      this.updateDate(new Date())
     }
   }
 }

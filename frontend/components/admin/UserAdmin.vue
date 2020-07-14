@@ -9,13 +9,13 @@
       >{{ $t('components.admin.useradmin.addNew') }}</b-button
     >
     <span v-else>
-      <b-button type="is-danger" @click="deleteUser()" icon-left="account-group"
+      <b-button type="is-danger" icon-left="account-group" @click="deleteUser()"
         >{{ $t('components.admin.useradmin.confirmDeletion') }} -
         {{ userToDelete.name }}</b-button
       >
     </span>
     <b-table striped :data="users">
-      <template slot-scope="props">
+      <template v-slot="props">
         <b-table-column
           v-for="(column, index) in columns"
           :key="index"
@@ -31,8 +31,8 @@
         >
           <b-button
             type="is-warning"
-            @click="editUser(props.row)"
             icon-left="pencil"
+            @click="editUser(props.row)"
           ></b-button>
           <b-button type="is-danger" icon-left="trash-can-outline"></b-button>
         </b-table-column>
@@ -43,6 +43,9 @@
 
 <script>
 export default {
+  async fetch() {
+    this.users = await this.$axios.$get('/api/v1/users')
+  },
   data() {
     return {
       users: [],
@@ -64,9 +67,6 @@ export default {
         }
       ]
     }
-  },
-  async fetch() {
-    this.users = await this.$axios.$get('/api/v1/users')
   },
   methods: {
     editUser(user) {

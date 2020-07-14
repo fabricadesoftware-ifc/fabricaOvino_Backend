@@ -18,6 +18,7 @@
 import PageTitle from '@/components/templates/PageTitle'
 import GeneralInfo from '@/components/sheeps/GeneralInfo'
 export default {
+  components: { GeneralInfo, PageTitle },
   asyncData({ params }) {
     return {
       sheep: params.sheep
@@ -27,8 +28,7 @@ export default {
     return {
       data: {}
     }
-  },
-  components: { GeneralInfo, PageTitle }
+  }
 }
 </script>
 

@@ -1,51 +1,48 @@
 <template>
-  <ValidationObserver ref="observer" v-slot="{ passes }">
+  <ValidationObserver ref="observer" v-slot="{}">
     <form action>
       <div class="modal-card" style="width: auto;">
         <header class="modal-card-head">
-          <p class="modal-card-title">{{ $t('components.user.changepassword.title') }}</p>
+          <p class="modal-card-title">
+            {{ $t('components.user.changepassword.title') }}
+          </p>
         </header>
         <section class="modal-card-body">
           <b-field :label="$t('components.user.changepassword.email')">
-            {{
-            email
-            }}
+            {{ email }}
           </b-field>
 
           <v-input
             v-if="!isAdmin"
+            v-model="password.current_password"
             rules="required"
             type="password"
             :label="$t('components.user.changepassword.currentPassword')"
-            v-model="password.current_password"
           />
 
           <v-input
+            v-model="password.new_password"
             rules="required"
             type="password"
             :label="$t('components.user.changepassword.newPassword')"
             vid="newPassword"
-            v-model="password.new_password"
           />
 
           <v-input
+            v-model="password.confirm_password"
             rules="required|confirmed:newPassword"
             name="Password"
             type="password"
             :label="$t('components.user.changepassword.confirmPassword')"
-            v-model="password.confirm_password"
           />
         </section>
         <footer class="modal-card-foot">
-          <button
-            class="button"
-            type="button"
-            @click="$parent.close()"
-          >{{ $t('components.user.changepassword.cancel') }}</button>
-          <button
-            class="button is-primary"
-            @click.prevent="updatePassword"
-          >{{ $t('components.user.changepassword.title') }}</button>
+          <button class="button" type="button" @click="$parent.close()">
+            {{ $t('components.user.changepassword.cancel') }}
+          </button>
+          <button class="button is-primary" @click.prevent="updatePassword">
+            {{ $t('components.user.changepassword.title') }}
+          </button>
         </footer>
       </div>
     </form>
@@ -55,7 +52,6 @@
 <script>
 import { ValidationObserver } from 'vee-validate'
 import VInput from '@/components/templates/VInput'
-import { showError } from '@/plugins/global'
 
 export default {
   components: { VInput, ValidationObserver },

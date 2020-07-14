@@ -16,7 +16,9 @@
       :value="newborn.breed"
       @input="updateBreed"
     >
-      <option v-for="breed in breeds" :value="breed.id" :key="breed.id">{{ breed.name }}</option>
+      <option v-for="breed in breeds" :key="breed.id" :value="breed.id">{{
+        breed.name
+      }}</option>
     </v-select>
 
     <v-select
@@ -29,27 +31,35 @@
     >
       <option
         v-for="category in categories"
-        :value="category.id"
         :key="category.id"
-      >{{ category.name }}</option>
+        :value="category.id"
+        >{{ category.name }}</option
+      >
     </v-select>
 
     <b-field :label="$t('pages.admin.sheep.forms.sex.label')">
       <b-radio
         :value="newborn.sex"
-        @input="updateSex"
         name="form-sex"
         native-value="M"
-      >{{ $t('pages.admin.sheep.forms.sex.male') }}</b-radio>
+        @input="updateSex"
+        >{{ $t('pages.admin.sheep.forms.sex.male') }}</b-radio
+      >
       <b-radio
         :value="newborn.sex"
-        @input="updateSex"
         name="form-sex"
         native-value="F"
-      >{{ $t('pages.admin.sheep.forms.sex.female') }}</b-radio>
+        @input="updateSex"
+        >{{ $t('pages.admin.sheep.forms.sex.female') }}</b-radio
+      >
     </b-field>
 
-    <v-input rules="required" label="Peso" :value="newborn.weight" @input="updateWeight" />
+    <v-input
+      rules="required"
+      label="Peso"
+      :value="newborn.weight"
+      @input="updateWeight"
+    />
   </div>
 </template>
 
@@ -57,43 +67,46 @@
 import VInput from '@/components/templates/VInput'
 import VSelect from '@/components/templates/VSelect'
 export default {
+  components: { VInput, VSelect },
+  props: {
+    newborn: Object,
+    index: Number
+  },
+  async fetch() {
+    this.breeds = await this.$axios.$get('/api/v1/breeds')
+    this.categories = await this.$axios.$get('/api/v1/categories')
+  },
   data() {
     return {
       breeds: [],
       categories: []
     }
   },
-  async fetch() {
-    this.breeds = await this.$axios.$get("/api/v1/breeds")
-    this.categories = await this.$axios.$get("/api/v1/categories")
-  },
-  components: { VInput, VSelect },
-  props: {
-    newborn: Object,
-    index: Number,
-  },
   methods: {
     updateEarringNumber(earringNumber) {
-      this.$store.commit('birth/newbornEarringNumber', {earringNumber, index: this.index})
+      this.$store.commit('birth/newbornEarringNumber', {
+        earringNumber,
+        index: this.index
+      })
     },
     updateBreed(breed) {
-      this.$store.commit('birth/newbornBreed', {breed, index: this.index})
+      this.$store.commit('birth/newbornBreed', { breed, index: this.index })
     },
     updateCategory(category) {
-      this.$store.commit('birth/newbornCategory', {category, index: this.index})
+      this.$store.commit('birth/newbornCategory', {
+        category,
+        index: this.index
+      })
     },
     updateSex(sex) {
-      this.$store.commit('birth/newbornSex', {sex, index: this.index})
+      this.$store.commit('birth/newbornSex', { sex, index: this.index })
     },
     updateWeight(weight) {
-      this.$store.commit('birth/newbornWeight', {weight, index: this.index})
+      this.$store.commit('birth/newbornWeight', { weight, index: this.index })
     }
   }
   // }
-
-
 }
 </script>
 
-<style>
-</style>
+<style></style>

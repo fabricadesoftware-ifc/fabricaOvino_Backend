@@ -11,6 +11,8 @@ export const actions = {
 
       const sheeps = await this.$axios.$get('/api/v1/sheeps')
       commit('sheeps/loadSheeps', sheeps)
-    } catch {}
+    } catch {
+      console.log('not authenticated')
+    }
   }
 }

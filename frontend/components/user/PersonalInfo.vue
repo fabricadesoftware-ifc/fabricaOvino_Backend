@@ -4,17 +4,17 @@
       <strong>Configurações pessoais</strong>
     </div>
     <div class="tile is-child is-8">
-      <input v-if="!newUser" type="hidden" id="user-id" v-model="user.id" />
+      <input v-if="!newUser" id="user-id" v-model="user.id" type="hidden" />
       <b-field
         :label="$t('pages.admin.forms.email.label')"
         class="user-form-fields"
       >
         <b-input
+          v-model="user.email"
           :placeholder="$t('pages.admin.forms.email.placeholder')"
           type="text"
           icon="tag"
           :disabled="!newUser"
-          v-model="user.email"
           required
         />
       </b-field>
@@ -23,10 +23,10 @@
         class="user-form-fields"
       >
         <b-input
+          v-model="user.name"
           :placeholder="$t('pages.admin.forms.name.placeholder')"
           type="text"
           icon="tag"
-          v-model="user.name"
           required
         />
       </b-field>

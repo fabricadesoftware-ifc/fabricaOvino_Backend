@@ -241,6 +241,8 @@
     "save": "Save",
     "delete": "Delete",
     "reset": "Reset",
-    "edit": "Edit"
+    "edit": "Edit",
+    "clear": "Clear",
+    "now": "Now"
   }
 }

@@ -8,9 +8,9 @@
 
     <general-info :group="group" edit />
     <permissions
-      :choosedIds="choosedIds"
-      @update-choosed="updateChoosed"
+      :choosed-ids="choosedIds"
       edit
+      @update-choosed="updateChoosed"
     />
 
     <div class="form-bottons columns is-mobile is-centered">
@@ -31,20 +31,19 @@ import PageTitle from '@/components/templates/PageTitle'
 import GeneralInfo from '@/components/group/GeneralInfo'
 import Permissions from '@/components/group/Permissions'
 
-import { showError } from '@/plugins/global'
 export default {
   components: { PageTitle, GeneralInfo, Permissions },
+  async fetch() {
+    this.group = this.$route.params.group
+    Object.assign(this.originalGroup, this.group)
+    this.choosedIds = this.group.permissions.map(({ id }) => id)
+  },
   data() {
     return {
       choosedIds: [],
       group: {},
       originalGroup: {}
     }
-  },
-  async fetch() {
-    this.group = this.$route.params.group
-    Object.assign(this.originalGroup, this.group)
-    this.choosedIds = this.group.permissions.map(({ id }) => id)
   },
 
   methods: {
@@ -64,7 +63,7 @@ export default {
         .$put(url, this.group)
         .then(res => {
           this.$toasted.global.defaultSuccess()
-          sthis.group = res
+          this.group = res
         })
         .catch(e => {
           for (var item in e.response.data) {

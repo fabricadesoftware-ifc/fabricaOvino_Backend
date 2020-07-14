@@ -3,9 +3,14 @@
     <div class="tile is-parent i-12">
       <div class="tile is-child">
         <b-navbar class="is-primary">
-          <template slot="brand">
+          <template v-slot:brand>
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
-              <img src="~/assets/logo.png" alt="Ovinos-Logo" width="112" height="28" />
+              <img
+                src="~/assets/logo.png"
+                alt="Ovinos-Logo"
+                width="112"
+                height="28"
+              />
             </b-navbar-item>
           </template>
           <!-- <template slot="start">
@@ -17,11 +22,11 @@
             </b-navbar-dropdown>
           </template>-->
 
-          <template slot="end">
+          <template v-slot:end>
             <nuxt-link
-              class="language-flags"
               v-for="locale in otherLanguages"
               :key="locale.code"
+              class="language-flags"
               :to="switchLocalePath(locale.code)"
             >
               <country-flag :country="locale.flag" size="normal" />
@@ -35,29 +40,29 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
 
-import CountryFlag from "vue-country-flag";
-import UserDropdown from "./UserDropdown";
+import CountryFlag from 'vue-country-flag'
+import UserDropdown from './UserDropdown'
 
 export default {
   components: { CountryFlag, UserDropdown },
   data: function () {
     return {
-      hideUserDropdown: false,
-    };
+      hideUserDropdown: false
+    }
   },
   computed: {
-    ...mapState("auth", ["loggedIn"]),
+    ...mapState('auth', ['loggedIn']),
     otherLanguages() {
-      let currentLang = this.$i18n.locale;
+      let currentLang = this.$i18n.locale
       var langs = this.$i18n.locales.filter(function (lang) {
-        return lang.code !== currentLang;
-      });
-      return langs;
-    },
-  },
-};
+        return lang.code !== currentLang
+      })
+      return langs
+    }
+  }
+}
 </script>
 
 <style>

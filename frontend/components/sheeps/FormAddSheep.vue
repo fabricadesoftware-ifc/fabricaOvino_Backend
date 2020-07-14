@@ -10,12 +10,12 @@
           class="sheep-form-fields"
         >
           <b-input
+            v-model="sheep.earringNumber"
             :placeholder="
               $t('pages.admin.sheep.forms.earringNumber.placeholder')
             "
             type="text"
             icon="tag"
-            v-model="sheep.earringNumber"
             required
           />
         </b-field>
@@ -24,12 +24,12 @@
           class="sheep-form-fields"
         >
           <b-select
+            v-model="sheep.breed"
             :placeholder="$t('pages.admin.sheep.forms.breed.placeholder')"
             icon="puzzle"
-            v-model="sheep.breed"
             required
           >
-            <option v-for="breed in breeds" :value="breed.id" :key="breed.id">{{
+            <option v-for="breed in breeds" :key="breed.id" :value="breed.id">{{
               breed.name
             }}</option>
           </b-select>
@@ -39,15 +39,15 @@
           class="sheep-form-fields"
         >
           <b-select
+            v-model="sheep.category"
             :placeholder="$t('pages.admin.sheep.forms.category.placeholder')"
             icon="alpha-c-circle-outline"
-            v-model="sheep.category"
             required
           >
             <option
               v-for="category in categories"
-              :value="category.id"
               :key="category.id"
+              :value="category.id"
               >{{ category.name }}</option
             >
           </b-select>
@@ -57,9 +57,9 @@
           class="sheep-form-fields"
         >
           <b-datepicker
+            v-model="birthday"
             :placeholder="$t('pages.admin.sheep.forms.birthday.placeholder')"
             icon="calendar-today"
-            v-model="birthday"
           />
         </b-field>
         <b-field
@@ -78,12 +78,12 @@
           class="sheep-form-fields"
         >
           <b-numberinput
+            v-model="sheep.teethQuantity"
             rounded
             :placeholder="
               $t('pages.admin.sheep.forms.teethQuantity.placeholder')
             "
             icon="mdi-tooth"
-            v-model="sheep.teethQuantity"
             required
           />
         </b-field>

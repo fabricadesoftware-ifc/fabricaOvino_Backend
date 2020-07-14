@@ -1,17 +1,20 @@
 <template>
   <div class="tile is-parent">
     <div class="tile is-child is-3">
-      <strong>{{$t('components.group.generalInfo.title')}}</strong>
+      <strong>{{ $t('components.group.generalInfo.title') }}</strong>
     </div>
     <div class="tile is-child is-8">
-      <input type="hidden" id="group-id" v-model="group.id" />
-      <b-field :label="$t('pages.admin.forms.name.label')" class="group-form-fields">
+      <input id="group-id" v-model="group.id" type="hidden" />
+      <b-field
+        :label="$t('pages.admin.forms.name.label')"
+        class="group-form-fields"
+      >
         <b-input
           v-if="edit"
+          v-model="group.name"
           :placeholder="$t('pages.admin.forms.name.placeholder')"
           type="text"
           icon="tag"
-          v-model="group.name"
           required
         />
         <span v-else>{{ group.name }}</span>
@@ -26,7 +29,7 @@ export default {
     group: Object,
     edit: {
       type: Boolean,
-      default () {
+      default() {
         return false
       }
     }
@@ -34,5 +37,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

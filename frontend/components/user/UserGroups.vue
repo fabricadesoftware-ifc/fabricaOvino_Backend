@@ -7,10 +7,10 @@
       <div class="select-groups">
         <b-field>
           <b-select
+            v-model="selectGroupFrom"
             multiple
             size="10"
             native-size="10"
-            v-model="selectGroupFrom"
           >
             <option
               v-for="group in groups_from"
@@ -22,26 +22,26 @@
         </b-field>
         <b-button
           type="is-info"
-          @click="selectAllGroups"
           icon-right="arrow-right-bold-outline"
+          @click="selectAllGroups"
           >Escolher todos</b-button
         >
       </div>
       <div class="select-buttons">
         <b-button
           type="is-info"
-          @click="selectGroup"
           icon-right="arrow-right-bold-outline"
+          @click="selectGroup"
         ></b-button>
         <b-button
           type="is-info"
-          @click="removeGroup"
           icon-right="arrow-left-bold-outline"
+          @click="removeGroup"
         ></b-button>
       </div>
       <div class="select-groups">
         <b-field>
-          <b-select multiple native-size="10" v-model="selectGroupTo">
+          <b-select v-model="selectGroupTo" multiple native-size="10">
             <option
               v-for="group in choosed_groups"
               :key="group.id"
@@ -52,8 +52,8 @@
         </b-field>
         <b-button
           type="is-info"
-          @click="removeAllGroups"
           icon-right="arrow-left-bold-outline"
+          @click="removeAllGroups"
           >Remover todos</b-button
         >
       </div>
@@ -72,15 +72,15 @@ export default {
       }
     }
   },
+  async fetch() {
+    this.groups = await this.$axios.$get('/api/v1/groups/')
+  },
   data() {
     return {
       selectGroupFrom: [],
       selectGroupTo: [],
       groups: []
     }
-  },
-  async fetch() {
-    this.groups = await this.$axios.$get('/api/v1/groups/')
   },
   computed: {
     groups_from() {

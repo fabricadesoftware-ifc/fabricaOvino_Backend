@@ -3,7 +3,9 @@
     <div class="auth-modal">
       <img src="~/assets/logo.png" width="200" alt="Logo" />
       <hr />
-      <div class="auth-title">{{ showSignup ? $t("pages.login.signup") : $t("pages.login.signin") }}</div>
+      <div class="auth-title">
+        {{ showSignup ? $t('pages.login.signup') : $t('pages.login.signin') }}
+      </div>
       <div class="auth-form">
         <b-field>
           <b-input
@@ -39,50 +41,50 @@
             :placeholder="$t('pages.login.confirmPassword.placeholder')"
           />
         </b-field>
-        <b-button
-          class="is-warning"
-          v-if="showSignup"
-          @click="signup"
-        >{{ $t("pages.login.signup") }}</b-button>
-        <b-button
-          class="is-primary"
-          v-if="!showSignup"
-          @click="signin"
-        >{{ $t("pages.login.signin") }}</b-button>
+        <b-button v-if="showSignup" class="is-warning" @click="signup">{{
+          $t('pages.login.signup')
+        }}</b-button>
+        <b-button v-if="!showSignup" class="is-primary" @click="signin">{{
+          $t('pages.login.signin')
+        }}</b-button>
       </div>
 
       <a href="#" @click.prevent="showSignup = !showSignup">
-        <span v-if="showSignup">{{ $t("pages.login.withRegister") }}</span>
-        <span v-else>{{ $t("pages.login.withoutRegister") }}</span>
+        <span v-if="showSignup">{{ $t('pages.login.withRegister') }}</span>
+        <span v-else>{{ $t('pages.login.withoutRegister') }}</span>
       </a>
     </div>
   </div>
 </template>
 
 <script>
-import { showError } from "@/plugins/global";
-import axios from "axios";
+import { showError } from '@/plugins/global'
 export default {
   auth: false,
 
   data: function () {
     return {
       showSignup: false,
-      user: {},
-    };
+      user: {}
+    }
   },
   methods: {
     async signin() {
       try {
-        const response = await this.$auth.loginWith("local", { data: this.user });
-        this.$auth.setUserToken(response.data.access);
+        const response = await this.$auth.loginWith('local', {
+          data: this.user
+        })
+        this.$auth.setUserToken(response.data.access)
         this.$auth.setToken('local', 'Bearer ' + response.data.access)
         this.$auth.setRefreshToken('local', response.data.refresh)
         this.$axios.setHeader('Authorization', 'Bearer ' + response.data.access)
-        this.$auth.ctx.app.$axios.setHeader('Authorization', 'Bearer ' + response.data.access)
-        this.$router.push("/");
+        this.$auth.ctx.app.$axios.setHeader(
+          'Authorization',
+          'Bearer ' + response.data.access
+        )
+        this.$router.push('/')
       } catch (err) {
-        showError(err);
+        showError(err)
       }
 
       // this.$auth.loginWith('local', { data: this.user }).then((response) => {
@@ -109,8 +111,8 @@ export default {
 
       // }
     },
-    signup() {},
-  },
+    signup() {}
+  }
 
   // computed: {
   //   ...mapState(["login"]),
@@ -145,7 +147,7 @@ export default {
   //         .catch(showError);
   //     },
   //   },
-};
+}
 </script>
 
 <style>

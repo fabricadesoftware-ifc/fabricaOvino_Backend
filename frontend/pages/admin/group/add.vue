@@ -7,12 +7,20 @@
     />
 
     <general-info :group="group" edit />
-    <permissions :choosedIds="choosedIds" @update-choosed="updateChoosed" edit />
+    <permissions
+      :choosed-ids="choosedIds"
+      edit
+      @update-choosed="updateChoosed"
+    />
 
     <div class="form-bottons columns is-mobile is-centered">
       <div class="column is-3">
-        <b-button type="is-info" icon-left="check" @click="save">{{ $t('buttons.save') }}</b-button>
-        <b-button type="is-dark" icon-left="redo" @click="reset">{{ $t('buttons.reset') }}</b-button>
+        <b-button type="is-info" icon-left="check" @click="save">{{
+          $t('buttons.save')
+        }}</b-button>
+        <b-button type="is-dark" icon-left="redo" @click="reset">{{
+          $t('buttons.reset')
+        }}</b-button>
       </div>
     </div>
   </div>
@@ -23,7 +31,6 @@ import PageTitle from '@/components/templates/PageTitle'
 import GeneralInfo from '@/components/group/GeneralInfo'
 import Permissions from '@/components/group/Permissions'
 
-import { showError } from '@/plugins/global'
 export default {
   components: { PageTitle, GeneralInfo, Permissions },
   data() {
@@ -44,14 +51,13 @@ export default {
     },
 
     save() {
-      const id = this.group.id
       this.group.permissions = this.choosedIds
       const url = '/api/v1/groups/'
       this.$axios
         .$post(url, this.group)
         .then(res => {
           this.$toasted.global.defaultSuccess()
-          sthis.group = res
+          this.group = res
         })
         .catch(e => {
           for (var item in e.response.data) {
@@ -63,5 +69,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

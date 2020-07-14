@@ -1,4 +1,6 @@
-<template></template>
+<template>
+  <section></section>
+</template>
 
 <script>
 export default {
@@ -7,4 +9,3 @@ export default {
   }
 }
 </script>
-

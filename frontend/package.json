@@ -9,7 +9,9 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
@@ -31,7 +33,14 @@
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^24.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-i18n-json": "^2.4.4",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^6.2.2",
     "jest": "^24.1.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",

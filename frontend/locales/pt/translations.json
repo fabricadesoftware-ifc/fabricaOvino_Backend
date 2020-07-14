@@ -242,6 +242,8 @@
     "save": "Salvar",
     "delete": "Excluir",
     "reset": "Cancelar",
-    "edit": "Editar"
+    "edit": "Editar",
+    "clear": "Limpar",
+    "now": "Agora"
   }
 }

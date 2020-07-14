@@ -10,7 +10,7 @@
     aria-current-label="Current page"
     per-page="10"
   >
-    <template slot-scope="props">
+    <template v-slot="props">
       <b-table-column
         v-for="(column, index) in columns"
         :key="index"

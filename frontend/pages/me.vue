@@ -37,13 +37,13 @@ import PageTitle from '@/components/templates/PageTitle'
 
 export default {
   components: { Avatar, ChangePassword, PageTitle, PersonalInfo },
-  computed: {
-    ...mapState('auth', ['loggedIn', 'user'])
-  },
   data() {
     return {
       isChangingPassword: false
     }
+  },
+  computed: {
+    ...mapState('auth', ['loggedIn', 'user'])
   },
   methods: {
     editUser(user) {

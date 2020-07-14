@@ -16,7 +16,6 @@ import PageTitle from '@/components/templates/PageTitle'
 import FormCategory from '@/components/categories/FormCategory'
 import ListCategory from '@/components/categories/ListCategory'
 
-import { showError } from '@/plugins/global'
 export default {
   components: { FormCategory, ListCategory, PageTitle },
   data: function () {
