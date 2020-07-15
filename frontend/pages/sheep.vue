@@ -33,7 +33,7 @@ import PageTitle from '@/components/templates/PageTitle'
 
 export default {
   components: { FormAddSheep, ListSheep, PageTitle },
-  data: function () {
+  data() {
     return {
       addNewSheep: false
     }
