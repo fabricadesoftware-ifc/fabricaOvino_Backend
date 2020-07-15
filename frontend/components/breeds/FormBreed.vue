@@ -29,7 +29,12 @@ import { mapActions } from 'vuex'
 
 export default {
   props: {
-    value: Object
+    value: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
   },
   methods: {
     ...mapActions('breeds', ['getBreeds']),

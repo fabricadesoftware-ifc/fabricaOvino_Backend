@@ -26,12 +26,15 @@
 <script>
 export default {
   props: {
-    group: Object,
+    group: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
     edit: {
       type: Boolean,
-      default() {
-        return false
-      }
+      default: false
     }
   }
 }

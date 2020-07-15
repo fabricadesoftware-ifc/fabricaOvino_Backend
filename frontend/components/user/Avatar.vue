@@ -17,7 +17,12 @@
 import Gravatar from 'vue-gravatar'
 export default {
   components: { Gravatar },
-  props: ['email']
+  props: {
+    email: {
+      type: String,
+      default: null
+    }
+  }
 }
 </script>
 

@@ -99,6 +99,9 @@ export default {
   computed: {
     ...mapState('sheeps', ['sheeps'])
   },
+  created() {
+    this.getSheeps()
+  },
   methods: {
     ...mapActions('sheeps', ['getSheeps']),
     editSheep(sheep) {
@@ -132,9 +135,6 @@ export default {
         }
       }
     }
-  },
-  created() {
-    this.getSheeps()
   }
 }
 </script>

@@ -69,8 +69,16 @@ import VSelect from '@/components/templates/VSelect'
 export default {
   components: { VInput, VSelect },
   props: {
-    newborn: Object,
-    index: Number
+    newborn: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    index: {
+      type: Number,
+      default: null
+    }
   },
   async fetch() {
     this.breeds = await this.$axios.$get('/api/v1/breeds')

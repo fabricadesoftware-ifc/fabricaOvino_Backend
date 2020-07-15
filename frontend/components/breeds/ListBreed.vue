@@ -64,6 +64,9 @@ export default {
   computed: {
     ...mapState('breeds', ['breeds'])
   },
+  created() {
+    this.getBreeds()
+  },
   methods: {
     ...mapActions('breeds', ['getBreeds']),
     loadBreed(breed) {
@@ -94,9 +97,6 @@ export default {
         }
       }
     }
-  },
-  created() {
-    this.getBreeds()
   }
 }
 </script>

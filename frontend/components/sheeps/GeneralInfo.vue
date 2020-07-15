@@ -99,23 +99,18 @@ import { showError } from '@/plugins/global'
 
 export default {
   props: {
-    value: Object,
+    value: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
     edit: {
       type: Boolean,
       default() {
         return false
       }
     }
-  },
-  data() {
-    return {
-      sheep: {},
-      birthday: ''
-    }
-  },
-  computed: {
-    ...mapState('categories', ['categories']),
-    ...mapState('breeds', ['breeds'])
   },
   async fetch() {
     this.sheep = {
@@ -131,6 +126,17 @@ export default {
     }
     this.birthday = new Date(this.sheep.birthday)
   },
+  data() {
+    return {
+      sheep: {},
+      birthday: ''
+    }
+  },
+  computed: {
+    ...mapState('categories', ['categories']),
+    ...mapState('breeds', ['breeds'])
+  },
+
   methods: {
     reset() {
       this.sheep = {

@@ -24,14 +24,16 @@ export default {
   },
   props: {
     vid: {
-      type: String
+      type: String,
+      default: null
     },
     rules: {
       type: [Object, String],
       default: ''
     },
     value: {
-      type: null
+      type: null,
+      default: null
     }
   },
   data() {

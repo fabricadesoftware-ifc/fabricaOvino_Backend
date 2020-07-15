@@ -56,8 +56,14 @@ import VInput from '@/components/templates/VInput'
 export default {
   components: { VInput, ValidationObserver },
   props: {
-    id: {},
-    email: {},
+    id: {
+      type: Number,
+      default: null
+    },
+    email: {
+      type: String,
+      default: null
+    },
     isAdmin: {
       type: Boolean,
       default: false

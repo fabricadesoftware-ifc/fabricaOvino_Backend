@@ -37,18 +37,19 @@
 <script>
 export default {
   props: {
-    user: Object,
+    user: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
     edit: {
       type: Boolean,
-      default() {
-        return false
-      }
+      default: false
     },
     newUser: {
       type: Boolean,
-      default() {
-        return false
-      }
+      default: false
     }
   }
 }

@@ -114,10 +114,6 @@ import Newborn from '@/components/birth/Newborn'
 import { mapState } from 'vuex'
 export default {
   components: { Newborn, PageTitle, VSelect, ValidationObserver },
-  computed: {
-    ...mapState('birth', ['form']),
-    ...mapState('auth', ['user'])
-  },
   async fetch() {
     this.users = await this.$axios.$get('/api/v1/users')
     this.sheeps = await this.$axios.$get('/api/v1/sheeps/?pregnant=True')
@@ -132,6 +128,10 @@ export default {
       users: [],
       pregnancyDiagnostics: []
     }
+  },
+  computed: {
+    ...mapState('birth', ['form']),
+    ...mapState('auth', ['user'])
   },
 
   created() {

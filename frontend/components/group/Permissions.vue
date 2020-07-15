@@ -64,12 +64,15 @@
 <script>
 export default {
   props: {
-    choosedIds: Array,
+    choosedIds: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
     edit: {
       type: Boolean,
-      default() {
-        return false
-      }
+      default: false
     }
   },
   async fetch() {

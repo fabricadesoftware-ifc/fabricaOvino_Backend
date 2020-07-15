@@ -17,31 +17,12 @@
         >
       </b-select>
     </b-field>
-    <b-field :label="$t('pages.admin.pregnancyDiagnosis.forms.dateTime.label')">
-      <select-date />
-    </b-field>
-    <!-- <b-field :label="$t('pages.admin.pregnancyDiagnosis.forms.dateTime.label')">
-      <b-datetimepicker
-        :placeholder="
-          $t('pages.admin.pregnancyDiagnosis.forms.dateTime.placeholder')
-        "
-        icon="calendar-today"
-        v-model="date"
-      >
-        <template slot="left">
-          <button class="button is-primary" @click="datetime = new Date()">
-            <b-icon icon="clock"></b-icon>
-            <span>{{ $t('buttons.now') }}</span>
-          </button>
-        </template>
-        <template slot="right">
-          <button class="button is-danger" @click="datetime = null">
-            <b-icon icon="close"></b-icon>
-            <span>{{ $t('buttons.clear') }}</span>
-          </button>
-        </template>
-      </b-datetimepicker>
-    </b-field> -->
+
+    <v-datetime
+      v-model="date"
+      :label="$t('pages.admin.pregnancyDiagnosis.forms.dateTime.label')"
+    />
+
     <b-switch
       v-model="pregnancyDiagnosis.diagnosis"
       :true-value="true"
@@ -63,23 +44,44 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
-import { SelectDate } from '@/components/templates/SelectDate'
+import { mapState, mapGetters, mapActions } from 'vuex'
+import VDatetime from '@/components/templates/VDatetime'
 export default {
-  components: { SelectDate },
-  computed: {
-    ...mapState('auth', ['user']),
-    ...mapGetters('sheeps', ['notPregnantSheeps'])
-  },
+  components: { VDatetime },
   data() {
     return {
       date: new Date(),
       pregnancyDiagnosis: {}
     }
   },
+  computed: {
+    ...mapState('auth', ['user']),
+    ...mapGetters('sheeps', ['notPregnantSheeps'])
+  },
   methods: {
-    save() {},
-    reset() {}
+    ...mapActions('sheeps', ['getSheeps']),
+    reset() {
+      this.pregnancyDiagnosis = {
+        diagnosis: false
+      }
+    },
+    async save() {
+      this.pregnancyDiagnosis.date = this.date.toISOString()
+      this.pregnancyDiagnosis.user = this.user.id
+      try {
+        await this.$axios.$post(
+          '/api/v1/pregnancy-diagnosis/',
+          this.pregnancyDiagnosis
+        )
+        this.$toasted.global.defaultSuccess()
+        this.getSheeps()
+        this.reset()
+      } catch (err) {
+        for (const item in err.response.data) {
+          this.$toast.error(item + ': ' + err.response.data[item])
+        }
+      }
+    }
   }
 }
 </script>

@@ -64,6 +64,9 @@ export default {
   computed: {
     ...mapState('categories', ['categories'])
   },
+  created() {
+    this.getCategories()
+  },
   methods: {
     ...mapActions('categories', ['getCategories']),
     loadCategory(category) {
@@ -94,9 +97,6 @@ export default {
         }
       }
     }
-  },
-  created() {
-    this.getCategories()
   }
 }
 </script>

@@ -10,8 +10,20 @@
 
 <script>
 export default {
-  name: 'PageTitle',
-  props: ['icon', 'main', 'sub']
+  props: {
+    icon: {
+      type: String,
+      default: null
+    },
+    main: {
+      type: String,
+      default: null
+    },
+    sub: {
+      type: String,
+      default: null
+    }
+  }
 }
 </script>
 

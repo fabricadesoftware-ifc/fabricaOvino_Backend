@@ -21,7 +21,8 @@ export default {
   },
   props: {
     vid: {
-      type: String
+      type: String,
+      default: null
     },
     placeholder: {
       type: String,
@@ -36,12 +37,15 @@ export default {
       default: ''
     },
     value: {
-      type: null
+      type: null,
+      default: null
     }
   },
-  data: () => ({
-    innerValue: ''
-  }),
+  data() {
+    return {
+      innerValue: ''
+    }
+  },
   watch: {
     innerValue(newVal) {
       this.$emit('input', newVal)
