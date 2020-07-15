@@ -1,12 +1,13 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from backend.core.models import Breed, Category
 
 
 class Sheep(models.Model):
     class Sex(models.TextChoices):
-        FEMALE = "F", "Female"
-        MALE = "M", "Male"
+        FEMALE = "F", _("Female")
+        MALE = "M", _("Male")
 
     earringNumber = models.CharField(unique=True, blank=True, null=True, max_length=63)
     breed = models.ForeignKey(Breed, on_delete=models.PROTECT, related_name="sheeps")

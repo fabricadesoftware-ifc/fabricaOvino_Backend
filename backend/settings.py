@@ -86,7 +86,7 @@ SIMPLE_JWT = {
 CORS_ORIGIN_WHITELIST = env("CORS_ORIGIN_WHITELIST", list, ["http://localhost:3000", "http://127.0.0.1:3000"])
 
 
-LANGUAGE_CODE = "pt-br"
+LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_L10N = True
