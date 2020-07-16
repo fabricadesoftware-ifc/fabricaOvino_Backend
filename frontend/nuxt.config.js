@@ -1,21 +1,6 @@
 export default {
   mode: 'universal',
   /*
-   ** Headers of the page
-   */
-  head: {
-    title: 'Ovinos - NEPPA',
-    htmlAttrs: {
-      lang: 'pt-br'
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Ovinos - NEPPA' }
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-  },
-  /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
@@ -120,6 +105,7 @@ export default {
     middleware: [
       // Needed for redirection to the login page when not authenticated
       'auth'
+      // 'lang'
     ]
   },
 
@@ -170,14 +156,14 @@ export default {
     locales: [
       {
         code: 'en',
-        iso: 'en-US',
+        iso: 'en',
         name: 'English',
         file: 'en/translations.json',
         flag: 'us'
       },
       {
         code: 'pt',
-        iso: 'pt-BR',
+        iso: 'pt-br',
         name: 'Português',
         file: 'pt/translations.json',
         flag: 'br'
@@ -193,6 +179,21 @@ export default {
     lazy: true,
     langDir: 'locales/',
     rootRedirect: 'pt',
-    seo: false
+    seo: true
+    // onLanguageSwitched: ctx => {
+    //   console.log($axios + ctx)
+    // }
   }
+  /*
+   ** Headers of the page
+   */
+  // head: {
+  //   title: 'Ovinos - NEPPA',
+  //   meta: [
+  //     { charset: 'utf-8' },
+  //     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+  //     { hid: 'description', name: 'description', content: 'Ovinos - NEPPA' }
+  //   ],
+  //   link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+  // }
 }

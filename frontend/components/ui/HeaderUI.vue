@@ -62,6 +62,12 @@ export default {
       return langs
     }
   }
+  // methods: {
+  //   changeLanguage(newLang) {
+  //     this.$axios.setHeader('Accept-Language', newLang)
+  //     this.switchLocalePath(newLang)
+  //   }
+  // }
 }
 </script>
 
