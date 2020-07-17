@@ -1,17 +1,27 @@
 <template>
   <div class="group-edit">
+    <title-bar :title-stack="titleStack" />
+    <hero-bar>
+      {{ $t('pages.admin.group.add.title') }}
+      <template v-slot:right>
+        <router-link to="/" class="button">
+          Dashboard
+        </router-link>
+      </template>
+    </hero-bar>
     <PageTitle
       icon="face"
       :main="$t('pages.admin.group.add.title')"
       :sub="$t('pages.admin.group.add.subtitle')"
     />
-
-    <general-info :group="group" edit />
-    <permissions
-      :choosed-ids="choosedIds"
-      edit
-      @update-choosed="updateChoosed"
-    />
+    <card-component>
+      <general-info :group="group" edit />
+      <permissions
+        :choosed-ids="choosedIds"
+        edit
+        @update-choosed="updateChoosed"
+      />
+    </card-component>
 
     <div class="form-bottons columns is-mobile is-centered">
       <div class="column is-3">
@@ -27,17 +37,24 @@
 </template>
 
 <script>
-import PageTitle from '@/components/templates/PageTitle'
+import TitleBar from '@/components/templates/TitleBar'
+import HeroBar from '@/components/templates/HeroBar'
+import CardComponent from '@/components/templates/CardComponent'
 import GeneralInfo from '@/components/group/GeneralInfo'
 import Permissions from '@/components/group/Permissions'
 
 export default {
-  components: { PageTitle, GeneralInfo, Permissions },
+  components: { TitleBar, HeroBar, CardComponent, GeneralInfo, Permissions },
   data() {
     return {
       choosedIds: [],
       group: {},
       originalGroup: {}
+    }
+  },
+  computed: {
+    titleStack() {
+      return ['Admin', this.$t('pages.admin.subtitle')]
     }
   },
 

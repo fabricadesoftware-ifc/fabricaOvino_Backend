@@ -1,13 +1,13 @@
 <template>
   <form @submit.prevent="submit">
-    <input id="breed-id" v-model="value.id" type="hidden" />
+    <input id="breed-id" v-model="breed.id" type="hidden" />
     <b-field
       :label="$t('pages.admin.forms.name.label')"
       message="Nome da raça"
       horizontal
     >
       <b-input
-        v-model="value.name"
+        v-model="breed.name"
         :placeholder="$t('pages.admin.forms.name.placeholder')"
         type="text"
         icon="tag"
@@ -43,6 +43,27 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      original: {},
+      breed: {}
+    }
+  },
+  watch: {
+    value(newValue) {
+      this.original = { ...newValue }
+      this.breed = newValue
+    },
+    breed(newValue) {
+      this.$emit('input', newValue)
+    }
+  },
+  created() {
+    if (this.value) {
+      this.original = { ...this.value }
+      this.breed = this.value
+    }
+  },
   methods: {
     ...mapActions('breeds', ['getBreeds']),
     async submit() {
@@ -53,17 +74,15 @@ export default {
         await this.$axios[method](url, this.value)
         this.$toasted.global.defaultSuccess()
         this.getBreeds()
-        this.reset()
+        this.reset('reload')
       } catch (err) {
         for (const item in err.response.data) {
           this.$toast.error(item + ': ' + err.response.data[item])
         }
       }
     },
-    reset() {
-      this.$router.push({
-        name: `breed___${this.$i18n.locale}`
-      })
+    reset(mode) {
+      this.breed = this.breed.id && mode != 'reload' ? this.original : {}
     }
   }
 }

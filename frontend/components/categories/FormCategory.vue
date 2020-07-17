@@ -1,13 +1,13 @@
 <template>
   <form @submit.prevent="submit">
-    <input id="category-id" v-model="value.id" type="hidden" />
+    <input id="category-id" v-model="category.id" type="hidden" />
     <b-field
       :label="$t('pages.admin.forms.name.label')"
       message="Nome da categoria"
       horizontal
     >
       <b-input
-        v-model="value.name"
+        v-model="category.name"
         :placeholder="$t('pages.admin.forms.name.placeholder')"
         type="text"
         icon="tag"
@@ -43,6 +43,27 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      category: {},
+      original: {}
+    }
+  },
+  watch: {
+    value(newValue) {
+      this.original = { ...newValue }
+      this.category = newValue
+    },
+    category(newValue) {
+      this.$emit('input', newValue)
+    }
+  },
+  created() {
+    if (this.value) {
+      this.original = { ...this.value }
+      this.category = this.value
+    }
+  },
   methods: {
     ...mapActions('categories', ['getCategories']),
     async submit() {
@@ -53,17 +74,15 @@ export default {
         await this.$axios[method](url, this.value)
         this.$toasted.global.defaultSuccess()
         this.getCategories()
-        this.reset()
+        this.reset('reload')
       } catch (err) {
         for (const item in err.response.data) {
           this.$toast.error(item + ': ' + err.response.data[item])
         }
       }
     },
-    reset() {
-      this.$router.push({
-        name: `category___${this.$i18n.locale}`
-      })
+    reset(mode) {
+      this.category = this.category.id && mode != 'reload' ? this.original : {}
     }
   }
 }

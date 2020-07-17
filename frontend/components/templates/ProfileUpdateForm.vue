@@ -2,19 +2,23 @@
   <card-component title="Edit Profile" icon="account-circle">
     <form @submit.prevent="submit">
       <b-field horizontal label="Avatar">
-        <file-picker/>
+        <file-picker />
       </b-field>
-      <hr>
+      <hr />
       <b-field horizontal label="Name" message="Required. Your name">
-        <b-input v-model="form.name" name="name" required/>
+        <b-input v-model="form.name" name="name" required />
       </b-field>
       <b-field horizontal label="E-mail" message="Required. Your e-mail">
-        <b-input v-model="form.email" name="email" type="email" required/>
+        <b-input v-model="form.email" name="email" type="email" required />
       </b-field>
-      <hr>
+      <hr />
       <b-field horizontal>
         <div class="control">
-          <button type="submit" class="button is-primary" :class="{'is-loading':isLoading}">
+          <button
+            type="submit"
+            class="button is-primary"
+            :class="{ 'is-loading': isLoading }"
+          >
             Submit
           </button>
         </div>
@@ -34,7 +38,7 @@ export default {
     CardComponent,
     FilePicker
   },
-  data () {
+  data() {
     return {
       isFileUploaded: false,
       isLoading: false,
@@ -45,17 +49,14 @@ export default {
     }
   },
   computed: {
-    ...mapState([
-      'userName',
-      'userEmail'
-    ])
+    ...mapState(['userName', 'userEmail'])
   },
-  mounted () {
+  mounted() {
     this.form.name = this.userName
     this.form.email = this.userEmail
   },
   methods: {
-    submit () {
+    submit() {
       this.isLoading = true
       setTimeout(() => {
         this.isLoading = false
@@ -68,10 +69,10 @@ export default {
     }
   },
   watch: {
-    userName (newValue) {
+    userName(newValue) {
       this.form.name = newValue
     },
-    userEmail (newValue) {
+    userEmail(newValue) {
       this.form.email = newValue
     }
   }

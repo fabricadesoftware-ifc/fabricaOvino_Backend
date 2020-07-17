@@ -1,18 +1,28 @@
 <template>
   <div class="user-edit">
-    <PageTitle
+    <title-bar :title-stack="titleStack" />
+    <hero-bar>
+      {{ $t('pages.admin.user.add.title') }}
+      <template v-slot:right>
+        <router-link to="/" class="button">
+          Dashboard
+        </router-link>
+      </template>
+    </hero-bar>
+    <!-- <PageTitle
       icon="face"
       :main="$t('pages.admin.user.add.title')"
       :sub="$t('pages.admin.user.add.subtitle')"
-    />
+    /> -->
 
-    <personal-info :user="user" new-user />
-    <user-groups
-      :choosed-ids="choosedIds"
-      edit
-      @update-choosed="updateChoosed"
-    />
-
+    <card-component>
+      <personal-info :user="user" new-user />
+      <user-groups
+        :choosed-ids="choosedIds"
+        edit
+        @update-choosed="updateChoosed"
+      />
+    </card-component>
     <div class="form-bottons columns is-mobile is-centered">
       <div class="column is-3">
         <b-button type="is-info" icon-left="check" @click="save">{{
@@ -27,17 +37,24 @@
 </template>
 
 <script>
-import PageTitle from '@/components/templates/PageTitle'
+import TitleBar from '@/components/templates/TitleBar'
+import HeroBar from '@/components/templates/HeroBar'
+import CardComponent from '@/components/templates/CardComponent'
 import PersonalInfo from '@/components/user/PersonalInfo'
 import UserGroups from '@/components/user/UserGroups'
 
 export default {
-  components: { PageTitle, PersonalInfo, UserGroups },
+  components: { TitleBar, HeroBar, CardComponent, PersonalInfo, UserGroups },
   data() {
     return {
       choosedIds: [],
       user: {},
       originalUser: {}
+    }
+  },
+  computed: {
+    titleStack() {
+      return ['Admin', this.$t('pages.admin.subtitle')]
     }
   },
 

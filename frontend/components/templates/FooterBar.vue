@@ -7,7 +7,7 @@
             <div class="footer-copyright">
               <b>&copy; {{ year }}, Ovinos</b> &mdash; NEPPA - Fábrica de
               Software
-              <span class="tag">v0.0.2</span>
+              <span class="tag">v 0.0.2</span>
             </div>
           </div>
         </div>
