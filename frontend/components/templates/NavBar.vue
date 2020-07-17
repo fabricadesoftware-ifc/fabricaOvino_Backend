@@ -25,7 +25,7 @@
       class="navbar-menu fadeIn animated faster"
       :class="{ 'is-active': isMenuNavBarActive }"
     >
-      <div class="navbar-end">
+      <div v-if="loggedIn" class="navbar-end">
         <!-- <nav-bar-menu class="has-divider">
           <b-icon icon="menu" custom-size="default" />
           <span>Sample Menu</span>
@@ -127,7 +127,7 @@ export default {
   },
   computed: {
     ...mapState('ui', ['isNavBarVisible', 'isAsideMobileExpanded']),
-    ...mapState('auth', ['user']),
+    ...mapState('auth', ['loggedIn', 'user']),
     menuNavBarToggleIcon() {
       return this.isMenuNavBarActive ? 'close' : 'dots-vertical'
     },
