@@ -1,9 +1,15 @@
 <template>
-  <ValidationProvider :vid="vid" :name="$attrs.label" :rules="rules">
+  <ValidationProvider
+    v-slot="{ errors, valid }"
+    :vid="vid"
+    :name="$attrs.label"
+    :rules="rules"
+  >
     <b-field
       v-bind="$attrs"
       :type="{ 'is-danger': errors[0], 'is-success': valid }"
       :message="errors"
+      horizontal
     >
       <b-select v-model="innerValue" :icon="icon" placeholder="placeholder">
         <slot />

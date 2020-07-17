@@ -1,6 +1,9 @@
 <template>
-  <div class="form">
-    <b-field :label="$t('pages.admin.pregnancyDiagnosis.forms.sheep.label')">
+  <form @submit.prevent="save">
+    <b-field
+      :label="$t('pages.admin.pregnancyDiagnosis.forms.sheep.label')"
+      horizontal
+    >
       <b-select
         v-model="pregnancyDiagnosis.sheep"
         :placeholder="
@@ -23,24 +26,34 @@
       :label="$t('pages.admin.pregnancyDiagnosis.forms.dateTime.label')"
     />
 
-    <b-switch
-      v-model="pregnancyDiagnosis.diagnosis"
-      :true-value="true"
-      :false-value="false"
-    >
-      <strong>{{
-        $t('pages.admin.pregnancyDiagnosis.forms.pregnancyDiagnosis')
-      }}</strong>
-    </b-switch>
-    <div class="sheep-form-buttons">
-      <b-button type="is-info" icon-left="check" @click="save">{{
-        $t('buttons.save')
-      }}</b-button>
-      <b-button type="is-dark" icon-left="redo" @click="reset">{{
-        $t('buttons.reset')
-      }}</b-button>
-    </div>
-  </div>
+    <b-field label="Diagnóstico" horizontal>
+      <b-switch
+        v-model="pregnancyDiagnosis.diagnosis"
+        :true-value="true"
+        :false-value="false"
+      >
+        <strong>{{
+          $t('pages.admin.pregnancyDiagnosis.forms.pregnancyDiagnosis')
+        }}</strong>
+      </b-switch>
+    </b-field>
+    <b-field horizontal>
+      <b-field grouped>
+        <div class="control">
+          <b-button native-type="submit" type="is-primary">{{
+            $t('buttons.save')
+          }}</b-button>
+        </div>
+        <div class="control">
+          <b-button
+            type="is-primary is-outlined"
+            @click.prevent="$parent.close()"
+            >{{ $t('buttons.reset') }}</b-button
+          >
+        </div>
+      </b-field>
+    </b-field>
+  </form>
 </template>
 
 <script>
@@ -51,7 +64,9 @@ export default {
   data() {
     return {
       date: new Date(),
-      pregnancyDiagnosis: {}
+      pregnancyDiagnosis: {
+        diagnosis: false
+      }
     }
   },
   computed: {

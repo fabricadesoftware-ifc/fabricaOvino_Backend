@@ -1,6 +1,6 @@
 <template>
   <ValidationObserver ref="observer" v-slot="{}">
-    <form action>
+    <form @submit.prevent="updatePassword">
       <div class="modal-card" style="width: auto;">
         <header class="modal-card-head">
           <p class="modal-card-title">
@@ -8,7 +8,10 @@
           </p>
         </header>
         <section class="modal-card-body">
-          <b-field :label="$t('components.user.changepassword.email')">
+          <b-field
+            :label="$t('components.user.changepassword.email')"
+            horizontal
+          >
             {{ email }}
           </b-field>
 
@@ -37,12 +40,23 @@
           />
         </section>
         <footer class="modal-card-foot">
-          <button class="button" type="button" @click="$parent.close()">
-            {{ $t('components.user.changepassword.cancel') }}
-          </button>
-          <button class="button is-primary" @click.prevent="updatePassword">
-            {{ $t('components.user.changepassword.title') }}
-          </button>
+          <b-field horizontal>
+            <b-field grouped>
+              <div class="control">
+                <b-button native-type="submit" type="is-primary">
+                  {{ $t('components.user.changepassword.title') }}
+                </b-button>
+              </div>
+              <div class="control">
+                <b-button
+                  type="is-primary is-outlined"
+                  @click="$parent.close()"
+                >
+                  {{ $t('components.user.changepassword.cancel') }}
+                </b-button>
+              </div>
+            </b-field>
+          </b-field>
         </footer>
       </div>
     </form>

@@ -37,21 +37,18 @@
       >
     </v-select>
 
-    <b-field :label="$t('pages.admin.sheep.forms.sex.label')">
-      <b-radio
-        :value="newborn.sex"
-        name="form-sex"
-        native-value="M"
-        @input="updateSex"
-        >{{ $t('pages.admin.sheep.forms.sex.male') }}</b-radio
-      >
-      <b-radio
-        :value="newborn.sex"
-        name="form-sex"
-        native-value="F"
-        @input="updateSex"
-        >{{ $t('pages.admin.sheep.forms.sex.female') }}</b-radio
-      >
+    <b-field
+      :label="$t('pages.admin.sheep.forms.sex.label')"
+      class="has-check"
+      horizontal
+    >
+      <radio-picker
+        v-model="newborn.sex"
+        :options="{
+          M: $t('pages.admin.sheep.forms.sex.male'),
+          F: $t('pages.admin.sheep.forms.sex.female')
+        }"
+      ></radio-picker>
     </b-field>
 
     <v-input
@@ -66,8 +63,9 @@
 <script>
 import VInput from '@/components/templates/VInput'
 import VSelect from '@/components/templates/VSelect'
+import RadioPicker from '@/components/templates/RadioPicker'
 export default {
-  components: { VInput, VSelect },
+  components: { VInput, VSelect, RadioPicker },
   props: {
     newborn: {
       type: Object,

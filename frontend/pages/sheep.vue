@@ -1,14 +1,20 @@
 <template>
   <div class="sheep-admin">
-    <PageTitle
-      icon="sheep"
-      :main="$t('pages.admin.sheep.title')"
-      :sub="$t('pages.admin.sheep.subtitle')"
-    />
+    <title-bar :title-stack="titleStack" />
 
-    <button class="button is-primary is-medium" @click="addNewSheep = true">
-      {{ $t('pages.sheeps.add') }}
-    </button>
+    <hero-bar>
+      {{ $t('pages.admin.sheep.title') }}
+      <template v-slot:right>
+        <div class="buttons">
+          <button class="button is-primary" @click="addNewSheep = true">
+            {{ $t('pages.sheeps.add') }}
+          </button>
+          <router-link to="/" class="button">
+            Dashboard
+          </router-link>
+        </div>
+      </template>
+    </hero-bar>
 
     <b-modal
       :active.sync="addNewSheep"
@@ -22,20 +28,33 @@
     </b-modal>
 
     <hr />
-    <list-sheep />
+    <card-component
+      class="has-table has-mobile-sort-spaced"
+      title="Animais"
+      icon="sheep"
+    >
+      <list-sheep />
+    </card-component>
   </div>
 </template>
 
 <script>
 import FormAddSheep from '@/components/sheeps/FormAddSheep'
 import ListSheep from '@/components/sheeps/ListSheep'
-import PageTitle from '@/components/templates/PageTitle'
+import TitleBar from '@/components/templates/TitleBar'
+import HeroBar from '@/components/templates/HeroBar'
+import CardComponent from '@/components/templates/CardComponent'
 
 export default {
-  components: { FormAddSheep, ListSheep, PageTitle },
+  components: { FormAddSheep, ListSheep, TitleBar, HeroBar, CardComponent },
   data() {
     return {
       addNewSheep: false
+    }
+  },
+  computed: {
+    titleStack() {
+      return ['Admin', this.$t('pages.admin.sheep.title')]
     }
   }
 }

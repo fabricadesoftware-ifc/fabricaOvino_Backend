@@ -7,7 +7,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/style.scss', '@mdi/font/css/materialdesignicons.css'],
+  css: ['~/assets/scss/main.scss', '@mdi/font/css/materialdesignicons.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -29,7 +29,7 @@ export default {
     ['nuxt-buefy', { css: false, materialDesignIcons: true }]
   ],
 
-  styleResources: { scss: ['~/assets/css/style.scss'] },
+  styleResources: { scss: ['~/assets/scss/main.scss'] },
 
   /*
    ** Build configuration
@@ -183,17 +183,32 @@ export default {
     // onLanguageSwitched: ctx => {
     //   console.log($axios + ctx)
     // }
-  }
+  },
   /*
    ** Headers of the page
    */
-  // head: {
-  //   title: 'Ovinos - NEPPA',
-  //   meta: [
-  //     { charset: 'utf-8' },
-  //     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-  //     { hid: 'description', name: 'description', content: 'Ovinos - NEPPA' }
-  //   ],
-  //   link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-  // }
+  head: {
+    title: 'Ovinos - NEPPA',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: 'Ovinos - NEPPA' }
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
+      {
+        href: 'https://fonts.googleapis.com/css2?family=Nunito&display=swap',
+        rel: 'stylesheet'
+      }
+    ],
+    htmlAttrs: {
+      class: [
+        'has-aside-left',
+        'has-aside-mobile-transition',
+        'has-navbar-fixed-top',
+        'has-aside-expanded'
+      ]
+    }
+  }
 }

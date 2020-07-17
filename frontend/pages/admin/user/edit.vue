@@ -1,14 +1,18 @@
 <template>
   <div class="user-edit">
-    <PageTitle
-      icon="face"
-      :main="$t('pages.admin.user.edit.title')"
-      :sub="$t('pages.admin.user.edit.subtitle')"
-    />
+    <title-bar :title-stack="titleStack" />
+    <hero-bar>
+      {{ $t('pages.admin.user.edit.title') }}
+      <template v-slot:right>
+        <div class="buttons">
+          <b-button @click="editUser(user)">Editar Perfil</b-button>
+          <b-button type="is-warning" @click="isChangingPassword = true"
+            >Alterar Senha</b-button
+          >
+        </div>
+      </template>
+    </hero-bar>
 
-    <b-button type="is-warning" @click="isChangingPassword = true"
-      >Alterar Senha</b-button
-    >
     <b-modal
       :active.sync="isChangingPassword"
       has-modal-card
@@ -24,36 +28,51 @@
       ></change-password>
     </b-modal>
 
-    <avatar :email="user.email" />
-    <personal-info :user="user" />
-    <user-groups
-      :choosed-ids="choosedIds"
-      edit
-      @update-choosed="updateChoosed"
-    />
+    <card-component title="Informações do usuário" icon="ballot">
+      <avatar :email="user.email" />
+      <personal-info :user="user" />
+      <user-groups
+        :choosed-ids="choosedIds"
+        edit
+        @update-choosed="updateChoosed"
+      />
+    </card-component>
 
     <div class="form-bottons columns is-mobile is-centered">
       <div class="column is-4">
-        <b-button type="is-info" icon-left="check" @click="save">{{
+        <b-button type="is-primary" icon-left="check" @click="save">{{
           $t('buttons.save')
         }}</b-button>
-        <b-button type="is-dark" icon-left="redo" @click="reset">{{
-          $t('buttons.reset')
-        }}</b-button>
+        <b-button
+          type="is-primary is-outlined"
+          icon-left="redo"
+          @click="reset"
+          >{{ $t('buttons.reset') }}</b-button
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import PageTitle from '@/components/templates/PageTitle'
+import TitleBar from '@/components/templates/TitleBar'
+import HeroBar from '@/components/templates/HeroBar'
+import CardComponent from '@/components/templates/CardComponent'
 import Avatar from '@/components/user/Avatar'
 import PersonalInfo from '@/components/user/PersonalInfo'
 import ChangePassword from '@/components/user/ChangePassword'
 import UserGroups from '@/components/user/UserGroups'
 
 export default {
-  components: { Avatar, ChangePassword, PersonalInfo, PageTitle, UserGroups },
+  components: {
+    Avatar,
+    ChangePassword,
+    CardComponent,
+    PersonalInfo,
+    HeroBar,
+    TitleBar,
+    UserGroups
+  },
   fetch() {
     this.user = this.$route.params.user
     Object.assign(this.originalUser, this.user)
@@ -66,7 +85,11 @@ export default {
       isChangingPassword: false
     }
   },
-
+  computed: {
+    titleStack() {
+      return ['Admin', this.$t('pages.me.title')]
+    }
+  },
   methods: {
     reset() {
       Object.assign(this.user, this.originalUser)

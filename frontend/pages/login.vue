@@ -1,71 +1,32 @@
 <template>
-  <div class="auth-content">
-    <div class="auth-modal">
-      <img src="~/assets/logo.png" width="200" alt="Logo" />
-      <hr />
-      <div class="auth-title">
-        {{ showSignup ? $t('pages.login.signup') : $t('pages.login.signin') }}
-      </div>
-      <div class="auth-form">
-        <b-field>
-          <b-input
-            v-if="showSignup"
-            v-model="user.name"
-            icon="face"
-            type="text "
-            :placeholder="$t('pages.login.name.placeholder')"
-          />
-        </b-field>
-        <b-field>
-          <b-input
-            v-model="user.email"
-            type="email"
-            icon="email"
-            :placeholder="$t('pages.login.email.placeholder')"
-          />
-        </b-field>
-        <b-field>
-          <b-input
-            v-model="user.password"
-            icon="textbox-password"
-            type="password"
-            :placeholder="$t('pages.login.password.placeholder')"
-          />
-        </b-field>
-        <b-field>
-          <b-input
-            v-if="showSignup"
-            v-model="user.confirmPassword"
-            icon="textbox-password"
-            type="password"
-            :placeholder="$t('pages.login.confirmPassword.placeholder')"
-          />
-        </b-field>
-        <b-button v-if="showSignup" class="is-warning" @click="signup">{{
-          $t('pages.login.signup')
-        }}</b-button>
-        <b-button v-if="!showSignup" class="is-primary" @click="signin">{{
-          $t('pages.login.signin')
-        }}</b-button>
-      </div>
-
-      <a href="#" @click.prevent="showSignup = !showSignup">
-        <span v-if="showSignup">{{ $t('pages.login.withRegister') }}</span>
-        <span v-else>{{ $t('pages.login.withoutRegister') }}</span>
-      </a>
-    </div>
-  </div>
+  <section>
+    <b-modal
+      :active.sync="isComponentModalActive"
+      has-modal-card
+      full-screen
+      :can-cancel="false"
+    >
+      <form-login></form-login>
+    </b-modal>
+  </section>
 </template>
 
 <script>
+import FormLogin from '@/components/FormLogin'
 import { showError } from '@/plugins/global'
 export default {
   auth: false,
+  components: { FormLogin },
 
   data: function () {
     return {
+      isComponentModalActive: true,
       showSignup: false,
-      user: {}
+      user: {},
+      formProps: {
+        email: '',
+        password: ''
+      }
     }
   },
   methods: {
@@ -149,44 +110,3 @@ export default {
   //   },
 }
 </script>
-
-<style>
-.auth-content {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.auth-modal {
-  background-color: azure;
-  width: 550px;
-  padding: 35px;
-  box-shadow: 0 12px 15px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.auth-modal img {
-  background-color: #19a061;
-}
-
-.auth-modal .auth-form {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  padding: 5px;
-}
-
-.auth-title {
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-
-.auth-modal a {
-  margin-top: 35px;
-}
-</style>

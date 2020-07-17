@@ -22,21 +22,24 @@
       </b-table-column>
 
       <b-table-column
-        field="actions"
+        custom-key="actions"
+        class="is-actions-cell"
         :label="$t('pages.admin.breed.table.actions')"
       >
-        <b-button
-          type="is-warning"
-          icon-left="pencil"
-          @click="loadBreed(props.row)"
-        >
-        </b-button>
-        <b-button
-          type="is-danger"
-          icon-left="trash-can-outline"
-          @click="confirmRemove(props.row)"
-        >
-        </b-button>
+        <div class="buttons">
+          <b-button
+            type="is-small is-primary"
+            icon-left="pencil"
+            @click="loadBreed(props.row)"
+          >
+          </b-button>
+          <b-button
+            type="is-small is-danger"
+            icon-left="trash-can-outline"
+            @click="confirmRemove(props.row)"
+          >
+          </b-button>
+        </div>
       </b-table-column>
     </template>
   </b-table>

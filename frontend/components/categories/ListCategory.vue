@@ -22,21 +22,25 @@
       </b-table-column>
 
       <b-table-column
-        field="actions"
+        custom-key="actions"
+        class="is-actions-cell"
         :label="$t('pages.admin.category.table.actions')"
       >
-        <b-button
-          type="is-warning"
-          icon-left="pencil"
-          @click="loadCategory(props.row)"
-        >
-        </b-button>
-        <b-button
-          type="is-danger"
-          icon-left="trash-can-outline"
-          @click="confirmRemove(props.row)"
-        >
-        </b-button>
+        <div class="buttons">
+          <b-button
+            type="is-small is-primary"
+            icon-left="pencil"
+            @click.prevent="loadCategory(props.row)"
+          >
+          </b-button>
+          <b-button
+            type="is-danger"
+            class="button is-small"
+            icon-left="trash-can-outline"
+            @click.prevent="confirmRemove(props.row)"
+          >
+          </b-button>
+        </div>
       </b-table-column>
     </template>
   </b-table>
@@ -45,8 +49,16 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 export default {
+  prpos: {
+    checkable: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
+      isModalActive: false,
+      checkedRows: [],
       columns: [
         {
           field: 'id',

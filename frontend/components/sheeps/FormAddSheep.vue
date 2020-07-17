@@ -7,7 +7,8 @@
       <section class="modal-card-body">
         <b-field
           :label="$t('pages.admin.sheep.forms.earringNumber.label')"
-          class="sheep-form-fields"
+          message="Código do brinco"
+          horizontal
         >
           <b-input
             v-model="sheep.earringNumber"
@@ -19,10 +20,7 @@
             required
           />
         </b-field>
-        <b-field
-          :label="$t('pages.admin.sheep.forms.breed.label')"
-          class="sheep-form-fields"
-        >
+        <b-field :label="$t('pages.admin.sheep.forms.breed.label')" horizontal>
           <b-select
             v-model="sheep.breed"
             :placeholder="$t('pages.admin.sheep.forms.breed.placeholder')"
@@ -36,7 +34,7 @@
         </b-field>
         <b-field
           :label="$t('pages.admin.sheep.forms.category.label')"
-          class="sheep-form-fields"
+          horizontal
         >
           <b-select
             v-model="sheep.category"
@@ -54,7 +52,7 @@
         </b-field>
         <b-field
           :label="$t('pages.admin.sheep.forms.birthday.label')"
-          class="sheep-form-fields"
+          horizontal
         >
           <b-datepicker
             v-model="birthday"
@@ -64,18 +62,20 @@
         </b-field>
         <b-field
           :label="$t('pages.admin.sheep.forms.sex.label')"
-          class="sheep-form-fields"
+          class="has-check"
+          horizontal
         >
-          <b-radio v-model="sheep.sex" name="form-sex" native-value="M">{{
-            $t('pages.admin.sheep.forms.sex.male')
-          }}</b-radio>
-          <b-radio v-model="sheep.sex" name="form-sex" native-value="F">{{
-            $t('pages.admin.sheep.forms.sex.female')
-          }}</b-radio>
+          <radio-picker
+            v-model="sheep.sex"
+            :options="{
+              M: $t('pages.admin.sheep.forms.sex.male'),
+              F: $t('pages.admin.sheep.forms.sex.female')
+            }"
+          ></radio-picker>
         </b-field>
         <b-field
           :label="$t('pages.admin.sheep.forms.teethQuantity.label')"
-          class="sheep-form-fields"
+          horizontal
         >
           <b-numberinput
             v-model="sheep.teethQuantity"
@@ -87,14 +87,22 @@
             required
           />
         </b-field>
-        <div class="sheep-form-buttons">
-          <b-button type="is-info" icon-left="check" @click="save">{{
-            $t('buttons.save')
-          }}</b-button>
-          <b-button type="is-dark" icon-left="redo" @click="$parent.close()">{{
-            $t('buttons.reset')
-          }}</b-button>
-        </div>
+        <b-field horizontal>
+          <b-field grouped>
+            <div class="control">
+              <b-button native-type="submit" type="is-primary">{{
+                $t('buttons.save')
+              }}</b-button>
+            </div>
+            <div class="control">
+              <b-button
+                type="is-primary is-outlined"
+                @click.prevent="$parent.close()"
+                >{{ $t('buttons.reset') }}</b-button
+              >
+            </div>
+          </b-field>
+        </b-field>
       </section>
     </div>
   </form>
@@ -102,7 +110,9 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+// import RadioPicker from '@/components/templates/RadioPicker'
 export default {
+  // components: {RadioPicker},
   data() {
     return {
       birthday: new Date(),

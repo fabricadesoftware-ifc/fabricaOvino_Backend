@@ -1,9 +1,10 @@
 <template>
-  <div class="form">
+  <form @submit.prevent="submit">
     <input id="category-id" v-model="value.id" type="hidden" />
     <b-field
       :label="$t('pages.admin.forms.name.label')"
-      class="category-form-fields"
+      message="Nome da categoria"
+      horizontal
     >
       <b-input
         v-model="value.name"
@@ -13,15 +14,21 @@
         required
       />
     </b-field>
-    <div class="category-form-buttons">
-      <b-button type="is-info" icon-left="check" @click="save">
-        {{ $t('buttons.save') }}
-      </b-button>
-      <b-button type="is-dark" icon-left="redo" @click="reset">
-        {{ $t('buttons.reset') }}
-      </b-button>
-    </div>
-  </div>
+    <b-field horizontal>
+      <b-field grouped>
+        <div class="control">
+          <b-button native-type="submit" type="is-primary">{{
+            $t('buttons.save')
+          }}</b-button>
+        </div>
+        <div class="control">
+          <b-button type="is-primary is-outlined" @click="reset">{{
+            $t('buttons.reset')
+          }}</b-button>
+        </div>
+      </b-field>
+    </b-field>
+  </form>
 </template>
 
 <script>
@@ -38,7 +45,7 @@ export default {
   },
   methods: {
     ...mapActions('categories', ['getCategories']),
-    async save() {
+    async submit() {
       try {
         const method = this.value.id ? 'put' : 'post'
         const id = this.value.id ? `/${this.value.id}` : ''

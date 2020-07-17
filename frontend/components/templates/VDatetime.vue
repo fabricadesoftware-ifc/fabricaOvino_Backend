@@ -1,5 +1,5 @@
 <template>
-  <b-field :label="label">
+  <b-field :label="label" horizontal>
     <b-datetimepicker v-model="innerValue" icon="calendar-today">
       <template v-slot:left>
         <button class="button is-primary" @click="innerValue = new Date()">
