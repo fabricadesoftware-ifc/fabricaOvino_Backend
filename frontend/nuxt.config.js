@@ -61,13 +61,26 @@ export default {
 
   auth: {
     localStorage: false,
-    // cookie: {
-    //   options: {
-    //     expires: 7
-    //   }
-    // },
+    cookie: {
+      options: {
+        secure: process.env.NODE_ENV === 'production'
+      }
+    },
+
     strategies: {
       local: {
+        scheme: 'refresh',
+        resetOnError: true,
+        autoLogout: true,
+        token: {
+          property: 'access',
+          maxAge: 1800
+        },
+        refreshToken: {
+          property: 'refresh',
+          data: 'refresh',
+          maxAge: 60 * 60 * 24 * 30
+        },
         endpoints: {
           login: {
             url: '/api/v1/token/',
@@ -75,11 +88,11 @@ export default {
             propertyName: 'access',
             altProperty: 'refresh'
           },
-          // refresh: {
-          //   url: '/api/v1/token_refresh',
-          //   method: 'post',
-          //   propertyName: ''
-          // },
+          refresh: {
+            url: '/api/v1/refresh_token',
+            method: 'post'
+            //   propertyName: ''
+          },
           logout: {},
           // user: false,
           user: {
@@ -91,6 +104,7 @@ export default {
       }
     },
     resetOnError: true,
+    autoLogout: true,
     redirect: {
       login: '/login',
       logout: '/logout'

@@ -4,38 +4,17 @@
     <aside-menu :menu="menu" />
     <nuxt />
     <footer-bar />
-    <!-- <HeaderUI /> -->
   </div>
-  <!-- <div> -->
-  <!-- <HeaderUI />
-    <div class="tile is-ancestor">
-      <div class="tile is-parent is-2">
-        <MenuUI />
-      </div>
-      <div class="tile is-parent">
-        <div class="tile is-child is-11">
-          <nuxt />
-        </div>
-      </div>
-    </div> -->
-  <!-- <nav-bar /> -->
-  <!-- <aside-menu :menu="menu" /> -->
-  <!-- <nuxt /> -->
-  <!-- <footer-bar /> -->
-  <!-- </div> -->
 </template>
 
 <script>
-import HeaderUI from '@/components/ui/HeaderUI'
 // import MenuUI from '@/components/ui/MenuUI'
-/* eslint-disable */
 import NavBar from '@/components/templates/NavBar'
 import AsideMenu from '@/components/templates/AsideMenu'
 import FooterBar from '@/components/templates/FooterBar'
 
 export default {
-  // components: { HeaderUI, MenuUI },
-  components: { HeaderUI, NavBar, AsideMenu, FooterBar },
+  components: { NavBar, AsideMenu, FooterBar },
   computed: {
     menu() {
       return [
@@ -67,7 +46,7 @@ export default {
           },
 
           {
-            label: 'Gestão',
+            label: this.$t('asideMenu.adminItems.records'),
             icon: 'view-list',
             updateMark: true,
             menu: [

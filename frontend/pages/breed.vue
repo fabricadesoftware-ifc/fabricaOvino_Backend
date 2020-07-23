@@ -34,6 +34,8 @@ import FormBreed from '@/components/breeds/FormBreed'
 import ListBreed from '@/components/breeds/ListBreed'
 
 export default {
+  auth: false,
+
   components: { FormBreed, ListBreed, TitleBar, HeroBar, CardComponent },
   data: function () {
     return {

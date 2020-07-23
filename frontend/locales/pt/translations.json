@@ -15,7 +15,8 @@
       "breed": "Raças",
       "sheep": "Animais",
       "pregnancyDiagnosis": "Diagnóstico de Gestação",
-      "birth": "Partos"
+      "birth": "Partos",
+      "records": "Registros"
     }
   },
   "components": {

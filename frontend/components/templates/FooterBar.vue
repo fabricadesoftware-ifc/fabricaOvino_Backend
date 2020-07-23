@@ -14,9 +14,9 @@
         <div class="level-right">
           <div class="level-item">
             <div class="logo">
-              <a href="http://ovinos.fabricadesoftware.ifc.edu.br">
+              <nuxt-link to="/" exact-active-class="is-active">
                 <img src="@/assets/logo.png" alt="FábricaDeSoftware" />
-              </a>
+              </nuxt-link>
             </div>
           </div>
         </div>
