@@ -52,13 +52,6 @@ export default {
     }
   },
 
-  // pages: {
-  //   login: {
-  //     en: "/login",
-  //     pt: "/login",
-  //   },
-  // },
-
   auth: {
     localStorage: false,
     cookie: {
@@ -72,7 +65,6 @@ export default {
         scheme: 'refresh',
         token: {
           property: 'access'
-          // type: 'Bearer'
         },
         refreshToken: {
           property: 'refresh',
@@ -95,7 +87,6 @@ export default {
             //   propertyName: ''
           },
           logout: {},
-          // user: false,
           user: {
             url: '/api/v1/users/logged/',
             method: 'get',
@@ -116,11 +107,7 @@ export default {
   },
 
   router: {
-    middleware: [
-      // Needed for redirection to the login page when not authenticated
-      'auth'
-      // 'lang'
-    ]
+    middleware: ['auth']
   },
 
   toast: {
@@ -152,10 +139,6 @@ export default {
   axios: {
     baseURL: 'http://localhost:8000'
   },
-
-  // proxy: {
-  //   '/api/': 'http://localhost:8000/'
-  // },
 
   fontawesome: {
     imports: [
@@ -194,9 +177,6 @@ export default {
     langDir: 'locales/',
     rootRedirect: 'pt',
     seo: true
-    // onLanguageSwitched: ctx => {
-    //   console.log($axios + ctx)
-    // }
   },
   /*
    ** Headers of the page
