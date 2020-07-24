@@ -48,17 +48,17 @@ export default {
   methods: {
     async signin() {
       try {
-        const response = await this.$auth.loginWith('local', {
+        await this.$auth.loginWith('local', {
           data: this.user
         })
-        this.$auth.setUserToken(response.data.access)
-        this.$auth.setToken('local', 'Bearer ' + response.data.access)
-        this.$auth.setRefreshToken('local', response.data.refresh)
-        this.$axios.setHeader('Authorization', 'Bearer ' + response.data.access)
-        this.$auth.ctx.app.$axios.setHeader(
-          'Authorization',
-          'Bearer ' + response.data.access
-        )
+        // this.$auth.setUserToken(response.data.access)
+        // this.$auth.setToken('local', 'Bearer ' + response.data.access)
+        // this.$auth.setRefreshToken('local', response.data.refresh)
+        // this.$axios.setHeader('Authorization', 'Bearer ' + response.data.access)
+        // this.$auth.ctx.app.$axios.setHeader(
+        //   'Authorization',
+        //   'Bearer ' + response.data.access
+        // )
         this.$router.push('/')
         this.$parent.close()
       } catch (err) {

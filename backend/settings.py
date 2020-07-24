@@ -13,6 +13,8 @@ SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = env("DEBUG", bool, False)
 
+APPEND_SLASH = True
+
 ALLOWED_HOSTS = env("ALLOWED_HOSTS", list, ["127.0.0.1", "localhost"])
 
 DATABASES = {"default": env.db()}
@@ -79,7 +81,7 @@ AUTH_USER_MODEL = "core.User"
 LOGIN_URL = "/api/v1/signin"
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=240),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
 }
 

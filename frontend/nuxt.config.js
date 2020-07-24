@@ -24,7 +24,7 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/toast',
     '@nuxtjs/axios',
-    '@nuxtjs/auth',
+    '@nuxtjs/auth-next',
     'nuxt-i18n',
     ['nuxt-buefy', { css: false, materialDesignIcons: true }]
   ],
@@ -70,16 +70,17 @@ export default {
     strategies: {
       local: {
         scheme: 'refresh',
-        resetOnError: true,
-        autoLogout: true,
         token: {
-          property: 'access',
-          maxAge: 1800
+          property: 'access'
+          // type: 'Bearer'
         },
         refreshToken: {
           property: 'refresh',
           data: 'refresh',
           maxAge: 60 * 60 * 24 * 30
+        },
+        user: {
+          property: 'user'
         },
         endpoints: {
           login: {
@@ -89,7 +90,7 @@ export default {
             altProperty: 'refresh'
           },
           refresh: {
-            url: '/api/v1/refresh_token',
+            url: '/api/v1/refresh_token/',
             method: 'post'
             //   propertyName: ''
           },
@@ -104,14 +105,13 @@ export default {
       }
     },
     resetOnError: true,
-    autoLogout: true,
     redirect: {
       login: '/login',
       logout: '/logout'
     },
     plugins: [
-      '@/plugins/auth-lang-redirect',
-      { src: '@/plugins/auth.js', mode: 'client' }
+      '@/plugins/auth-lang-redirect'
+      // { src: '@/plugins/auth.js', mode: 'client' }
     ]
   },
 

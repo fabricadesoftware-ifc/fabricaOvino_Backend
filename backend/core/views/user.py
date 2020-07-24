@@ -56,7 +56,8 @@ class UserViewSet(viewsets.ModelViewSet):
         if not (request.user and request.user.is_authenticated):
             raise PermissionDenied()
         serializer = UserInfoSerializer(self.request.user)
-        return Response(serializer.data)
+        data = {"user": serializer.data}
+        return Response(data)
 
     @action(detail=True, methods=["post"], name="password", permission_classes=[IsAdminOrSelf])
     def password(self, request, id=None):
