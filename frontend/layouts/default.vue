@@ -73,32 +73,32 @@ export default {
         ]
       ]
     }
+  },
+  head() {
+    // const i18nSeo = this.$nuxtI18nSeo()
+    const locale = this.$i18n.locale
+    const language = this.$i18n.locales.find(function (lang) {
+      return lang.code == locale
+    })
+    this.$axios.setHeader('Accept-Language', language.iso)
+    //   return {
+    //     htmlAttrs: {
+    //       // lang: language.iso,
+    //       ...i18nSeo.htmlAttrs
+    //     },
+    //     title: 'Ovinos - NEPPA - Fábrica',
+    //     meta: [
+    //       { charset: 'utf-8' },
+    //       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    //       { hid: 'description', name: 'description', content: 'Ovinos - NEPPA' },
+    //       ...i18nSeo.meta
+    //     ],
+    //     link: [
+    //       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    //       ...i18nSeo.link
+    //     ]
+    //   }
   }
-  // head() {
-  //   const i18nSeo = this.$nuxtI18nSeo()
-  //   const locale = this.$i18n.locale
-  //   const language = this.$i18n.locales.find(function (lang) {
-  //     return lang.code == locale
-  //   })
-  //   this.$axios.setHeader('Accept-Language', language.iso)
-  //   return {
-  //     htmlAttrs: {
-  //       // lang: language.iso,
-  //       ...i18nSeo.htmlAttrs
-  //     },
-  //     title: 'Ovinos - NEPPA - Fábrica',
-  //     meta: [
-  //       { charset: 'utf-8' },
-  //       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-  //       { hid: 'description', name: 'description', content: 'Ovinos - NEPPA' },
-  //       ...i18nSeo.meta
-  //     ],
-  //     link: [
-  //       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-  //       ...i18nSeo.link
-  //     ]
-  //   }
-  // }
 }
 </script>
 
