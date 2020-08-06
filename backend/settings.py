@@ -2,6 +2,7 @@ import os
 from datetime import timedelta
 
 import environ
+from corsheaders.defaults import default_headers
 from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -86,7 +87,9 @@ SIMPLE_JWT = {
 }
 
 CORS_ORIGIN_WHITELIST = env("CORS_ORIGIN_WHITELIST", list, ["http://localhost:3000", "http://127.0.0.1:3000"])
-
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "accept-language",
+]
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
