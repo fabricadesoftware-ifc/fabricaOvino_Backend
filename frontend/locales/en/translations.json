@@ -13,6 +13,7 @@
       "title": "Administration",
       "category": "Categories",
       "breed": "Breeds",
+      "shearing": "Shearing",
       "sheep": "Animals",
       "pregnancyDiagnosis": "Pregnancy Diagnosis",
       "birth": "Births",
@@ -149,6 +150,26 @@
             "label": "Date and Time of diagnosis",
             "placeholder": "Select Date and Time of diagnosis"
           }
+        }
+      },
+      "shearing": {
+        "title": "Shearing",
+        "subtitle": "Sheep Management",
+        "table": {
+          "id": "ID",
+          "name": "Name",
+          "actions": "Actions"
+        },
+        "forms": {
+          "sheep": {
+            "label": "Sheep",
+            "placeholder": "Select the sheep"
+          },
+          "dateTime": {
+            "label": "Date and Time of shearing",
+            "placeholder": "Select Date and Time of shearing"
+          },
+          "amountOfWool": "Amount of wool"
         }
       },
       "sheep": {

@@ -4,9 +4,7 @@
     <hero-bar>
       {{ $t('pages.admin.breed.title') }}
       <template v-slot:right>
-        <router-link to="/" class="button">
-          Dashboard
-        </router-link>
+        <router-link to="/" class="button"> Dashboard </router-link>
       </template>
     </hero-bar>
     <section class="section is-main-section">
@@ -28,9 +26,12 @@
                     v-for="sheep in sheeps"
                     :key="sheep.id"
                     :value="sheep.id"
-                    >{{ sheep.earringNumber }}</option
                   >
-                </v-select>
+                    {{ sheep.earringNumber }}
+                    >
+                  </option></v-select
+                >
+
                 <b-field
                   :label="$t('pages.birth.forms.dateTime.label')"
                   horizontal
@@ -153,7 +154,7 @@ export default {
     ...mapState('auth', ['user']),
 
     titleStack() {
-      return ['Admin', 'Ovelhas', this.$t('pages.admin.birth.title')]
+      return ['Admin', 'Ovelhas', this.$t('pages.birth.title')]
     }
   },
 

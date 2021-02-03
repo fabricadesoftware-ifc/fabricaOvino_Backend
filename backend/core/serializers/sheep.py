@@ -34,7 +34,9 @@ class SheepDetailSerializer(serializers.ModelSerializer):
             "teethQuantity",
             "pregnant",
             "lactating",
+            "shearing"
         ]
+        depth = 1
 
     def get_sex(self, obj):
         return _(obj.get_sex_display())

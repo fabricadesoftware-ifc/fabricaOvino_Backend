@@ -38,13 +38,16 @@ export default {
             label: this.$t('asideMenu.adminItems.breed'),
             icon: 'puzzle'
           },
-
+          {
+            to: { name: 'feed' },
+            label: 'Rações',
+            icon: 'silverware'
+          },
           {
             label: this.$t('asideMenu.adminItems.sheep'),
             icon: 'sheep',
             to: { name: 'sheep' }
           },
-
           {
             label: this.$t('asideMenu.adminItems.records'),
             icon: 'view-list',
@@ -54,6 +57,11 @@ export default {
                 label: this.$t('asideMenu.adminItems.pregnancyDiagnosis'),
                 icon: 'medical-bag',
                 to: { name: 'pregnancyDiagnosis' }
+              },
+              {
+                label: this.$t('asideMenu.adminItems.shearing'),
+                icon: 'scissors-cutting',
+                to: { name: 'shearing' }
               },
               {
                 label: this.$t('asideMenu.adminItems.birth'),
@@ -103,7 +111,7 @@ export default {
 </script>
 
 <style>
-* {
+/* {
   /* font-family: 'Lato', sans-serif;
 }
 body {
@@ -115,12 +123,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   height: 100vh; */
-  /* display: grid;
+/* display: grid;
   grid-template-rows: 60px 1fr 40px;
   grid-template-columns: 300px 1fr;
   grid-template-areas:
     "header header"
     "menu content"
-    "menu footer"; */
-}
+    "menu footer"; 
+}*/
 </style>

@@ -13,6 +13,7 @@
       "title": "Administração",
       "category": "Categorias",
       "breed": "Raças",
+      "shearing": "Tosquia",
       "sheep": "Animais",
       "pregnancyDiagnosis": "Diagnóstico de Gestação",
       "birth": "Partos",
@@ -150,6 +151,29 @@
             "placeholder": "Selecione a Data e Hora do diagnótico"
           },
           "pregnancyDiagnosis": "Ovelha prenhe?"
+        }
+      },
+      "shearing": {
+        "title": "Tosquia",
+        "subtitle": "Gestão de ovelhas",
+        "table": {
+          "id": "Código",
+          "name": "Nome",
+          "actions": "Ações"
+        },
+        "forms": {
+          "sheep": {
+            "label": "Ovelha",
+            "placeholder": "Selecione a ovelha"
+          },
+          "dateTime": {
+            "label": "Data e Hora da tosquia",
+            "placeholder": "Selecione a Data e Hora da tosquia"
+          },
+          "amountOfWool": "Quantidade de lã"
+        },
+        "tabs": {
+          "main": "Tosquias"
         }
       },
       "sheep": {

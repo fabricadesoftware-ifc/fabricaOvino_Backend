@@ -9,9 +9,7 @@
           <button class="button is-primary" @click="addNewSheep = true">
             {{ $t('pages.sheeps.add') }}
           </button>
-          <router-link to="/" class="button">
-            Dashboard
-          </router-link>
+          <router-link to="/" class="button"> Dashboard </router-link>
         </div>
       </template>
     </hero-bar>

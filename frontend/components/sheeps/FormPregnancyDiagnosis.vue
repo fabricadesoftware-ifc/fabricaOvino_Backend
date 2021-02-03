@@ -16,8 +16,9 @@
           v-for="sheep in notPregnantSheeps"
           :key="sheep.id"
           :value="sheep.id"
-          >{{ sheep.earringNumber }}</option
         >
+          {{ sheep.earringNumber }}
+        </option>
       </b-select>
     </b-field>
 
@@ -72,6 +73,9 @@ export default {
   computed: {
     ...mapState('auth', ['user']),
     ...mapGetters('sheeps', ['notPregnantSheeps'])
+  },
+  created() {
+    this.getSheeps()
   },
   methods: {
     ...mapActions('sheeps', ['getSheeps']),

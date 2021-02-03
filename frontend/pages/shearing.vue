@@ -1,5 +1,5 @@
 <template>
-  <div class="pregnancy-diagnosis">
+  <div class="shearing">
     <title-bar :title-stack="titleStack" />
     <hero-bar>
       {{ $t('pages.admin.breed.title') }}
@@ -9,23 +9,21 @@
     </hero-bar>
     <section class="section is-main-section">
       <card-component title="Novo diagnóstico" icon="ballot">
-        <form-pregnancy-diagnosis />
+        <form-shear />
       </card-component>
     </section>
   </div>
 </template>
-
 <script>
-import TitleBar from '@/components/templates/TitleBar'
+import CardComponent from '../components/templates/CardComponent.vue'
 import HeroBar from '@/components/templates/HeroBar'
-import CardComponent from '@/components/templates/CardComponent'
-import FormPregnancyDiagnosis from '@/components/sheeps/FormPregnancyDiagnosis'
-
+import TitleBar from '../components/templates/TitleBar.vue'
+import FormShear from '../components/sheeps/FormShear.vue'
 export default {
-  components: { FormPregnancyDiagnosis, TitleBar, HeroBar, CardComponent },
+  components: { FormShear, TitleBar, HeroBar, CardComponent },
   computed: {
     titleStack() {
-      return ['Admin', 'Ovelhas', this.$t('pages.admin.breed.title')]
+      return ['Admin', 'Ovelhas', this.$t('pages.admin.shearing.title')]
     }
   }
 }

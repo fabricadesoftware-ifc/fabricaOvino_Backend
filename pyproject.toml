@@ -25,6 +25,7 @@ pytest = "^5.4.1"
 pytest-cov = "^2.8.1"
 pytest-django = "^3.9.0"
 bandit = "^1.6.2"
+autopep8 = "^1.5.4"
 
 [tool.black]
 line-length = 119

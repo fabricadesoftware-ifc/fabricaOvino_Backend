@@ -31,9 +31,9 @@
           :disabled="!edit"
           required
         >
-          <option v-for="breed in breeds" :key="breed.id" :value="breed.id">{{
-            breed.name
-          }}</option>
+          <option v-for="breed in breeds" :key="breed.id" :value="breed.id">
+            {{ breed.name }}
+          </option>
         </b-select>
       </b-field>
       <b-field
@@ -51,8 +51,9 @@
             v-for="category in categories"
             :key="category.id"
             :value="category.id"
-            >{{ category.name }}</option
           >
+            {{ category.name }}
+          </option>
         </b-select>
       </b-field>
       <b-field :label="$t('pages.admin.sheep.forms.birthday.label')">
@@ -122,7 +123,8 @@ export default {
       birthday: this.value.birthday,
       sex: this.value.sex == 'Male' ? 'M' : 'F',
       teethQuantity: this.value.teethQuantity,
-      lactating: this.value.lactating
+      lactating: this.value.lactating,
+      shearing: this.value.shearing
     }
     this.birthday = new Date(this.sheep.birthday)
   },
