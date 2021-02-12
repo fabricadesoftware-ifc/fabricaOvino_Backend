@@ -1,6 +1,13 @@
 <template>
   <section>
     <section class="section is-main-section">
+      <div style="text-align: right">
+        <router-link to="/pt/sheep" class="button"> Voltar </router-link>
+        <router-link to="/pt/shearing" class="button">
+          Nova Tosquia
+        </router-link>
+        <router-link to="/" class="button"> Dashboard </router-link>
+      </div>
       <card-component
         title="Histórico de Tosquias"
         icon="file-document-multiple-outline"

@@ -161,6 +161,7 @@ export default {
       try {
         await this.$axios['patch'](url, this.sheep)
         this.$toasted.global.defaultSuccess()
+        this.edit = false
       } catch (e) {
         showError(e)
       }

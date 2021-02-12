@@ -61,6 +61,12 @@
       "sheep_edit": {
         "title": "Sheep edition",
         "subtitle": "Sheep management"
+      },
+      "shearing_edit": {
+        "title": "Shearing management"
+      },
+      "birth_edit": {
+        "title": "Birth edition"
       }
     },
 

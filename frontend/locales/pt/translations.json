@@ -61,6 +61,12 @@
       "sheep_edit": {
         "title": "Edição de ovelhas",
         "subtitle": "Gerenciamento de ovelhas"
+      },
+      "shearing_edit": {
+        "title": "Edição de tosquias"
+      },
+      "birth_edit": {
+        "title": "Edição de partos"
       }
     },
 
