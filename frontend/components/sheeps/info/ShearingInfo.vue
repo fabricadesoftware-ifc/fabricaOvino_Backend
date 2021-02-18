@@ -2,8 +2,10 @@
   <section>
     <section class="section is-main-section">
       <div style="text-align: right">
-        <router-link to="/pt/sheep" class="button"> Voltar </router-link>
-        <router-link to="/pt/shearing" class="button">
+        <router-link :to="localePath({ name: 'sheep' })" class="button">
+          Voltar
+        </router-link>
+        <router-link :to="localePath({ name: 'shearing' })" class="button">
           Nova Tosquia
         </router-link>
         <router-link to="/" class="button"> Dashboard </router-link>
@@ -32,7 +34,14 @@
               :label="column.label"
               :sortable="column.sortable"
             >
-              {{ props.row[column.field] }}
+              <span v-if="column.field == 'date'">
+                {{ new Date(props.row[column.field]).toLocaleDateString() }} -
+                {{ new Date(props.row[column.field]).toLocaleTimeString() }}
+              </span>
+
+              <span v-else>
+                {{ props.row[column.field] }}
+              </span>
             </b-table-column>
             <b-table-colunm
               custom-key="actions"

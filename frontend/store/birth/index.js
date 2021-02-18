@@ -1,4 +1,5 @@
 export const state = () => ({
+  births: [],
   form: {
     newborns_quantity: 0,
     newborns: []
@@ -43,5 +44,15 @@ export const mutations = {
   },
   reset(state) {
     state.form = {}
+  },
+  loadBirths(state, births) {
+    state.births = births
+  }
+}
+
+export const actions = {
+  async getBirths({ commit }) {
+    const births = await this.$axios.$get('/api/v1/births')
+    commit('loadBirths', births)
   }
 }

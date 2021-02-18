@@ -8,7 +8,7 @@
       </template>
     </hero-bar>
     <section class="section is-main-section">
-      <card-component title="Novo diagnóstico" icon="ballot">
+      <card-component title="Nova Tosquia" icon="ballot">
         <form-shear />
       </card-component>
     </section>
