@@ -1,15 +1,19 @@
 <template>
-  <div class="pregnancy-diagnosis">
+  <div>
     <title-bar :title-stack="titleStack" />
     <hero-bar>
-      {{ $t('pages.admin.breed.title') }}
+      Gerenciamento de rações
       <template v-slot:right>
         <router-link to="/" class="button"> Dashboard </router-link>
       </template>
     </hero-bar>
     <section class="section is-main-section">
-      <card-component title="Novo diagnóstico" icon="ballot">
-        <form-pregnancy-diagnosis />
+      <card-component
+        title="Rações"
+        icon="silverware"
+        class="has-table has-mobile-sort-spaced"
+      >
+        <list-feed />
       </card-component>
     </section>
   </div>
@@ -20,13 +24,16 @@ import TitleBar from '@/components/templates/TitleBar'
 import HeroBar from '@/components/templates/HeroBar'
 import CardComponent from '@/components/templates/CardComponent'
 
-import FormPregnancyDiagnosis from '@/components/sheeps/FormPregnancyDiagnosis'
-
+import ListFeed from '@/components/feeds/ListFeed'
 export default {
-  components: { FormPregnancyDiagnosis, TitleBar, HeroBar, CardComponent },
+  components: { TitleBar, HeroBar, CardComponent, ListFeed },
+  data() {
+    return {}
+  },
+
   computed: {
     titleStack() {
-      return ['Admin', 'Ovelhas', this.$t('pages.admin.breed.title')]
+      return ['Admin', 'Rações']
     }
   }
 }

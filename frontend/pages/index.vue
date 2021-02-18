@@ -1,9 +1,7 @@
 <template>
   <div>
     <title-bar :title-stack="titleStack" />
-    <hero-bar :has-right-visible="false">
-      Dashboard
-    </hero-bar>
+    <hero-bar :has-right-visible="false"> Dashboard </hero-bar>
     <section class="section is-main-section">
       <tiles>
         <card-widget
@@ -40,7 +38,7 @@
         <div v-if="defaultChart.chartData" class="chart-area">
           <line-chart
             ref="bigChart"
-            style="height: 100%;"
+            style="height: 100%"
             chart-id="big-line-chart"
             :chart-data="defaultChart.chartData"
             :extra-options="defaultChart.extraOptions"

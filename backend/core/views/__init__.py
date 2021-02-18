@@ -1,6 +1,7 @@
 from .birth import BirthViewSet
 from .breed import BreedViewSet
 from .category import CategoryViewSet
+from .feed import FeedViewSet
 from .group import GroupViewSet
 from .permission import PermissionViewSet
 from .pregnancyDiagnosis import PregnancyDiagnosisViewSet

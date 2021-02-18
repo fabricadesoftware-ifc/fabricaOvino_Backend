@@ -7,9 +7,9 @@
         message="Required. Your current password"
       >
         <b-input
+          v-model="form.password_current"
           name="password_current"
           type="password"
-          v-model="form.password_current"
           required
           autcomplete="current-password"
         />
@@ -17,9 +17,9 @@
       <hr />
       <b-field horizontal label="New password" message="Required. New password">
         <b-input
+          v-model="form.password"
           name="password"
           type="password"
-          v-model="form.password"
           required
           autocomplete="new-password"
         />
@@ -30,9 +30,9 @@
         message="Required. New password one more time"
       >
         <b-input
+          v-model="form.password_confirmation"
           name="password_confirmation"
           type="password"
-          v-model="form.password_confirmation"
           required
           autocomplete="new-password"
         />

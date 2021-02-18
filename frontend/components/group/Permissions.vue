@@ -16,8 +16,9 @@
               v-for="permission in permissions_from"
               :key="permission.id"
               :value="permission.id"
-              >{{ permission.name }}</option
             >
+              {{ permission.name }}
+            </option>
           </b-select>
         </b-field>
         <b-button
@@ -46,8 +47,9 @@
               v-for="permission in choosed_permissions"
               :key="permission.id"
               :value="permission.id"
-              >{{ permission.name }}</option
             >
+              {{ permission.name }}
+            </option>
           </b-select>
         </b-field>
         <b-button

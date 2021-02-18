@@ -4,9 +4,7 @@
     <hero-bar>
       {{ $t('pages.admin.user.add.title') }}
       <template v-slot:right>
-        <router-link to="/" class="button">
-          Dashboard
-        </router-link>
+        <router-link to="/" class="button"> Dashboard </router-link>
       </template>
     </hero-bar>
     <!-- <PageTitle

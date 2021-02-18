@@ -1,7 +1,7 @@
 <template>
   <ValidationObserver ref="observer" v-slot="{}">
     <form @submit.prevent="updatePassword">
-      <div class="modal-card" style="width: auto;">
+      <div class="modal-card" style="width: auto">
         <header class="modal-card-head">
           <p class="modal-card-title">
             {{ $t('components.user.changepassword.title') }}

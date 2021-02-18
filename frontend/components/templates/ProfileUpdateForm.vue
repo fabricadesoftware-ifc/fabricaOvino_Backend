@@ -51,6 +51,14 @@ export default {
   computed: {
     ...mapState(['userName', 'userEmail'])
   },
+  watch: {
+    userName(newValue) {
+      this.form.name = newValue
+    },
+    userEmail(newValue) {
+      this.form.email = newValue
+    }
+  },
   mounted() {
     this.form.name = this.userName
     this.form.email = this.userEmail
@@ -66,14 +74,6 @@ export default {
           queue: false
         })
       }, 500)
-    }
-  },
-  watch: {
-    userName(newValue) {
-      this.form.name = newValue
-    },
-    userEmail(newValue) {
-      this.form.email = newValue
     }
   }
 }

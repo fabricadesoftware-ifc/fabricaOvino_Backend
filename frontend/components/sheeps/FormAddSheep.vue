@@ -27,9 +27,9 @@
             icon="puzzle"
             required
           >
-            <option v-for="breed in breeds" :key="breed.id" :value="breed.id">{{
-              breed.name
-            }}</option>
+            <option v-for="breed in breeds" :key="breed.id" :value="breed.id">
+              {{ breed.name }}
+            </option>
           </b-select>
         </b-field>
         <b-field
@@ -46,8 +46,9 @@
               v-for="category in categories"
               :key="category.id"
               :value="category.id"
-              >{{ category.name }}</option
             >
+              {{ category.name }}
+            </option>
           </b-select>
         </b-field>
         <b-field

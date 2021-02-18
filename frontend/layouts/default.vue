@@ -40,6 +40,12 @@ export default {
           },
 
           {
+            to: { name: 'feed' },
+            label: 'Rações',
+            icon: 'puzzle'
+          },
+
+          {
             label: this.$t('asideMenu.adminItems.sheep'),
             icon: 'sheep',
             to: { name: 'sheep' }

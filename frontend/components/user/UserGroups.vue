@@ -16,8 +16,9 @@
               v-for="group in groups_from"
               :key="group.id"
               :value="group.id"
-              >{{ group.name }}</option
             >
+              {{ group.name }}
+            </option>
           </b-select>
         </b-field>
         <b-button
@@ -46,8 +47,9 @@
               v-for="group in choosed_groups"
               :key="group.id"
               :value="group.id"
-              >{{ group.name }}</option
             >
+              {{ group.name }}
+            </option>
           </b-select>
         </b-field>
         <b-button

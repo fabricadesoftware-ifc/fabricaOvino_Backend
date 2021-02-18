@@ -16,8 +16,9 @@
           v-for="sheep in notPregnantSheeps"
           :key="sheep.id"
           :value="sheep.id"
-          >{{ sheep.earringNumber }}</option
         >
+          {{ sheep.earringNumber }}
+        </option>
       </b-select>
     </b-field>
 
