@@ -9,6 +9,10 @@
   },
   "asideMenu": {
     "general": "Geral",
+    "reproductionItems": {
+      "title": "Reprodução",
+      "lots": "Lotes"
+    },
     "adminItems": {
       "title": "Administração",
       "category": "Categorias",
@@ -108,6 +112,26 @@
       },
       "confirmPassword": {
         "placeholder": "Confirme a senha"
+      }
+    },
+    "lots":{
+      "title": "Gestão de lotes",
+      "subtitle": "Lotes de ovelhas",
+      "table": {
+        "id": "Código",
+        "description": "Descrição",
+        "date": "Data e Hora",
+        "actions": "Ações"
+      },
+      "forms": {
+        "lot": {
+          "label": "Lote",
+          "placeholder": "Informe a descrição do lote"
+        },
+        "dateTime": {
+          "label": "Data e Hora da criação do lote",
+          "placeholder": "Selecione a Data e Hora da criação"
+        }
       }
     },
     "me": {

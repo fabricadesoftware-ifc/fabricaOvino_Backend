@@ -29,6 +29,7 @@ class SheepDetailSerializer(serializers.ModelSerializer):
             "earringNumber",
             "breed",
             "category",
+            "births",
             "birthday",
             "sex",
             "teethQuantity",

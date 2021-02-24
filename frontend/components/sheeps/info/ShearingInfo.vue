@@ -47,11 +47,11 @@
               custom-key="actions"
               class="is-actions-cell"
               label="Ações"
+              @click="editShear(props.row)"
             >
               <b-button
                 type="is-small is-primary"
                 icon-left="pencil"
-                @click="editShear(props.row)"
               ></b-button>
               <b-button
                 type="is-small is-danger"
@@ -115,7 +115,7 @@ export default {
         },
         {
           field: 'date',
-          label: 'Data',
+          label: 'Data e Hora',
           sortable: true
         },
         {
@@ -130,8 +130,13 @@ export default {
   computed: {
     ...mapState('categories', ['categories']),
     ...mapState('breeds', ['breeds'])
+    //...mapState('shearing', ['shearing'])
   },
+  /*created() {
+    this.getShearing()
+  },*/
   methods: {
+    //...mapActions('shearing', ['getShearing']),
     editShear(shearing) {
       this.$router.push({
         name: `sheeps-editShear___${this.$i18n.locale}`,

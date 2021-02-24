@@ -17,7 +17,7 @@
       >
         <b-table
           striped
-          :data="births"
+          :data="value.births"
           paginated
           paginate-position="bottom"
           aria-next-label="Next page"
@@ -48,7 +48,7 @@
               class="is-actions-cell"
               label="Ações"
             >
-              <!--<b-button
+              <b-button
                 type="is-small is-primary"
                 icon-left="pencil"
                 @click="editBirth(props.row)"
@@ -57,7 +57,7 @@
                 type="is-small is-danger"
                 icon-left="trash-can-outline"
                 @click="confirmRemove(props.row)"
-              ></b-button>-->
+              ></b-button>
             </b-table-colunm>
           </template>
         </b-table>
@@ -89,7 +89,7 @@ export default {
         },
         {
           field: 'date',
-          label: 'Data',
+          label: 'Data e Hora',
           sortable: true
         },
         {
@@ -102,7 +102,8 @@ export default {
           label: 'Observações',
           sortable: true
         }
-      ]
+      ],
+      sheep: {}
     }
   },
   computed: {
@@ -112,8 +113,8 @@ export default {
     this.getBirths()
   },
   methods: {
-    ...mapActions('birth', ['getBirths'])
-    /*editBirth(birth) {
+    ...mapActions('birth', ['getBirths']),
+    editBirth(birth) {
       this.$router.push({
         name: `sheeps-editBirth___${this.$i18n.locale}`,
         params: { birth }
@@ -129,7 +130,7 @@ export default {
         hasIcon: true,
         onConfirm: () => this.remove(birth)
       })
-    }*/
+    }
   }
 }
 </script>

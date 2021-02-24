@@ -26,6 +26,14 @@ export default {
             label: 'Dashboard'
           }
         ],
+        'Reprodução',
+        [
+          {
+            to: { name: 'lots' },
+            icon: 'view-grid',
+            label: 'Lotes'
+          }
+        ],
         'Administração',
         [
           {

@@ -10,7 +10,7 @@
         <shearing-info v-model="sheep" />
       </b-tab-item>
       <b-tab-item :label="$t('pages.birth.tabs.main')">
-        <birth-info />
+        <birth-info v-model="sheep" />
       </b-tab-item>
     </b-tabs>
   </section>
