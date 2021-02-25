@@ -18,23 +18,15 @@ export default {
   computed: {
     menu() {
       return [
-        'General',
+        this.$t('asideMenu.general'),
         [
           {
             to: '/',
             icon: 'desktop-mac',
-            label: 'Dashboard'
+            label: this.$t('asideMenu.dashboard')
           }
         ],
-        'Reprodução',
-        [
-          {
-            to: { name: 'lots' },
-            icon: 'view-grid',
-            label: 'Lotes'
-          }
-        ],
-        'Administração',
+        this.$t('asideMenu.adminItems.title'),
         [
           {
             to: { name: 'category' },
@@ -48,7 +40,7 @@ export default {
           },
           {
             to: { name: 'feed' },
-            label: 'Rações',
+            label: this.$t('asideMenu.adminItems.feed'),
             icon: 'silverware'
           },
           {
@@ -62,14 +54,29 @@ export default {
             updateMark: true,
             menu: [
               {
-                label: this.$t('asideMenu.adminItems.pregnancyDiagnosis'),
-                icon: 'medical-bag',
-                to: { name: 'pregnancyDiagnosis' }
-              },
-              {
                 label: this.$t('asideMenu.adminItems.shearing'),
                 icon: 'scissors-cutting',
                 to: { name: 'shearing' }
+              }
+            ]
+          }
+        ],
+        this.$t('asideMenu.reproductionItems.title'),
+        [
+          {
+            to: { name: 'lots' },
+            icon: 'view-grid',
+            label: this.$t('asideMenu.reproductionItems.lots')
+          },
+          {
+            label: this.$t('asideMenu.adminItems.records'),
+            icon: 'view-list',
+            updateMark: true,
+            menu: [
+              {
+                label: this.$t('asideMenu.adminItems.pregnancyDiagnosis'),
+                icon: 'medical-bag',
+                to: { name: 'pregnancyDiagnosis' }
               },
               {
                 label: this.$t('asideMenu.adminItems.birth'),
@@ -79,11 +86,12 @@ export default {
             ]
           }
         ],
-        'About',
+        this.$t('asideMenu.reproductionItems.restroom'),
+        this.$t('asideMenu.about'),
         [
           {
             href: 'https://fabricadesoftware.ifc.edu.br',
-            label: 'About',
+            label: this.$t('asideMenu.about'),
             icon: 'help-circle'
           }
         ]

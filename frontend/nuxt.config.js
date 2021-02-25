@@ -164,6 +164,13 @@ export default {
         name: 'Português',
         file: 'pt/translations.json',
         flag: 'br'
+      },
+      {
+        code: 'es',
+        iso: 'es',
+        name: 'Spanish',
+        file: 'es/translations.json',
+        flag: 'es'
       }
     ],
     defaultLocale: 'pt',

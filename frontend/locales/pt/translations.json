@@ -8,10 +8,11 @@
     "profile": "Meu perfil"
   },
   "asideMenu": {
+    "dashboard": "Principal",
     "general": "Geral",
     "reproductionItems": {
       "title": "Reprodução",
-      "lots": "Lotes"
+      "lots": "Lotes","restroom": "Sanitário"
     },
     "adminItems": {
       "title": "Administração",
@@ -21,9 +22,12 @@
       "sheep": "Animais",
       "pregnancyDiagnosis": "Diagnóstico de Gestação",
       "birth": "Partos",
-      "records": "Registros"
-    }
+      "records": "Registros",
+      "feed": "Rações"
+    },
+    "about": "Sobre"
   },
+
   "components": {
     "admin": {
       "useradmin": {
@@ -61,6 +65,12 @@
   },
 
   "pages": {
+    "dashboard":{
+      "sheeps": "Ovelhas",
+      "sales": "Vendas",
+      "performance": "Desempenho",
+      "money_symbol": "R$"
+    },
     "pagetitle": {
       "sheep_edit": {
         "title": "Edição de ovelhas",
@@ -251,6 +261,10 @@
             "label": "Mãe",
             "placeholder": "Selecione a mãe"
           },
+          "father": {
+            "label": "Pai",
+            "placeholder": "Selecione o pai"
+          },
           "lactating": "Lactante?"
         }
       },
@@ -300,5 +314,15 @@
     "edit": "Editar",
     "clear": "Limpar",
     "now": "Agora"
+  },
+
+  "navBar":{
+    "search": "Buscar...",
+    "settings": "Configurações",
+    "users_and_groups": "Usuários e Grupos",
+    "profile": "Meu perfil",
+    "messages": "Mensagens",
+    "logout": "Sair",
+    "about": "Sobre"
   }
 }
