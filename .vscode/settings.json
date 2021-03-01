@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/home/eduardo/.cache/pypoetry/virtualenvs/ovino-_dlseE6b-py3.8/bin/python",
+    "python.pythonPath": "/usr/local/bin/python3",
     "javascript.format.semicolons": "remove",
     "prettier.semi": false,
     "python.linting.flake8Enabled": true,
