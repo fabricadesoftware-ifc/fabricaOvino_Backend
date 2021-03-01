@@ -1,5 +1,8 @@
 {
+<<<<<<< HEAD
     "python.pythonPath": "/usr/local/bin/python3",
+=======
+>>>>>>> origin/Dev-Thuany
     "javascript.format.semicolons": "remove",
     "prettier.semi": false,
     "python.linting.flake8Enabled": true,

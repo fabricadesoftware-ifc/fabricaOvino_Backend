@@ -1,7 +1,13 @@
 <template>
   <div>
     <title-bar :title-stack="titleStack" />
+<<<<<<< HEAD
     <hero-bar :has-right-visible="false"> Dashboard </hero-bar>
+=======
+    <hero-bar :has-right-visible="false">
+      {{ $t('asideMenu.dashboard') }}
+    </hero-bar>
+>>>>>>> origin/Dev-Maria
     <section class="section is-main-section">
       <tiles>
         <card-widget
@@ -9,15 +15,15 @@
           type="is-primary"
           icon="sheep"
           :number="512"
-          label="Ovelhas"
+          :label="$t('pages.dashboard.sheeps')"
         />
         <card-widget
           class="tile is-child"
           type="is-info"
           icon="cart-outline"
           :number="7770"
-          prefix="R$"
-          label="Vendas"
+          :prefix="$t('pages.dashboard.money_symbol')"
+          :label="$t('pages.dashboard.sales')"
         />
         <card-widget
           class="tile is-child"
@@ -25,12 +31,12 @@
           icon="chart-timeline-variant"
           :number="256"
           suffix="%"
-          label="Desempenho"
+          :label="$t('pages.dashboard.performance')"
         />
       </tiles>
 
       <card-component
-        title="Desempenho"
+        :title="$t('pages.dashboard.performance')"
         icon="finance"
         header-icon="reload"
         @header-icon-click="fillChartData"
@@ -47,7 +53,10 @@
         </div>
       </card-component>
 
-      <card-component title="Ovelhas" class="has-table has-mobile-sort-spaced">
+      <card-component
+        :title="$t('pages.dashboard.sheeps')"
+        class="has-table has-mobile-sort-spaced"
+      >
         <!-- <clients-table-sample
           :data-url="`${$router.options.base}data-sources/clients.json`"
         /> -->
@@ -87,7 +96,7 @@ export default {
   },
   computed: {
     titleStack() {
-      return ['Dashboard']
+      return [this.$t('asideMenu.dashboard')]
     }
   },
   mounted() {
