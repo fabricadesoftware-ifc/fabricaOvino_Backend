@@ -5,16 +5,26 @@
         v-for="(column, index) in columns"
         :key="index"
         :field="column.field"
+<<<<<<< HEAD
         :sortable="column.sortable"
         :label="column.label"
       >
         {{ props.row[column.field] }}
       </b-table-column>
       <b-table-column
+=======
+        :label="column.label"
+        :sortable="column.sortable"
+      >
+        {{ props.row[column.field] }}
+      </b-table-column>
+      <b-table-colunm
+>>>>>>> origin/Dev-Maria
         custom-key="actions"
         class="is-actions-cell"
         label="Ações"
       >
+<<<<<<< HEAD
         <div class="buttons">
           <b-button
             type="is-small is-primary"
@@ -30,6 +40,19 @@
           </b-button>
         </div>
       </b-table-column>
+=======
+        <b-button
+          type="is-small is-primary"
+          icon-left="pencil"
+          @click="loadFeeds(props.row)"
+        ></b-button>
+        <b-button
+          type="is-small is-danger"
+          icon-left="trash-can-outline"
+          @click="confirmRemove(props.row)"
+        ></b-button>
+      </b-table-colunm>
+>>>>>>> origin/Dev-Maria
     </template>
   </b-table>
 </template>
@@ -77,7 +100,10 @@ export default {
         onConfirm: () => this.remove(feed)
       })
     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Dev-Maria
     async remove(feed) {
       const id = feed.id
       const url = `api/v1/feeds/${id}`
@@ -86,7 +112,11 @@ export default {
         this.$toasted.global.defaultSuccess()
         this.carregarFeed()
       } catch (err) {
+<<<<<<< HEAD
         this.$toast.error(err.response.data)
+=======
+        this.toast.error(err.response.data)
+>>>>>>> origin/Dev-Maria
       }
     }
   }

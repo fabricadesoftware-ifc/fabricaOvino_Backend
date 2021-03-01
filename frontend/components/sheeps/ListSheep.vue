@@ -49,6 +49,11 @@
       >
         <div class="buttons">
           <b-button
+            type="is-small is-warning"
+            icon-left="file-document-multiple-outline"
+            @click="showHistory(props.row)"
+          ></b-button>
+          <b-button
             type="is-small is-primary"
             icon-left="pencil"
             @click="editSheep(props.row)"
@@ -107,8 +112,15 @@ export default {
   methods: {
     ...mapActions('sheeps', ['getSheeps']),
     editSheep(sheep) {
+      //console.log(sheep)
       this.$router.push({
         name: `sheeps-detail___${this.$i18n.locale}`,
+        params: { sheep }
+      })
+    },
+    showHistory(sheep) {
+      this.$router.push({
+        name: `sheeps-history___${this.$i18n.locale}`,
         params: { sheep }
       })
     },

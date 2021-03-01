@@ -8,16 +8,25 @@
     "profile": "My profile"
   },
   "asideMenu": {
+    "dashboard": "Dashboard",
     "general": "General",
+    "reproductionItems": {
+      "title": "Reproduction",
+      "lots": "Lots",
+      "restroom": "Restroom"
+    },
     "adminItems": {
       "title": "Administration",
       "category": "Categories",
       "breed": "Breeds",
+      "shearing": "Shearing",
       "sheep": "Animals",
       "pregnancyDiagnosis": "Pregnancy Diagnosis",
       "birth": "Births",
-      "records": "Records"
-    }
+      "records": "Records",
+      "feed": "Feed"
+    },
+    "about": "About"
   },
 
   "components": {
@@ -28,7 +37,8 @@
           "email": "Email",
           "name": "Name"
         },
-        "addNew": "Add new user"
+        "addNew": "Add new user",
+        "confirmDeletion": "Confirm deletion"
       },
       "groupadmin": {
         "add": "Add new group",
@@ -56,10 +66,22 @@
   },
 
   "pages": {
+    "dashboard":{
+      "sheeps": "Sheeps",
+      "sales": "Sales",
+      "performance": "Performance",
+      "money_symbol": "$"
+    },
     "pagetitle": {
       "sheep_edit": {
         "title": "Sheep edition",
         "subtitle": "Sheep management"
+      },
+      "shearing_edit": {
+        "title": "Shearing management"
+      },
+      "birth_edit": {
+        "title": "Birth edition"
       }
     },
 
@@ -103,6 +125,26 @@
         "placeholder": "Confirm the password"
       }
     },
+    "lots":{
+      "title": "Lots management",
+      "subtitle": "Lots of sheep",
+      "table": {
+        "id": "ID",
+        "description": "Description",
+        "date": "Date and Time",
+        "actions": "Actions"
+      },
+      "forms": {
+        "lot": {
+          "label": "Lot",
+          "placeholder": "Enter the lot description"
+        },
+        "dateTime": {
+          "label": "Date and Time of creation",
+          "placeholder": "Select a creation date and time"
+        }
+      }
+    },
     "me": {
       "title": "My profile",
       "subtitle": "Personal profile information"
@@ -136,9 +178,9 @@
         "title": "Pregnancy Diagnostics",
         "subtitle": "Sheep Management",
         "table": {
-          "id": "Código",
-          "name": "Nome",
-          "actions": "Ações"
+          "id": "ID",
+          "name": "Name",
+          "actions": "Actions"
         },
         "forms": {
           "sheep": {
@@ -148,7 +190,31 @@
           "dateTime": {
             "label": "Date and Time of diagnosis",
             "placeholder": "Select Date and Time of diagnosis"
-          }
+          },
+          "pregnancyDiagnosis": "Pregnant sheep?"
+        }
+      },
+      "shearing": {
+        "title": "Shearing",
+        "subtitle": "Sheep Management",
+        "table": {
+          "id": "ID",
+          "name": "Name",
+          "actions": "Actions"
+        },
+        "forms": {
+          "sheep": {
+            "label": "Sheep",
+            "placeholder": "Select the sheep"
+          },
+          "dateTime": {
+            "label": "Date and Time of shearing",
+            "placeholder": "Select Date and Time of shearing"
+          },
+          "amountOfWool": "Amount of wool"
+        },
+        "tabs": {
+          "main": "Shears"
         }
       },
       "sheep": {
@@ -207,6 +273,10 @@
         "edit": {
           "title": "User edit",
           "subtitle": "Users management"
+        },
+        "add": {
+          "title": "Add new user",
+          "subtitle": "User management"
         }
       },
       "group": {
@@ -245,5 +315,15 @@
     "edit": "Edit",
     "clear": "Clear",
     "now": "Now"
+  },
+
+  "navBar":{
+    "search": "Search everywhere...",
+    "settings": "Settings",
+    "users_and_groups": "Users and Groups",
+    "profile": "My profile",
+    "messages": "Messages",
+    "logout": "Log Out",
+    "about": "About"
   }
 }

@@ -6,8 +6,11 @@
       :sub="$t('pages.pagetitle.sheep_edit.subtitle')"
     />
     <b-tabs>
-      <b-tab-item :label="$t('pages.sheeps.edit.generalInfo')">
-        <general-info v-model="sheep" />
+      <b-tab-item :label="$t('pages.admin.shearing.tabs.main')">
+        <shearing-info v-model="sheep" />
+      </b-tab-item>
+      <b-tab-item :label="$t('pages.birth.tabs.main')">
+        <birth-info v-model="sheep" />
       </b-tab-item>
     </b-tabs>
   </section>
@@ -15,9 +18,10 @@
 
 <script>
 import PageTitle from '@/components/templates/PageTitle'
-import GeneralInfo from '@/components/sheeps/info/GeneralInfo'
+import BirthInfo from '@/components/sheeps/info/BirthInfo.vue'
+import ShearingInfo from '../../components/sheeps/info/ShearingInfo.vue'
 export default {
-  components: { GeneralInfo, PageTitle },
+  components: { PageTitle, BirthInfo, ShearingInfo },
   asyncData({ params }) {
     return {
       sheep: params.sheep

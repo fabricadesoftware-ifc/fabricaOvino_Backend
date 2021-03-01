@@ -9,7 +9,7 @@
       </a>
       <div class="navbar-item has-control no-left-space-touch">
         <div class="control">
-          <input class="input" placeholder="Search everywhere..." />
+          <input class="input" :placeholder="$t('navBar.search')" />
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
       <div v-if="loggedIn" class="navbar-end">
         <nav-bar-menu class="has-divider">
           <b-icon icon="menu" custom-size="default" />
-          <span>Configurações</span>
+          <span>{{ $t('navBar.settings') }}</span>
           <template v-slot:dropdown>
             <div class="navbar-dropdown">
               <nuxt-link
@@ -37,7 +37,7 @@
                 exact-active-class="is-active"
               >
                 <b-icon icon="account" custom-size="default" />
-                <span>Usuários e Grupos</span>
+                <span>{{ $t('navBar.users_and_groups') }}</span>
               </nuxt-link>
               <hr class="navbar-divider" />
             </div>
@@ -57,20 +57,20 @@
                 exact-active-class="is-active"
               >
                 <b-icon icon="account" custom-size="default" />
-                <span>My Profile</span>
+                <span>{{ $t('navBar.profile') }}</span>
               </nuxt-link>
               <a class="navbar-item">
-                <b-icon icon="settings" custom-size="default"></b-icon>
-                <span>Settings</span>
+                <b-icon icon="menu" custom-size="default"></b-icon>
+                <span>{{ $t('navBar.settings') }}</span>
               </a>
               <a class="navbar-item">
                 <b-icon icon="email" custom-size="default"></b-icon>
-                <span>Messages</span>
+                <span>{{ $t('navBar.messages') }}</span>
               </a>
               <hr class="navbar-divider" />
               <a class="navbar-item">
                 <b-icon icon="logout" custom-size="default"></b-icon>
-                <span>Log Out</span>
+                <span>{{ $t('navBar.logout') }}</span>
               </a>
             </div>
           </template>
@@ -79,18 +79,18 @@
           href="https://fabricadesoftware.ifc.edu.br"
           target="_blank"
           class="navbar-item has-divider is-desktop-icon-only"
-          title="About"
+          :title="$t('navBar.about')"
         >
           <b-icon icon="help-circle-outline" custom-size="default" />
-          <span>About</span>
+          <span>{{ $t('navBar.about') }}</span>
         </a>
         <a
           class="navbar-item is-desktop-icon-only"
-          title="Log out"
+          :title="$t('navBar.logout')"
           @click="logout"
         >
           <b-icon icon="logout" custom-size="default" />
-          <span>Log out</span>
+          <span>{{ $t('navBar.logout') }}</span>
         </a>
       </div>
     </div>
