@@ -81,6 +81,10 @@
       },
       "birth_edit": {
         "title": "Edição de partos"
+      },
+      "lots": {
+        "title": "Edição de lotes",
+        "subtitle": "Gerenciamento de lotes"
       }
     },
 
