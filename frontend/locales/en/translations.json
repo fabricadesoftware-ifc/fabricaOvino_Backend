@@ -28,7 +28,6 @@
     },
     "about": "About"
   },
-
   "components": {
     "admin": {
       "useradmin": {
@@ -64,9 +63,8 @@
       }
     }
   },
-
   "pages": {
-    "dashboard":{
+    "dashboard": {
       "sheeps": "Sheeps",
       "sales": "Sales",
       "performance": "Performance",
@@ -82,9 +80,12 @@
       },
       "birth_edit": {
         "title": "Birth edition"
+      },
+      "lots": {
+        "title": "Lots edition",
+        "subtitle": "Lots management"
       }
     },
-
     "birth": {
       "title": "Births",
       "subtitle": "Sheep management",
@@ -125,7 +126,7 @@
         "placeholder": "Confirm the password"
       }
     },
-    "lots":{
+    "lots": {
       "title": "Lots management",
       "subtitle": "Lots of sheep",
       "table": {
@@ -307,7 +308,6 @@
       }
     }
   },
-
   "buttons": {
     "save": "Save",
     "delete": "Delete",
@@ -316,8 +316,7 @@
     "clear": "Clear",
     "now": "Now"
   },
-
-  "navBar":{
+  "navBar": {
     "search": "Search everywhere...",
     "settings": "Settings",
     "users_and_groups": "Users and Groups",

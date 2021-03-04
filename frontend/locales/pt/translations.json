@@ -12,7 +12,8 @@
     "general": "Geral",
     "reproductionItems": {
       "title": "Reprodução",
-      "lots": "Lotes","restroom": "Sanitário"
+      "lots": "Lotes",
+      "restroom": "Sanitário"
     },
     "adminItems": {
       "title": "Administração",
@@ -27,7 +28,6 @@
     },
     "about": "Sobre"
   },
-
   "components": {
     "admin": {
       "useradmin": {
@@ -63,9 +63,8 @@
       }
     }
   },
-
   "pages": {
-    "dashboard":{
+    "dashboard": {
       "sheeps": "Ovelhas",
       "sales": "Vendas",
       "performance": "Desempenho",
@@ -81,9 +80,12 @@
       },
       "birth_edit": {
         "title": "Edição de partos"
+      },
+      "lots": {
+        "title": "Edição de lotes",
+        "subtitle": "Gerenciamento de lotes"
       }
     },
-
     "birth": {
       "title": "Partos",
       "subtitle": "Gerenciamento de ovelhas",
@@ -124,7 +126,7 @@
         "placeholder": "Confirme a senha"
       }
     },
-    "lots":{
+    "lots": {
       "title": "Gestão de lotes",
       "subtitle": "Lotes de ovelhas",
       "table": {
@@ -306,7 +308,6 @@
       }
     }
   },
-
   "buttons": {
     "save": "Salvar",
     "delete": "Excluir",
@@ -315,8 +316,7 @@
     "clear": "Limpar",
     "now": "Agora"
   },
-
-  "navBar":{
+  "navBar": {
     "search": "Buscar...",
     "settings": "Configurações",
     "users_and_groups": "Usuários e Grupos",

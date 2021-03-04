@@ -28,8 +28,10 @@
                     :value="sheep.id"
                   >
                     {{ sheep.earringNumber }}
-                  </option>
-                </v-select>
+                    >
+                  </option></v-select
+                >
+
                 <b-field
                   :label="$t('pages.birth.forms.dateTime.label')"
                   horizontal
