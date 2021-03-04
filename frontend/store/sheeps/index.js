@@ -16,6 +16,9 @@ export const actions = {
 }
 
 export const getters = {
+  listSheeps: state => {
+    return state.sheeps
+  },
   pregnantSheeps: state => {
     return state.sheeps.filter(sheep => sheep.pregnant)
   },

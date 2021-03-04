@@ -18,15 +18,15 @@ export default {
   computed: {
     menu() {
       return [
-        'General',
+        this.$t('asideMenu.general'),
         [
           {
             to: '/',
             icon: 'desktop-mac',
-            label: 'Dashboard'
+            label: this.$t('asideMenu.dashboard')
           }
         ],
-        'Administração',
+        this.$t('asideMenu.adminItems.title'),
         [
           {
             to: { name: 'category' },
@@ -38,7 +38,11 @@ export default {
             label: this.$t('asideMenu.adminItems.breed'),
             icon: 'puzzle'
           },
-
+          {
+            to: { name: 'feed' },
+            label: this.$t('asideMenu.adminItems.feed'),
+            icon: 'silverware'
+          },
           {
             to: { name: 'feed' },
             label: 'Rações',
@@ -50,7 +54,26 @@ export default {
             icon: 'sheep',
             to: { name: 'sheep' }
           },
-
+          {
+            label: this.$t('asideMenu.adminItems.records'),
+            icon: 'view-list',
+            updateMark: true,
+            menu: [
+              {
+                label: this.$t('asideMenu.adminItems.shearing'),
+                icon: 'scissors-cutting',
+                to: { name: 'shearing' }
+              }
+            ]
+          }
+        ],
+        this.$t('asideMenu.reproductionItems.title'),
+        [
+          {
+            to: { name: 'lots' },
+            icon: 'view-grid',
+            label: this.$t('asideMenu.reproductionItems.lots')
+          },
           {
             label: this.$t('asideMenu.adminItems.records'),
             icon: 'view-list',
@@ -69,11 +92,12 @@ export default {
             ]
           }
         ],
-        'About',
+        this.$t('asideMenu.reproductionItems.restroom'),
+        this.$t('asideMenu.about'),
         [
           {
             href: 'https://fabricadesoftware.ifc.edu.br',
-            label: 'About',
+            label: this.$t('asideMenu.about'),
             icon: 'help-circle'
           }
         ]
@@ -109,7 +133,7 @@ export default {
 </script>
 
 <style>
-* {
+/* {
   /* font-family: 'Lato', sans-serif;
 }
 body {
@@ -121,12 +145,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   height: 100vh; */
-  /* display: grid;
+/* display: grid;
   grid-template-rows: 60px 1fr 40px;
   grid-template-columns: 300px 1fr;
   grid-template-areas:
     "header header"
     "menu content"
-    "menu footer"; */
-}
+    "menu footer"; 
+}*/
 </style>

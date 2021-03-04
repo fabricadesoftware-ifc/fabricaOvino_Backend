@@ -152,7 +152,7 @@ export default {
     ...mapState('auth', ['user']),
 
     titleStack() {
-      return ['Admin', 'Ovelhas', this.$t('pages.admin.birth.title')]
+      return ['Admin', 'Ovelhas', this.$t('pages.birth.title')]
     }
   },
 

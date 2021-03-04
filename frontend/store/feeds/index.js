@@ -10,7 +10,7 @@ export const mutations = {
 
 export const actions = {
   async getFeeds({ commit }) {
-    const feeds = await this.$axios.$get('/api/v1/feeds')
+    const feeds = await this.$axios.$get('api/v1/feeds')
     commit('loadFeeds', feeds)
   }
 }

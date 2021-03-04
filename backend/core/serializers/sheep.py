@@ -29,12 +29,15 @@ class SheepDetailSerializer(serializers.ModelSerializer):
             "earringNumber",
             "breed",
             "category",
+            "births",
             "birthday",
             "sex",
             "teethQuantity",
             "pregnant",
             "lactating",
+            "shearing"
         ]
+        depth = 1
 
     def get_sex(self, obj):
         return _(obj.get_sex_display())

@@ -8,17 +8,26 @@
     "profile": "Meu perfil"
   },
   "asideMenu": {
+    "dashboard": "Principal",
     "general": "Geral",
+    "reproductionItems": {
+      "title": "Reprodução",
+      "lots": "Lotes","restroom": "Sanitário"
+    },
     "adminItems": {
       "title": "Administração",
       "category": "Categorias",
       "breed": "Raças",
+      "shearing": "Tosquia",
       "sheep": "Animais",
       "pregnancyDiagnosis": "Diagnóstico de Gestação",
       "birth": "Partos",
-      "records": "Registros"
-    }
+      "records": "Registros",
+      "feed": "Rações"
+    },
+    "about": "Sobre"
   },
+
   "components": {
     "admin": {
       "useradmin": {
@@ -56,10 +65,22 @@
   },
 
   "pages": {
+    "dashboard":{
+      "sheeps": "Ovelhas",
+      "sales": "Vendas",
+      "performance": "Desempenho",
+      "money_symbol": "R$"
+    },
     "pagetitle": {
       "sheep_edit": {
         "title": "Edição de ovelhas",
         "subtitle": "Gerenciamento de ovelhas"
+      },
+      "shearing_edit": {
+        "title": "Edição de tosquias"
+      },
+      "birth_edit": {
+        "title": "Edição de partos"
       }
     },
 
@@ -101,6 +122,26 @@
       },
       "confirmPassword": {
         "placeholder": "Confirme a senha"
+      }
+    },
+    "lots":{
+      "title": "Gestão de lotes",
+      "subtitle": "Lotes de ovelhas",
+      "table": {
+        "id": "Código",
+        "description": "Descrição",
+        "date": "Data e Hora",
+        "actions": "Ações"
+      },
+      "forms": {
+        "lot": {
+          "label": "Lote",
+          "placeholder": "Informe a descrição do lote"
+        },
+        "dateTime": {
+          "label": "Data e Hora da criação do lote",
+          "placeholder": "Selecione a Data e Hora da criação"
+        }
       }
     },
     "me": {
@@ -152,6 +193,29 @@
           "pregnancyDiagnosis": "Ovelha prenhe?"
         }
       },
+      "shearing": {
+        "title": "Tosquia",
+        "subtitle": "Gestão de ovelhas",
+        "table": {
+          "id": "Código",
+          "name": "Nome",
+          "actions": "Ações"
+        },
+        "forms": {
+          "sheep": {
+            "label": "Ovelha",
+            "placeholder": "Selecione a ovelha"
+          },
+          "dateTime": {
+            "label": "Data e Hora da tosquia",
+            "placeholder": "Selecione a Data e Hora da tosquia"
+          },
+          "amountOfWool": "Quantidade de lã"
+        },
+        "tabs": {
+          "main": "Tosquias"
+        }
+      },
       "sheep": {
         "title": "Gestão de ovelhas",
         "subtitle": "Rebanho",
@@ -196,6 +260,10 @@
           "mother": {
             "label": "Mãe",
             "placeholder": "Selecione a mãe"
+          },
+          "father": {
+            "label": "Pai",
+            "placeholder": "Selecione o pai"
           },
           "lactating": "Lactante?"
         }
@@ -246,5 +314,15 @@
     "edit": "Editar",
     "clear": "Limpar",
     "now": "Agora"
+  },
+
+  "navBar":{
+    "search": "Buscar...",
+    "settings": "Configurações",
+    "users_and_groups": "Usuários e Grupos",
+    "profile": "Meu perfil",
+    "messages": "Mensagens",
+    "logout": "Sair",
+    "about": "Sobre"
   }
 }
