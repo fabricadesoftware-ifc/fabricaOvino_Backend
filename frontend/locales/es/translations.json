@@ -132,6 +132,7 @@
       "title": "Gestión de lotes",
       "subtitle": "Lotes de ovejas",
       "table": {
+        "title": "Agregar ovejas al lote",
         "id": "Código",
         "description": "Descripción",
         "date": "Fecha y hora",
@@ -317,7 +318,8 @@
     "reset": "Cancelar",
     "edit": "Editar",
     "clear": "Clear",
-    "now": "Ahora"
+    "now": "Ahora",
+    "add": "Para agregar"
   },
 
   "navBar":{

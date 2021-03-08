@@ -133,6 +133,7 @@
       "title": "Lots management",
       "subtitle": "Lots of sheep",
       "table": {
+        "title": "Adding Sheep to the Batch",
         "id": "ID",
         "description": "Description",
         "date": "Date and Time",
@@ -318,7 +319,8 @@
     "reset": "Reset",
     "edit": "Edit",
     "clear": "Clear",
-    "now": "Now"
+    "now": "Now",
+    "add": "To Add"
   },
 
   "navBar":{

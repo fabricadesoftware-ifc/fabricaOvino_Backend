@@ -6,15 +6,20 @@
       :sub="$t('pages.pagetitle.lots.subtitle')"
     />
     <b-tabs>
-      <b-tab-item :label="$t('asideMenu.reproductionItems.lots')"></b-tab-item>
+      <b-tab-item
+        :label="$t('pages.lots.table.title') + ': ' + lots.description"
+      >
+        <table-sheeps />
+      </b-tab-item>
     </b-tabs>
   </section>
 </template>
 
 <script>
 import PageTitle from '@/components/templates/PageTitle'
+import TableSheeps from '@/components/lots/TableSheeps.vue'
 export default {
-  components: { PageTitle },
+  components: { PageTitle, TableSheeps },
   asyncData({ params }) {
     return {
       lots: params.lots
