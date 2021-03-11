@@ -19,7 +19,6 @@
 import TitleBar from '@/components/templates/TitleBar'
 import HeroBar from '@/components/templates/HeroBar'
 import CardComponent from '@/components/templates/CardComponent'
-
 import FormPregnancyDiagnosis from '@/components/sheeps/FormPregnancyDiagnosis'
 
 export default {

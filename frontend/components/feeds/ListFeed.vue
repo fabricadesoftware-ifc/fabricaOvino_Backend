@@ -5,31 +5,27 @@
         v-for="(column, index) in columns"
         :key="index"
         :field="column.field"
-        :sortable="column.sortable"
         :label="column.label"
+        :sortable="column.sortable"
       >
         {{ props.row[column.field] }}
       </b-table-column>
-      <b-table-column
+      <b-table-colunm
         custom-key="actions"
         class="is-actions-cell"
         label="Ações"
       >
-        <div class="buttons">
-          <b-button
-            type="is-small is-primary"
-            icon-left="pencil"
-            @click="loadFeeds(props.row)"
-          >
-          </b-button>
-          <b-button
-            type="is-small is-danger"
-            icon-left="trash-can-outline"
-            @click="confirmRemove(props.row)"
-          >
-          </b-button>
-        </div>
-      </b-table-column>
+        <b-button
+          type="is-small is-primary"
+          icon-left="pencil"
+          @click="loadFeeds(props.row)"
+        ></b-button>
+        <b-button
+          type="is-small is-danger"
+          icon-left="trash-can-outline"
+          @click="confirmRemove(props.row)"
+        ></b-button>
+      </b-table-colunm>
     </template>
   </b-table>
 </template>
@@ -77,7 +73,6 @@ export default {
         onConfirm: () => this.remove(feed)
       })
     },
-
     async remove(feed) {
       const id = feed.id
       const url = `api/v1/feeds/${id}`
@@ -86,7 +81,7 @@ export default {
         this.$toasted.global.defaultSuccess()
         this.carregarFeed()
       } catch (err) {
-        this.$toast.error(err.response.data)
+        this.toast.error(err.response.data)
       }
     }
   }
