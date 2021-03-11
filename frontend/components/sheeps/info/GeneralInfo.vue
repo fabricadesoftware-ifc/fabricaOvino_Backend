@@ -123,7 +123,8 @@ export default {
       birthday: this.value.birthday,
       sex: this.value.sex == 'Male' ? 'M' : 'F',
       teethQuantity: this.value.teethQuantity,
-      lactating: this.value.lactating
+      lactating: this.value.lactating,
+      shearing: this.value.shearing
     }
     this.birthday = new Date(this.sheep.birthday)
   },
@@ -160,6 +161,7 @@ export default {
       try {
         await this.$axios['patch'](url, this.sheep)
         this.$toasted.global.defaultSuccess()
+        this.edit = false
       } catch (e) {
         showError(e)
       }

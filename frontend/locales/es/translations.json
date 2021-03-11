@@ -1,0 +1,334 @@
+{
+  "false": "No",
+  "true": "Sí",
+  "header": {
+    "signin": "Entrar",
+    "signup": "Registrarse",
+    "admin": "Administración",
+    "profile": "Mi perfil"
+  },
+  "asideMenu": {
+    "dashboard": "Principal",
+    "general": "General",
+    "reproductionItems": {
+      "title": "Reproducción",
+      "lots": "Lotes","restroom": "Baño"
+    },
+    "adminItems": {
+      "title": "Administración",
+      "category": "Categorías",
+      "breed": "Razas",
+      "shearing": "Esquila",
+      "sheep": "Animales",
+      "pregnancyDiagnosis": "Diagnóstico de embarazo",
+      "birth": "Nacimientos",
+      "records": "Registros",
+      "feed": "Raciones"
+    },
+    "about": "Sobre"
+  },
+
+  "components": {
+    "admin": {
+      "useradmin": {
+        "table": {
+          "id": "Código",
+          "email": "E-mail",
+          "name": "Nombre"
+        },
+        "addNew": "Añadir nuevo usuario",
+        "confirmDeletion": "Confirmar la eliminación"
+      },
+      "groupadmin": {
+        "add": "Agregar nuevo grupo",
+        "confirmDeletion": "Confirmar la eliminación"
+      }
+    },
+    "userdropdown": {
+      "logout": "Salir"
+    },
+    "user": {
+      "changepassword": {
+        "title": "Cambiar contraseña",
+        "cancel": "Cancelar",
+        "email": "E-mail",
+        "currentPassword": "contraseña actual",
+        "newPassword": "Nueva contraseña",
+        "confirmPassword": "Confirmación de contraseña"
+      }
+    },
+    "group": {
+      "generalInfo": {
+        "title": "Configuración general"
+      }
+    }
+  },
+
+  "pages": {
+    "dashboard":{
+      "sheeps": "Oveja",
+      "sales": "Ventas",
+      "performance": "Rendimiento",
+      "money_symbol": "€"
+    },
+    "pagetitle": {
+      "sheep_edit": {
+        "title": "Edición oveja",
+        "subtitle": "Manejo de ovejas"
+      },
+      "shearing_edit": {
+        "title": "Edición de corte"
+      },
+      "birth_edit": {
+        "title": "Editar nacimientos"
+      },
+      "lots": {
+        "title": "Edición por lotes",
+        "subtitle": "Gestión de lotes"
+      }
+    },
+
+    "birth": {
+      "title": "Nacimientos",
+      "subtitle": "Manejo de ovejas",
+      "forms": {
+        "sheep": {
+          "label": "Oveja",
+          "placeholder": "Seleccionar la oveja"
+        },
+        "dateTime": {
+          "label": "Fecha y hora de nacimiento",
+          "placeholder": "Seleccione la fecha y la hora de nacimiento"
+        },
+        "newbornsQuantity": {
+          "label": "Número de cachorros",
+          "placeholder": "Ingrese el número de cachorros en el parto"
+        }
+      },
+      "tabs": {
+        "main": "Nacimientos",
+        "newborn": "Cachorro"
+      }
+    },
+    "login": {
+      "signin": "Entra",
+      "signup": "Registrarse",
+      "withRegister": "¿Ya registrado? Acceder Iniciar sesión!",
+      "withoutRegister": "¿No tienes registro? ¡Registrar aquí!",
+      "name": {
+        "placeholder": "Ingrese el nombre"
+      },
+      "email": {
+        "placeholder": "Ingrese el correo electrónico"
+      },
+      "password": {
+        "placeholder": "Introducir la contraseña"
+      },
+      "confirmPassword": {
+        "placeholder": "Confirme la contraseña"
+      }
+    },
+    "lots":{
+      "title": "Gestión de lotes",
+      "subtitle": "Lotes de ovejas",
+      "table": {
+        "title": "Agregar ovejas al lote",
+        "id": "Código",
+        "description": "Descripción",
+        "date": "Fecha y hora",
+        "actions": "Comparte"
+      },
+      "forms": {
+        "lot": {
+          "label": "Lote",
+          "placeholder": "Ingrese la descripción del lote"
+        },
+        "dateTime": {
+          "label": "Fecha y hora creación de lotes",
+          "placeholder": "Seleccione la fecha y hora de creación"
+        }
+      }
+    },
+    "me": {
+      "title": "Mi perfil",
+      "subtitle": "Información de perfil personal"
+    },
+    "admin": {
+      "title": "Administración",
+      "subtitle": "Painel de administración",
+      "tabs": {
+        "users": "Usuarios",
+        "groups": "Grupos"
+      },
+      "category": {
+        "title": "Gestión por categorías",
+        "subtitle": "Categorías de ovejas",
+        "table": {
+          "id": "Código",
+          "name": "Nombre",
+          "actions": "Comparte"
+        }
+      },
+      "breed": {
+        "title": "Gestión de razas",
+        "subtitle": "Razas de ovejas",
+        "table": {
+          "id": "Código",
+          "name": "Nombre",
+          "actions": "Comparte"
+        }
+      },
+      "pregnancyDiagnosis": {
+        "title": "Diagnósticos de Gestação",
+        "subtitle": "Manejo de ovejas",
+        "table": {
+          "id": "Código",
+          "name": "Nombre",
+          "actions": "Comparte"
+        },
+        "forms": {
+          "sheep": {
+            "label": "Oveja",
+            "placeholder": "Seleccionar la oveja"
+          },
+          "dateTime": {
+            "label": "Fecha y hora del diagnóstico",
+            "placeholder": "Seleccione la fecha y hora de diagnóstico"
+          },
+          "pregnancyDiagnosis": "¿Oveja preñada?"
+        }
+      },
+      "shearing": {
+        "title": "Esquila",
+        "subtitle": "Manejo de ovejas",
+        "table": {
+          "id": "Código",
+          "name": "Nombre",
+          "actions": "Comparte"
+        },
+        "forms": {
+          "sheep": {
+            "label": "Oveja",
+            "placeholder": "Seleccionar la oveja"
+          },
+          "dateTime": {
+            "label": "Fecha y hora de corte",
+            "placeholder": "Seleccione la fecha y hora de recorte"
+          },
+          "amountOfWool": "Cantidad de lana"
+        },
+        "tabs": {
+          "main": "Tijeras"
+        }
+      },
+      "sheep": {
+        "title": "Manejo de ovejas",
+        "subtitle": "Rebaño",
+        "table": {
+          "id": "Código",
+          "earringNumber": "Nº de pendiente",
+          "breed": "Raza",
+          "category": "Categoría",
+          "sex": "Sexo",
+          "birthday": "Nascimento",
+          "pregnant": "Prenhe?",
+          "lactating": "Lactante?",
+          "actions": "Comparte"
+        },
+        "forms": {
+          "earringNumber": {
+            "label": "Número de pendiente",
+            "placeholder": "Ingrese el número del pendiente"
+          },
+          "breed": {
+            "label": "Raza",
+            "placeholder": "Seleccionar raza"
+          },
+          "category": {
+            "label": "Categoría",
+            "placeholder": "Selecciona una categoría"
+          },
+          "birthday": {
+            "label": "Fecha de nacimiento",
+            "placeholder": "Ingrese la fecha de nacimiento"
+          },
+          "sex": {
+            "label": "Sexo",
+            "placeholder": "Ingrese género",
+            "male": "Masculino",
+            "female": "Mujer"
+          },
+          "teethQuantity": {
+            "label": "Numero de dientes",
+            "placeholder": "Ingrese el número de dientes"
+          },
+          "mother": {
+            "label": "Madre",
+            "placeholder": "Seleccionar madre"
+          },
+          "father": {
+            "label": "Padre",
+            "placeholder": "Seleccionar padre"
+          },
+          "lactating": "Lactando?"
+        }
+      },
+      "user": {
+        "edit": {
+          "title": "Edición de usuario",
+          "subtitle": "Gestión de usuarios"
+        },
+        "add": {
+          "title": "Añadir nuevo usuario",
+          "subtitle": "Gestión de usuarios"
+        }
+      },
+      "group": {
+        "edit": {
+          "title": "Editar grupo",
+          "subtitle": "Manejo de grupo"
+        },
+        "add": {
+          "title": "Agregar nuevo grupo",
+          "subtitle": "Manejo de grupo"
+        }
+      },
+      "forms": {
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Ingrese el nombre"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Ingrese correo electrónico"
+        }
+      }
+    },
+    "sheeps": {
+      "add": "Agregar nuevo animal",
+      "edit": {
+        "generalInfo": "Informaciones generales"
+      }
+    }
+  },
+
+  "buttons": {
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "reset": "Cancelar",
+    "edit": "Editar",
+    "clear": "Clear",
+    "now": "Ahora",
+    "add": "Para agregar"
+  },
+
+  "navBar":{
+    "search": "Busca en todas partes ...",
+    "settings": "Ajustes",
+    "users_and_groups": "Usuarios y grupos",
+    "profile": "Mi perfil",
+    "messages": "Mensajes",
+    "logout": "Cerrar sesión",
+    "about": "Sobre"
+  }
+}

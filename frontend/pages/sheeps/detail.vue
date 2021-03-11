@@ -9,14 +9,13 @@
       <b-tab-item :label="$t('pages.sheeps.edit.generalInfo')">
         <general-info v-model="sheep" />
       </b-tab-item>
-      <b-tab-item :label="$t('pages.birth.tabs.main')"> </b-tab-item>
     </b-tabs>
   </section>
 </template>
 
 <script>
 import PageTitle from '@/components/templates/PageTitle'
-import GeneralInfo from '@/components/sheeps/GeneralInfo'
+import GeneralInfo from '@/components/sheeps/info/GeneralInfo'
 export default {
   components: { GeneralInfo, PageTitle },
   asyncData({ params }) {
