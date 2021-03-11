@@ -21,6 +21,7 @@
         <list-lots @loadLots="loadLots" />
       </card-component>
     </section>
+    {{ lots }}
   </div>
 </template>
 
@@ -47,8 +48,8 @@ export default {
     loadLots(lots) {
       this.lots = {
         id: lots.id,
-        description: lots.description,
-        date: new Date(lots.date)
+        name: lots.name,
+        date: lots.date
       }
     }
   }

@@ -6,9 +6,7 @@
       :sub="$t('pages.pagetitle.lots.subtitle')"
     />
     <b-tabs>
-      <b-tab-item
-        :label="$t('pages.lots.table.title') + ': ' + lots.description"
-      >
+      <b-tab-item :label="$t('pages.lots.table.title') + ': ' + lots.name">
         <table-sheeps />
       </b-tab-item>
     </b-tabs>

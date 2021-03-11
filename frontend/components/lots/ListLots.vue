@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import { /*mapActions, */ mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
   props: {
     checkable: {
@@ -75,7 +75,7 @@ export default {
           sortable: true
         },
         {
-          field: 'description',
+          field: 'name',
           label: this.$t('pages.lots.table.description'),
           sortable: true
         },
@@ -90,11 +90,11 @@ export default {
   computed: {
     ...mapState('lots', ['lots'])
   },
-  /*created() {
+  created() {
     this.getLots()
-  },*/
+  },
   methods: {
-    //...mapActions('lots', ['getLots']),
+    ...mapActions('lots', ['getLots']),
     load(lots) {
       this.$router.push({
         name: `lotsLoad___${this.$i18n.locale}`,
@@ -116,8 +116,7 @@ export default {
       })
     },
     async remove(lots) {
-      alert('Removendo: ' + lots.description)
-      /*const id = lots.id
+      const id = lots.id
       const url = `/api/v1/lots/${id}`
       try {
         await this.$axios.delete(url)
@@ -127,7 +126,7 @@ export default {
         for (const item in err.response.data) {
           this.$toast.error(item + ': ' + err.response.data[item])
         }
-      }*/
+      }
     }
   }
 }

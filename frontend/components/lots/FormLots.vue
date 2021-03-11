@@ -7,14 +7,16 @@
       horizontal
     >
       <b-input
-        v-model="lots.description"
+        v-model="lots.name"
         :placeholder="$t('pages.lots.forms.lot.placeholder')"
         type="text"
         icon="tag"
         required
       />
     </b-field>
+
     <v-datetime v-model="date" :label="$t('pages.lots.forms.dateTime.label')" />
+
     <b-field horizontal>
       <b-field grouped>
         <div class="control">
@@ -33,7 +35,7 @@
 </template>
 
 <script>
-//import { mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import VDatetime from '@/components/templates/VDatetime'
 
 export default {
@@ -70,11 +72,10 @@ export default {
     }
   },
   methods: {
-    //...mapActions('lots', ['getLots']),
+    ...mapActions('lots', ['getLots']),
     async submit() {
-      this.reset('reload')
-      alert('submit')
-      /*try {
+      try {
+        this.lots.date = this.date.toISOString()
         const method = this.value.id ? 'put' : 'post'
         const id = this.value.id ? `/${this.value.id}` : ''
         const url = `/api/v1/lots${id}/`
@@ -86,7 +87,7 @@ export default {
         for (const item in err.response.data) {
           this.$toast.error(item + ': ' + err.response.data[item])
         }
-      }*/
+      }
     },
     reset(mode) {
       this.lots = this.lots.id && mode != 'reload' ? this.original : {}
