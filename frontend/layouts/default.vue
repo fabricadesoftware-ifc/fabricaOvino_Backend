@@ -64,7 +64,7 @@ export default {
         this.$t('asideMenu.reproductionItems.title'),
         [
           {
-            to: { name: 'lots' },
+            to: { name: 'lots-lots' },
             icon: 'view-grid',
             label: this.$t('asideMenu.reproductionItems.lots')
           },

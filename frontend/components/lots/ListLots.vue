@@ -97,7 +97,7 @@ export default {
     ...mapActions('lots', ['getLots']),
     load(lots) {
       this.$router.push({
-        name: `lotsLoad___${this.$i18n.locale}`,
+        name: `lots-lotsLoad___${this.$i18n.locale}`,
         params: { lots }
       })
     },

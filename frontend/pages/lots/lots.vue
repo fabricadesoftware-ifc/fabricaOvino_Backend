@@ -49,7 +49,7 @@ export default {
       this.lots = {
         id: lots.id,
         name: lots.name,
-        date: lots.date
+        date: new Date(lots.date)
       }
     }
   }

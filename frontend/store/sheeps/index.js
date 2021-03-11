@@ -24,5 +24,8 @@ export const getters = {
   },
   notPregnantSheeps: state => {
     return state.sheeps.filter(sheep => !sheep.pregnant)
+  },
+  isFemale: state => {
+    return state.sheeps.filter(sheep => sheep.sex == 'Female')
   }
 }
