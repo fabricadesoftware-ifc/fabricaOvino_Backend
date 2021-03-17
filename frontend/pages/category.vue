@@ -9,7 +9,7 @@
     </hero-bar>
 
     <section class="section is-main-section">
-      <card-component title="Adicionar / Editar" icon="ballot">
+      <card-component title= {{ $t('pages.admin.category.title') }} icon="ballot">
         <form-category v-model="category" />
       </card-component>
       <hr />

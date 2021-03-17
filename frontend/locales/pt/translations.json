@@ -12,7 +12,8 @@
     "general": "Geral",
     "reproductionItems": {
       "title": "Reprodução",
-      "lots": "Lotes","restroom": "Sanitário"
+      "lots": "Lotes",
+      "restroom": "Sanitário"
     },
     "adminItems": {
       "title": "Administração",
@@ -101,19 +102,19 @@
           "placeholder": "Selecione a Data e Hora do parto"
         },
         "newbornsQuantity": {
-          "label": "Número de filhotes",
-          "placeholder": "Informe o número de filhotes do parto"
+          "label": "Quantidade de filhotes",
+          "placeholder": "Informe a quantidade de filhotes do parto"
         }
       },
       "tabs": {
-        "main": "Parto",
+        "main": "Nascimentos",
         "newborn": "Filhote"
       }
     },
     "login": {
       "signin": "Entrar",
       "signup": "Cadastre-se",
-      "withRegister": "Já tem cadastro? Acesse o Login!",
+      "withRegister": "Já tem cadastro? Acesse aqui!",
       "withoutRegister": "Não tem cadastro? Registre-se aqui!",
       "name": {
         "placeholder": "Informe o nome"
@@ -143,7 +144,7 @@
           "placeholder": "Informe a descrição do lote"
         },
         "dateTime": {
-          "label": "Data e Hora da criação do lote",
+          "label": "Data e Hora da criação",
           "placeholder": "Selecione a Data e Hora da criação"
         }
       }
@@ -170,7 +171,7 @@
       },
       "breed": {
         "title": "Gestão de raças",
-        "subtitle": "Raças das ovelhas",
+        "subtitle": "Raça das ovelhas",
         "table": {
           "id": "Código",
           "name": "Nome",
@@ -248,7 +249,7 @@
             "placeholder": "Selecione a categoria"
           },
           "birthday": {
-            "label": "Data de nascimento",
+            "label": "Nascimento",
             "placeholder": "Informe a data de nascimento"
           },
           "sex": {

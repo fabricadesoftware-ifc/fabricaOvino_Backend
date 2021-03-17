@@ -12,7 +12,8 @@
     "general": "General",
     "reproductionItems": {
       "title": "Reproducción",
-      "lots": "Lotes","restroom": "Baño"
+      "lots": "Lotes",
+      "restroom": "Baño"
     },
     "adminItems": {
       "title": "Administración",

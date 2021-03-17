@@ -10,9 +10,9 @@ O sistema é composto por duas partes: o **backend**, construído em Django, imp
 
 Requisitos:
 
-* [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-* [Docker Compose](https://docs.docker.com/compose/install/)
-* [Poetry](https://poetry.eustace.io/docs/)
+-   [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+-   [Docker Compose](https://docs.docker.com/compose/install/)
+-   [Poetry](https://poetry.eustace.io/docs/)
 
 ```sh
 # Inicializar o banco de dados
@@ -25,7 +25,7 @@ cp .env.sample .env
 poetry install
 # Executar os comandos dentro do virtualenv (criado automaticamente)
 poetry run python manage.py migrate
-poetry run python manage.py runserver
+poetry run python  runservemanage.pyr
 ```
 
 O backend responde localmente na porta 8000: http://localhost:8000/api/v1/swagger/. Para mais detalhes sobre o seu funcionamento, leia o [README do diretório backend](backend/README.md).
@@ -33,6 +33,7 @@ O backend responde localmente na porta 8000: http://localhost:8000/api/v1/swagge
 **Para fazer um commit, você deve estar dentro do virtualenv do backend.**
 
 Use o poetry para isso:
+
 ```sh
 poetry shell
 ```
@@ -47,7 +48,7 @@ pre-commit install
 
 Requisitos:
 
-* [Node.js](https://nodejs.org/)
+-   [Node.js](https://nodejs.org/)
 
 ```sh
 # Todas as operações do frontend devem ser feitas a partir deste diretório
@@ -60,4 +61,3 @@ npm run dev
 ```
 
 O frontend responde localmente na porta 3000: http://localhost:3000/. Para mais detalhes sobre o seu funcionamento, leia o [README do diretório frontend](frontend/README.md).
-
