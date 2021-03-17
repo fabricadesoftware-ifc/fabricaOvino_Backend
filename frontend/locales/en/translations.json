@@ -82,6 +82,10 @@
       },
       "birth_edit": {
         "title": "Birth edition"
+      },
+      "lots": {
+        "title": "Lots edition",
+        "subtitle": "Lots management"
       }
     },
 

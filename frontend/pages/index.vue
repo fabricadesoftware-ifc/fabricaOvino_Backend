@@ -1,13 +1,9 @@
 <template>
   <div>
     <title-bar :title-stack="titleStack" />
-<<<<<<< HEAD
-    <hero-bar :has-right-visible="false"> Dashboard </hero-bar>
-=======
     <hero-bar :has-right-visible="false">
       {{ $t('asideMenu.dashboard') }}
     </hero-bar>
->>>>>>> origin/Dev-Maria
     <section class="section is-main-section">
       <tiles>
         <card-widget

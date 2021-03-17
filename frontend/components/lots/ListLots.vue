@@ -33,6 +33,12 @@
       >
         <div class="buttons">
           <b-button
+            type="is-small is-warning"
+            icon-left="view-grid-plus"
+            @click="load(props.row)"
+          >
+          </b-button>
+          <b-button
             type="is-small is-primary"
             icon-left="pencil"
             @click="loadLots(props.row)"
@@ -89,6 +95,12 @@ export default {
   },*/
   methods: {
     //...mapActions('lots', ['getLots']),
+    load(lots) {
+      this.$router.push({
+        name: `lotsLoad___${this.$i18n.locale}`,
+        params: { lots }
+      })
+    },
     loadLots(lots) {
       this.$emit('loadLots', lots)
     },
