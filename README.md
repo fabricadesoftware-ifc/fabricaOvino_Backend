@@ -19,7 +19,7 @@ Requisitos:
 sudo docker-compose up -d
 
 # Configurações (editar se necessário)
-cp .env.sample .env
+cp .env_sample .env
 
 # Instalar as dependências
 poetry install
