@@ -1,10 +1,12 @@
-from rest_framework import serializers 
+from rest_framework import serializers
 from backend.core.models import Lots
 
-class LotsSerializer(serializers.ModelSerializer): 
-    class Meta: 
+
+class LotsSerializer(serializers.ModelSerializer):
+    class Meta:
         model = Lots
-        fields = ["id", "sheep", "user", "date","name"]
+        fields = ["id", "sheep", "user", "date", "name"]
+
 
 class LotsDetailSerializer(serializers.ModelSerializer):
     sheep = serializers.CharField(source="sheep.earringNumber", read_only=True)
@@ -12,4 +14,4 @@ class LotsDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lots
-        fields = ["id", "sheep", "user", "date","name"]
+        fields = ["id", "sheep", "user", "date", "name"]

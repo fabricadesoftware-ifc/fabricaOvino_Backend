@@ -3,8 +3,9 @@ from rest_framework.response import Response
 from backend.core.models import Lots, Sheep
 from backend.core.serializers import LotsSerializer
 
+
 class LotsViewSet(viewsets.ModelViewSet):
-    lookup_field = "id" 
+    lookup_field = "id"
     queryset = Lots.objects.all()
     serializer_class = LotsSerializer
 

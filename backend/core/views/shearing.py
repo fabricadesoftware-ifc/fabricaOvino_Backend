@@ -3,8 +3,9 @@ from rest_framework.response import Response
 from backend.core.models import Shearing, Sheep
 from backend.core.serializers import ShearingSerializer
 
+
 class ShearingViewSet(viewsets.ModelViewSet):
-    lookup_field = "id" 
+    lookup_field = "id"
     queryset = Shearing.objects.all()
     serializer_class = ShearingSerializer
 

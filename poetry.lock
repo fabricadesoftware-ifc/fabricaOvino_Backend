@@ -1,10 +1,6 @@
 [[package]]
 name = "appdirs"
-<<<<<<< HEAD
 version = "1.4.4"
-=======
-version = "1.4.3"
->>>>>>> origin/Dev-Maria
 description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 category = "dev"
 optional = false
@@ -12,11 +8,7 @@ python-versions = "*"
 
 [[package]]
 name = "asgiref"
-<<<<<<< HEAD
 version = "3.3.1"
-=======
-version = "3.2.7"
->>>>>>> origin/Dev-Maria
 description = "ASGI specs, helper code, and adapters"
 category = "main"
 optional = false
@@ -27,11 +19,7 @@ tests = ["pytest", "pytest-asyncio"]
 
 [[package]]
 name = "atomicwrites"
-<<<<<<< HEAD
 version = "1.4.0"
-=======
-version = "1.3.0"
->>>>>>> origin/Dev-Maria
 description = "Atomic file writes."
 category = "dev"
 optional = false
@@ -39,11 +27,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "attrs"
-<<<<<<< HEAD
 version = "20.3.0"
-=======
-version = "19.3.0"
->>>>>>> origin/Dev-Maria
 description = "Classes Without Boilerplate"
 category = "dev"
 optional = false
@@ -56,16 +40,8 @@ tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)"
 tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
 
 [[package]]
-<<<<<<< HEAD
-name = "bandit"
-version = "1.7.0"
-description = "Security oriented static analyser for python code."
-category = "dev"
-optional = false
-python-versions = ">=3.5"
-=======
 name = "autopep8"
-version = "1.5.4"
+version = "1.5.5"
 description = "A tool that automatically formats Python code to conform to the PEP 8 style guide"
 category = "dev"
 optional = false
@@ -77,21 +53,16 @@ toml = "*"
 
 [[package]]
 name = "bandit"
-version = "1.6.2"
+version = "1.7.0"
 description = "Security oriented static analyser for python code."
 category = "dev"
 optional = false
-python-versions = "*"
->>>>>>> origin/Dev-Maria
+python-versions = ">=3.5"
 
 [package.dependencies]
 colorama = {version = ">=0.3.9", markers = "platform_system == \"Windows\""}
 GitPython = ">=1.0.1"
-<<<<<<< HEAD
 PyYAML = ">=5.3.1"
-=======
-PyYAML = ">=3.13"
->>>>>>> origin/Dev-Maria
 six = ">=1.10.0"
 stevedore = ">=1.20.0"
 
@@ -117,11 +88,7 @@ d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
 
 [[package]]
 name = "certifi"
-<<<<<<< HEAD
 version = "2020.12.5"
-=======
-version = "2020.4.5.1"
->>>>>>> origin/Dev-Maria
 description = "Python package for providing Mozilla's CA Bundle."
 category = "main"
 optional = false
@@ -129,11 +96,7 @@ python-versions = "*"
 
 [[package]]
 name = "cfgv"
-<<<<<<< HEAD
 version = "3.2.0"
-=======
-version = "3.1.0"
->>>>>>> origin/Dev-Maria
 description = "Validate configuration and produce human readable error messages."
 category = "dev"
 optional = false
@@ -141,19 +104,11 @@ python-versions = ">=3.6.1"
 
 [[package]]
 name = "chardet"
-<<<<<<< HEAD
 version = "4.0.0"
 description = "Universal encoding detector for Python 2 and 3"
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-=======
-version = "3.0.4"
-description = "Universal encoding detector for Python 2 and 3"
-category = "main"
-optional = false
-python-versions = "*"
->>>>>>> origin/Dev-Maria
 
 [[package]]
 name = "click"
@@ -165,11 +120,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "colorama"
-<<<<<<< HEAD
 version = "0.4.4"
-=======
-version = "0.4.3"
->>>>>>> origin/Dev-Maria
 description = "Cross-platform colored terminal text."
 category = "dev"
 optional = false
@@ -202,7 +153,6 @@ jinja2 = "*"
 
 [[package]]
 name = "coverage"
-<<<<<<< HEAD
 version = "4.4.2"
 description = "Code coverage measurement for Python"
 category = "dev"
@@ -212,20 +162,6 @@ python-versions = "*"
 [[package]]
 name = "distlib"
 version = "0.3.1"
-=======
-version = "5.1"
-description = "Code coverage measurement for Python"
-category = "dev"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
-
-[package.extras]
-toml = ["toml"]
-
-[[package]]
-name = "distlib"
-version = "0.3.0"
->>>>>>> origin/Dev-Maria
 description = "Distribution utilities"
 category = "dev"
 optional = false
@@ -233,11 +169,7 @@ python-versions = "*"
 
 [[package]]
 name = "django"
-<<<<<<< HEAD
 version = "3.1.6"
-=======
-version = "3.0.5"
->>>>>>> origin/Dev-Maria
 description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
 category = "main"
 optional = false
@@ -254,19 +186,11 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 name = "django-cors-headers"
-<<<<<<< HEAD
 version = "3.7.0"
 description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
 category = "main"
 optional = false
 python-versions = ">=3.6"
-=======
-version = "3.2.1"
-description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
-category = "main"
-optional = false
-python-versions = ">=3.5"
->>>>>>> origin/Dev-Maria
 
 [package.dependencies]
 Django = ">=2.2"
@@ -281,11 +205,7 @@ python-versions = "*"
 
 [[package]]
 name = "djangorestframework"
-<<<<<<< HEAD
 version = "3.12.2"
-=======
-version = "3.11.0"
->>>>>>> origin/Dev-Maria
 description = "Web APIs for Django, made easy."
 category = "main"
 optional = false
@@ -296,19 +216,11 @@ django = ">=2.2"
 
 [[package]]
 name = "djangorestframework-simplejwt"
-<<<<<<< HEAD
 version = "4.6.0"
 description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
 category = "main"
 optional = false
 python-versions = ">=3.7"
-=======
-version = "4.4.0"
-description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
-category = "main"
-optional = false
-python-versions = ">=3.6,<3.9"
->>>>>>> origin/Dev-Maria
 
 [package.dependencies]
 django = "*"
@@ -324,30 +236,17 @@ test = ["cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest",
 
 [[package]]
 name = "drf-yasg"
-<<<<<<< HEAD
 version = "1.20.0"
 description = "Automated generation of real Swagger/OpenAPI 2.0 schemas from Django Rest Framework code."
 category = "main"
 optional = false
 python-versions = ">=3.6"
-=======
-version = "1.17.1"
-description = "Automated generation of real Swagger/OpenAPI 2.0 schemas from Django Rest Framework code."
-category = "main"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
->>>>>>> origin/Dev-Maria
 
 [package.dependencies]
 coreapi = ">=2.3.3"
 coreschema = ">=0.0.4"
-<<<<<<< HEAD
 Django = ">=2.2.16"
 djangorestframework = ">=3.10.3"
-=======
-Django = ">=1.11.7"
-djangorestframework = ">=3.8"
->>>>>>> origin/Dev-Maria
 inflection = ">=0.3.1"
 packaging = "*"
 "ruamel.yaml" = ">=0.15.34"
@@ -380,11 +279,7 @@ pyflakes = ">=2.2.0,<2.3.0"
 
 [[package]]
 name = "gitdb"
-<<<<<<< HEAD
 version = "4.0.5"
-=======
-version = "4.0.4"
->>>>>>> origin/Dev-Maria
 description = "Git Object Database"
 category = "dev"
 optional = false
@@ -395,11 +290,7 @@ smmap = ">=3.0.1,<4"
 
 [[package]]
 name = "gitpython"
-<<<<<<< HEAD
 version = "3.1.13"
-=======
-version = "3.1.1"
->>>>>>> origin/Dev-Maria
 description = "Python Git Library"
 category = "dev"
 optional = false
@@ -424,11 +315,7 @@ tornado = ["tornado (>=0.2)"]
 
 [[package]]
 name = "identify"
-<<<<<<< HEAD
 version = "1.5.13"
-=======
-version = "1.4.15"
->>>>>>> origin/Dev-Maria
 description = "File identification library for Python"
 category = "dev"
 optional = false
@@ -439,11 +326,7 @@ license = ["editdistance"]
 
 [[package]]
 name = "idna"
-<<<<<<< HEAD
 version = "2.10"
-=======
-version = "2.9"
->>>>>>> origin/Dev-Maria
 description = "Internationalized Domain Names in Applications (IDNA)"
 category = "main"
 optional = false
@@ -451,19 +334,11 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "importlib-metadata"
-<<<<<<< HEAD
 version = "3.4.0"
 description = "Read metadata from Python packages"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
-=======
-version = "1.6.0"
-description = "Read metadata from Python packages"
-category = "dev"
-optional = false
-python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
->>>>>>> origin/Dev-Maria
 
 [package.dependencies]
 typing-extensions = {version = ">=3.6.4", markers = "python_version < \"3.8\""}
@@ -475,11 +350,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 
 [[package]]
 name = "inflection"
-<<<<<<< HEAD
 version = "0.5.1"
-=======
-version = "0.4.0"
->>>>>>> origin/Dev-Maria
 description = "A port of Ruby on Rails inflector to Python"
 category = "main"
 optional = false
@@ -509,11 +380,7 @@ python-versions = "*"
 
 [[package]]
 name = "jinja2"
-<<<<<<< HEAD
 version = "2.11.3"
-=======
-version = "2.11.2"
->>>>>>> origin/Dev-Maria
 description = "A very fast and expressive template engine."
 category = "main"
 optional = false
@@ -543,11 +410,7 @@ python-versions = "*"
 
 [[package]]
 name = "more-itertools"
-<<<<<<< HEAD
 version = "8.7.0"
-=======
-version = "8.2.0"
->>>>>>> origin/Dev-Maria
 description = "More routines for operating on iterables, beyond itertools"
 category = "dev"
 optional = false
@@ -555,11 +418,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "nodeenv"
-<<<<<<< HEAD
 version = "1.5.0"
-=======
-version = "1.3.5"
->>>>>>> origin/Dev-Maria
 description = "Node.js virtual environment builder"
 category = "dev"
 optional = false
@@ -567,11 +426,7 @@ python-versions = "*"
 
 [[package]]
 name = "packaging"
-<<<<<<< HEAD
 version = "20.9"
-=======
-version = "20.3"
->>>>>>> origin/Dev-Maria
 description = "Core utilities for Python packages"
 category = "main"
 optional = false
@@ -582,11 +437,7 @@ pyparsing = ">=2.0.2"
 
 [[package]]
 name = "pathspec"
-<<<<<<< HEAD
 version = "0.8.1"
-=======
-version = "0.8.0"
->>>>>>> origin/Dev-Maria
 description = "Utility library for gitignore style pattern matching of file paths."
 category = "dev"
 optional = false
@@ -594,19 +445,11 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "pbr"
-<<<<<<< HEAD
 version = "5.5.1"
 description = "Python Build Reasonableness"
 category = "dev"
 optional = false
 python-versions = ">=2.6"
-=======
-version = "5.4.5"
-description = "Python Build Reasonableness"
-category = "dev"
-optional = false
-python-versions = "*"
->>>>>>> origin/Dev-Maria
 
 [[package]]
 name = "pluggy"
@@ -624,11 +467,7 @@ dev = ["pre-commit", "tox"]
 
 [[package]]
 name = "pre-commit"
-<<<<<<< HEAD
 version = "2.10.1"
-=======
-version = "2.3.0"
->>>>>>> origin/Dev-Maria
 description = "A framework for managing and maintaining multi-language pre-commit hooks."
 category = "dev"
 optional = false
@@ -641,19 +480,11 @@ importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 nodeenv = ">=0.11.1"
 pyyaml = ">=5.1"
 toml = "*"
-<<<<<<< HEAD
 virtualenv = ">=20.0.8"
 
 [[package]]
 name = "psycopg2-binary"
 version = "2.8.6"
-=======
-virtualenv = ">=15.2"
-
-[[package]]
-name = "psycopg2-binary"
-version = "2.8.5"
->>>>>>> origin/Dev-Maria
 description = "psycopg2 - Python-PostgreSQL Database Adapter"
 category = "main"
 optional = false
@@ -661,11 +492,7 @@ python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
 
 [[package]]
 name = "py"
-<<<<<<< HEAD
 version = "1.10.0"
-=======
-version = "1.8.1"
->>>>>>> origin/Dev-Maria
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
 category = "dev"
 optional = false
@@ -689,19 +516,11 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "pyjwt"
-<<<<<<< HEAD
 version = "2.0.1"
 description = "JSON Web Token implementation in Python"
 category = "main"
 optional = false
 python-versions = ">=3.6"
-=======
-version = "1.7.1"
-description = "JSON Web Token implementation in Python"
-category = "main"
-optional = false
-python-versions = "*"
->>>>>>> origin/Dev-Maria
 
 [package.extras]
 crypto = ["cryptography (>=3.3.1,<4.0.0)"]
@@ -719,11 +538,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "pytest"
-<<<<<<< HEAD
 version = "5.4.3"
-=======
-version = "5.4.1"
->>>>>>> origin/Dev-Maria
 description = "pytest: simple powerful testing with Python"
 category = "dev"
 optional = false
@@ -746,19 +561,11 @@ testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xm
 
 [[package]]
 name = "pytest-cov"
-<<<<<<< HEAD
 version = "2.10.1"
 description = "Pytest plugin for measuring coverage."
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-=======
-version = "2.8.1"
-description = "Pytest plugin for measuring coverage."
-category = "dev"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
->>>>>>> origin/Dev-Maria
 
 [package.dependencies]
 coverage = ">=4.4"
@@ -769,11 +576,7 @@ testing = ["fields", "hunter", "process-tests (==2.0.2)", "six", "pytest-xdist",
 
 [[package]]
 name = "pytest-django"
-<<<<<<< HEAD
 version = "3.10.0"
-=======
-version = "3.9.0"
->>>>>>> origin/Dev-Maria
 description = "A Django plugin for pytest."
 category = "dev"
 optional = false
@@ -788,11 +591,7 @@ testing = ["django", "django-configurations (>=2.0)", "six"]
 
 [[package]]
 name = "pytz"
-<<<<<<< HEAD
 version = "2021.1"
-=======
-version = "2019.3"
->>>>>>> origin/Dev-Maria
 description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
@@ -800,7 +599,6 @@ python-versions = "*"
 
 [[package]]
 name = "pyyaml"
-<<<<<<< HEAD
 version = "5.4.1"
 description = "YAML parser and emitter for Python"
 category = "dev"
@@ -810,17 +608,6 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 [[package]]
 name = "regex"
 version = "2020.11.13"
-=======
-version = "5.3.1"
-description = "YAML parser and emitter for Python"
-category = "dev"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-
-[[package]]
-name = "regex"
-version = "2020.4.4"
->>>>>>> origin/Dev-Maria
 description = "Alternative regular expression module, to replace re."
 category = "dev"
 optional = false
@@ -828,11 +615,7 @@ python-versions = "*"
 
 [[package]]
 name = "requests"
-<<<<<<< HEAD
 version = "2.25.1"
-=======
-version = "2.23.0"
->>>>>>> origin/Dev-Maria
 description = "Python HTTP for Humans."
 category = "main"
 optional = false
@@ -850,11 +633,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
 name = "ruamel.yaml"
-<<<<<<< HEAD
 version = "0.16.12"
-=======
-version = "0.16.10"
->>>>>>> origin/Dev-Maria
 description = "ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order"
 category = "main"
 optional = false
@@ -869,11 +648,7 @@ jinja2 = ["ruamel.yaml.jinja2 (>=0.2)"]
 
 [[package]]
 name = "ruamel.yaml.clib"
-<<<<<<< HEAD
 version = "0.2.2"
-=======
-version = "0.2.0"
->>>>>>> origin/Dev-Maria
 description = "C version of reader, parser and emitter for ruamel.yaml derived from libyaml"
 category = "main"
 optional = false
@@ -889,25 +664,15 @@ python-versions = "*"
 
 [[package]]
 name = "six"
-<<<<<<< HEAD
 version = "1.15.0"
 description = "Python 2 and 3 compatibility utilities"
 category = "dev"
-=======
-version = "1.14.0"
-description = "Python 2 and 3 compatibility utilities"
-category = "main"
->>>>>>> origin/Dev-Maria
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "smmap"
-<<<<<<< HEAD
 version = "3.0.5"
-=======
-version = "3.0.2"
->>>>>>> origin/Dev-Maria
 description = "A pure Python implementation of a sliding window memory map manager"
 category = "dev"
 optional = false
@@ -915,7 +680,6 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "sqlparse"
-<<<<<<< HEAD
 version = "0.4.1"
 description = "A non-validating SQL parser."
 category = "main"
@@ -929,21 +693,6 @@ description = "Manage dynamic plugins for Python applications"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
-=======
-version = "0.3.1"
-description = "Non-validating SQL parser"
-category = "main"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-
-[[package]]
-name = "stevedore"
-version = "1.32.0"
-description = "Manage dynamic plugins for Python applications"
-category = "dev"
-optional = false
-python-versions = "*"
->>>>>>> origin/Dev-Maria
 
 [package.dependencies]
 importlib-metadata = {version = ">=1.7.0", markers = "python_version < \"3.8\""}
@@ -951,7 +700,6 @@ pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 
 [[package]]
 name = "toml"
-<<<<<<< HEAD
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
 category = "dev"
@@ -963,24 +711,13 @@ name = "typed-ast"
 version = "1.4.2"
 description = "a fork of Python 2 and 3 ast modules with type comment support"
 category = "dev"
-=======
-version = "0.10.0"
-description = "Python Library for Tom's Obvious, Minimal Language"
-category = "dev"
->>>>>>> origin/Dev-Maria
 optional = false
 python-versions = "*"
 
 [[package]]
-<<<<<<< HEAD
 name = "typing-extensions"
 version = "3.7.4.3"
 description = "Backported and Experimental Type Hints for Python 3.5+"
-=======
-name = "typed-ast"
-version = "1.4.1"
-description = "a fork of Python 2 and 3 ast modules with type comment support"
->>>>>>> origin/Dev-Maria
 category = "dev"
 optional = false
 python-versions = "*"
@@ -995,19 +732,11 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "urllib3"
-<<<<<<< HEAD
 version = "1.22"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 category = "main"
 optional = false
 python-versions = "*"
-=======
-version = "1.25.9"
-description = "HTTP library with thread-safe connection pooling, file post, and more."
-category = "main"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
->>>>>>> origin/Dev-Maria
 
 [package.extras]
 secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
@@ -1015,11 +744,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "virtualenv"
-<<<<<<< HEAD
 version = "20.4.2"
-=======
-version = "20.0.18"
->>>>>>> origin/Dev-Maria
 description = "Virtual Python Environment builder"
 category = "dev"
 optional = false
@@ -1029,11 +754,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
 appdirs = ">=1.4.3,<2"
 distlib = ">=0.3.1,<1"
 filelock = ">=3.0.0,<4"
-<<<<<<< HEAD
 importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
-=======
-importlib-metadata = {version = ">=0.12,<2", markers = "python_version < \"3.8\""}
->>>>>>> origin/Dev-Maria
 six = ">=1.9.0,<2"
 
 [package.extras]
@@ -1042,24 +763,15 @@ testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 
 [[package]]
 name = "wcwidth"
-<<<<<<< HEAD
 version = "0.2.5"
 description = "Measures the displayed width of unicode strings in a terminal"
-=======
-version = "0.1.9"
-description = "Measures number of Terminal column cells of wide-character codes"
->>>>>>> origin/Dev-Maria
 category = "dev"
 optional = false
 python-versions = "*"
 
 [[package]]
 name = "zipp"
-<<<<<<< HEAD
 version = "3.4.0"
-=======
-version = "3.1.0"
->>>>>>> origin/Dev-Maria
 description = "Backport of pathlib-compatible object wrapper for zip files"
 category = "dev"
 optional = false
@@ -1071,13 +783,8 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 
 [metadata]
 lock-version = "1.1"
-<<<<<<< HEAD
 python-versions = ">=3.7"
-content-hash = "51961c98bb8cfbb0760a492e3cefe5bf5c4c134d087eb822633b99ae57e7788f"
-=======
-python-versions = ">=3.7,<3.9"
-content-hash = "6d11c0258981584969e37e2885a3141f0b0cec87037936ee9db859fd72455af4"
->>>>>>> origin/Dev-Maria
+content-hash = "b4d7759799991b70116fb18f740a7c71fd710d949b85c1b2d3a184bf6fcf6fbd"
 
 [metadata.files]
 appdirs = [
@@ -1097,7 +804,8 @@ attrs = [
     {file = "attrs-20.3.0.tar.gz", hash = "sha256:832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"},
 ]
 autopep8 = [
-    {file = "autopep8-1.5.4.tar.gz", hash = "sha256:d21d3901cb0da6ebd1e83fc9b0dfbde8b46afc2ede4fe32fbda0c7c6118ca094"},
+    {file = "autopep8-1.5.5-py2.py3-none-any.whl", hash = "sha256:9e136c472c475f4ee4978b51a88a494bfcd4e3ed17950a44a988d9e434837bea"},
+    {file = "autopep8-1.5.5.tar.gz", hash = "sha256:cae4bc0fb616408191af41d062d7ec7ef8679c7f27b068875ca3a9e2878d5443"},
 ]
 bandit = [
     {file = "bandit-1.7.0-py3-none-any.whl", hash = "sha256:216be4d044209fa06cf2a3e51b319769a51be8318140659719aa7a115c35ed07"},
@@ -1202,13 +910,8 @@ djangorestframework-simplejwt = [
     {file = "djangorestframework_simplejwt-4.6.0.tar.gz", hash = "sha256:7adc913ba0d2ed7f46e0b9bf6e86f9bd9248f1c4201722b732b8213e0ea66f9f"},
 ]
 drf-yasg = [
-<<<<<<< HEAD
     {file = "drf-yasg-1.20.0.tar.gz", hash = "sha256:d50f197c7f02545d0b736df88c6d5cf874f8fea2507ad85ad7de6ae5bf2d9e5a"},
     {file = "drf_yasg-1.20.0-py2.py3-none-any.whl", hash = "sha256:8b72e5b1875931a8d11af407be3a9a5ba8776541492947a0df5bafda6b7f8267"},
-=======
-    {file = "drf-yasg-1.17.1.tar.gz", hash = "sha256:5572e9d5baab9f6b49318169df9789f7399d0e3c7bdac8fdb8dfccf1d5d2b1ca"},
-    {file = "drf_yasg-1.17.1-py2.py3-none-any.whl", hash = "sha256:7d7af27ad16e18507e9392b2afd6b218fbffc432ec8dbea053099a2241e184ff"},
->>>>>>> origin/Dev-Maria
 ]
 filelock = [
     {file = "filelock-3.0.12-py3-none-any.whl", hash = "sha256:929b7d63ec5b7d6b71b0fa5ac14e030b3f70b75747cef1b10da9b879fef15836"},
@@ -1277,20 +980,39 @@ markupsafe = [
     {file = "MarkupSafe-1.1.1-cp35-cp35m-win32.whl", hash = "sha256:6dd73240d2af64df90aa7c4e7481e23825ea70af4b4922f8ede5b9e35f78a3b1"},
     {file = "MarkupSafe-1.1.1-cp35-cp35m-win_amd64.whl", hash = "sha256:9add70b36c5666a2ed02b43b335fe19002ee5235efd4b8a89bfcf9005bebac0d"},
     {file = "MarkupSafe-1.1.1-cp36-cp36m-macosx_10_6_intel.whl", hash = "sha256:24982cc2533820871eba85ba648cd53d8623687ff11cbb805be4ff7b4c971aff"},
+    {file = "MarkupSafe-1.1.1-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:d53bc011414228441014aa71dbec320c66468c1030aae3a6e29778a3382d96e5"},
     {file = "MarkupSafe-1.1.1-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:00bc623926325b26bb9605ae9eae8a215691f33cae5df11ca5424f06f2d1f473"},
     {file = "MarkupSafe-1.1.1-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:717ba8fe3ae9cc0006d7c451f0bb265ee07739daf76355d06366154ee68d221e"},
+    {file = "MarkupSafe-1.1.1-cp36-cp36m-manylinux2010_i686.whl", hash = "sha256:3b8a6499709d29c2e2399569d96719a1b21dcd94410a586a18526b143ec8470f"},
+    {file = "MarkupSafe-1.1.1-cp36-cp36m-manylinux2010_x86_64.whl", hash = "sha256:84dee80c15f1b560d55bcfe6d47b27d070b4681c699c572af2e3c7cc90a3b8e0"},
+    {file = "MarkupSafe-1.1.1-cp36-cp36m-manylinux2014_aarch64.whl", hash = "sha256:b1dba4527182c95a0db8b6060cc98ac49b9e2f5e64320e2b56e47cb2831978c7"},
     {file = "MarkupSafe-1.1.1-cp36-cp36m-win32.whl", hash = "sha256:535f6fc4d397c1563d08b88e485c3496cf5784e927af890fb3c3aac7f933ec66"},
     {file = "MarkupSafe-1.1.1-cp36-cp36m-win_amd64.whl", hash = "sha256:b1282f8c00509d99fef04d8ba936b156d419be841854fe901d8ae224c59f0be5"},
     {file = "MarkupSafe-1.1.1-cp37-cp37m-macosx_10_6_intel.whl", hash = "sha256:8defac2f2ccd6805ebf65f5eeb132adcf2ab57aa11fdf4c0dd5169a004710e7d"},
+    {file = "MarkupSafe-1.1.1-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:bf5aa3cbcfdf57fa2ee9cd1822c862ef23037f5c832ad09cfea57fa846dec193"},
     {file = "MarkupSafe-1.1.1-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:46c99d2de99945ec5cb54f23c8cd5689f6d7177305ebff350a58ce5f8de1669e"},
     {file = "MarkupSafe-1.1.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:ba59edeaa2fc6114428f1637ffff42da1e311e29382d81b339c1817d37ec93c6"},
+    {file = "MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_i686.whl", hash = "sha256:6fffc775d90dcc9aed1b89219549b329a9250d918fd0b8fa8d93d154918422e1"},
+    {file = "MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:a6a744282b7718a2a62d2ed9d993cad6f5f585605ad352c11de459f4108df0a1"},
+    {file = "MarkupSafe-1.1.1-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:195d7d2c4fbb0ee8139a6cf67194f3973a6b3042d742ebe0a9ed36d8b6f0c07f"},
     {file = "MarkupSafe-1.1.1-cp37-cp37m-win32.whl", hash = "sha256:b00c1de48212e4cc9603895652c5c410df699856a2853135b3967591e4beebc2"},
     {file = "MarkupSafe-1.1.1-cp37-cp37m-win_amd64.whl", hash = "sha256:9bf40443012702a1d2070043cb6291650a0841ece432556f784f004937f0f32c"},
     {file = "MarkupSafe-1.1.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:6788b695d50a51edb699cb55e35487e430fa21f1ed838122d722e0ff0ac5ba15"},
     {file = "MarkupSafe-1.1.1-cp38-cp38-manylinux1_i686.whl", hash = "sha256:cdb132fc825c38e1aeec2c8aa9338310d29d337bebbd7baa06889d09a60a1fa2"},
     {file = "MarkupSafe-1.1.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:13d3144e1e340870b25e7b10b98d779608c02016d5184cfb9927a9f10c689f42"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-manylinux2010_i686.whl", hash = "sha256:acf08ac40292838b3cbbb06cfe9b2cb9ec78fce8baca31ddb87aaac2e2dc3bc2"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:d9be0ba6c527163cbed5e0857c451fcd092ce83947944d6c14bc95441203f032"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:caabedc8323f1e93231b52fc32bdcde6db817623d33e100708d9a68e1f53b26b"},
     {file = "MarkupSafe-1.1.1-cp38-cp38-win32.whl", hash = "sha256:596510de112c685489095da617b5bcbbac7dd6384aeebeda4df6025d0256a81b"},
     {file = "MarkupSafe-1.1.1-cp38-cp38-win_amd64.whl", hash = "sha256:e8313f01ba26fbbe36c7be1966a7b7424942f670f38e666995b88d012765b9be"},
+    {file = "MarkupSafe-1.1.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:d73a845f227b0bfe8a7455ee623525ee656a9e2e749e4742706d80a6065d5e2c"},
+    {file = "MarkupSafe-1.1.1-cp39-cp39-manylinux1_i686.whl", hash = "sha256:98bae9582248d6cf62321dcb52aaf5d9adf0bad3b40582925ef7c7f0ed85fceb"},
+    {file = "MarkupSafe-1.1.1-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:2beec1e0de6924ea551859edb9e7679da6e4870d32cb766240ce17e0a0ba2014"},
+    {file = "MarkupSafe-1.1.1-cp39-cp39-manylinux2010_i686.whl", hash = "sha256:7fed13866cf14bba33e7176717346713881f56d9d2bcebab207f7a036f41b850"},
+    {file = "MarkupSafe-1.1.1-cp39-cp39-manylinux2010_x86_64.whl", hash = "sha256:6f1e273a344928347c1290119b493a1f0303c52f5a5eae5f16d74f48c15d4a85"},
+    {file = "MarkupSafe-1.1.1-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:feb7b34d6325451ef96bc0e36e1a6c0c1c64bc1fbec4b854f4529e51887b1621"},
+    {file = "MarkupSafe-1.1.1-cp39-cp39-win32.whl", hash = "sha256:22c178a091fc6630d0d045bdb5992d2dfe14e3259760e713c490da5323866c39"},
+    {file = "MarkupSafe-1.1.1-cp39-cp39-win_amd64.whl", hash = "sha256:b7d644ddb4dbd407d31ffb699f1d140bc35478da613b441c582aeb7c43838dd8"},
     {file = "MarkupSafe-1.1.1.tar.gz", hash = "sha256:29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"},
 ]
 mccabe = [
@@ -1302,13 +1024,8 @@ more-itertools = [
     {file = "more_itertools-8.7.0-py3-none-any.whl", hash = "sha256:5652a9ac72209ed7df8d9c15daf4e1aa0e3d2ccd3c87f8265a0673cd9cbc9ced"},
 ]
 nodeenv = [
-<<<<<<< HEAD
     {file = "nodeenv-1.5.0-py2.py3-none-any.whl", hash = "sha256:5304d424c529c997bc888453aeaa6362d242b6b4631e90f3d4bf1b290f1c84a9"},
     {file = "nodeenv-1.5.0.tar.gz", hash = "sha256:ab45090ae383b716c4ef89e690c41ff8c2b257b85b309f01f3654df3d084bd7c"},
-=======
-    {file = "nodeenv-1.3.5-py2.py3-none-any.whl", hash = "sha256:5b2438f2e42af54ca968dd1b374d14a1194848955187b0e5e4be1f73813a5212"},
-    {file = "nodeenv-1.3.5.tar.gz", hash = "sha256:7389d06a7ea50c80ca51eda1b185db7b9ec38af1304d12d8b8299d6218486e91"},
->>>>>>> origin/Dev-Maria
 ]
 packaging = [
     {file = "packaging-20.9-py2.py3-none-any.whl", hash = "sha256:67714da7f7bc052e064859c05c595155bd1ee9f69f76557e21f051443c20947a"},
@@ -1470,14 +1187,8 @@ regex = [
     {file = "regex-2020.11.13.tar.gz", hash = "sha256:83d6b356e116ca119db8e7c6fc2983289d87b27b3fac238cfe5dca529d884562"},
 ]
 requests = [
-<<<<<<< HEAD
     {file = "requests-2.25.1-py2.py3-none-any.whl", hash = "sha256:c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e"},
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
-=======
-    {file = "requests-2.23.0-py2.7.egg", hash = "sha256:5d2d0ffbb515f39417009a46c14256291061ac01ba8f875b90cad137de83beb4"},
-    {file = "requests-2.23.0-py2.py3-none-any.whl", hash = "sha256:43999036bfa82904b6af1d99e4882b560e5e2c68e5c4b0aa03b655f3d7d73fee"},
-    {file = "requests-2.23.0.tar.gz", hash = "sha256:b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"},
->>>>>>> origin/Dev-Maria
 ]
 "ruamel.yaml" = [
     {file = "ruamel.yaml-0.16.12-py2.py3-none-any.whl", hash = "sha256:012b9470a0ea06e4e44e99e7920277edf6b46eee0232a04487ea73a7386340a5"},
