@@ -21,7 +21,6 @@
         <list-lots @loadLots="loadLots" />
       </card-component>
     </section>
-    {{ lots }}
   </div>
 </template>
 

@@ -140,6 +140,7 @@
         "actions": "Actions"
       },
       "forms": {
+        "placeholder": "Enter the lot",
         "lot": {
           "label": "Lot",
           "placeholder": "Enter the lot description"
@@ -230,6 +231,7 @@
           "earringNumber": "Earring #",
           "breed": "Breed",
           "category": "Category",
+          "lots": "Lot",
           "sex": "Sex",
           "birthday": "Birthday",
           "pregnant": "Pregnant?",

@@ -139,6 +139,7 @@
         "actions": "Comparte"
       },
       "forms": {
+        "placeholder": "Seleccione o lote",
         "lot": {
           "label": "Lote",
           "placeholder": "Ingrese la descripción del lote"
@@ -229,6 +230,7 @@
           "earringNumber": "Nº de pendiente",
           "breed": "Raza",
           "category": "Categoría",
+          "lots": "Lote",
           "sex": "Sexo",
           "birthday": "Nascimento",
           "pregnant": "Prenhe?",

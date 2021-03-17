@@ -51,6 +51,18 @@
             </option>
           </b-select>
         </b-field>
+        <b-field :label="$t('pages.lots.forms.lot.label')" horizontal>
+          <b-select
+            v-model="sheep.lots"
+            :placeholder="$t('pages.lots.forms.placeholder')"
+            icon="alpha-c-circle-outline"
+            required
+          >
+            <option v-for="lot in lots" :key="lot.id" :value="lot.id">
+              {{ lot.name }}
+            </option>
+          </b-select>
+        </b-field>
         <b-field
           :label="$t('pages.admin.sheep.forms.birthday.label')"
           horizontal
@@ -111,9 +123,9 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-// import RadioPicker from '@/components/templates/RadioPicker'
+import RadioPicker from '@/components/templates/RadioPicker'
 export default {
-  // components: {RadioPicker},
+  components: { RadioPicker },
   data() {
     return {
       birthday: new Date(),
@@ -124,7 +136,8 @@ export default {
   },
   computed: {
     ...mapState('breeds', ['breeds']),
-    ...mapState('categories', ['categories'])
+    ...mapState('categories', ['categories']),
+    ...mapState('lots', ['lots'])
   },
   methods: {
     ...mapActions('sheeps', ['getSheeps']),

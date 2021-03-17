@@ -140,6 +140,7 @@
         "actions": "Ações"
       },
       "forms": {
+        "placeholder": "Selecione o lote",
         "lot": {
           "label": "Lote",
           "placeholder": "Informe a descrição do lote"
@@ -230,6 +231,7 @@
           "earringNumber": "Nº do brinco",
           "breed": "Raça",
           "category": "Categoria",
+          "lots": "Lote",
           "sex": "Sexo",
           "birthday": "Nascimento",
           "pregnant": "Prenhe?",

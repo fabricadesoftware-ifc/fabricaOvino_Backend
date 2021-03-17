@@ -93,6 +93,10 @@ export default {
           label: this.$t('pages.admin.sheep.table.category')
         },
         {
+          field: 'lots',
+          label: this.$t('pages.admin.sheep.table.lots')
+        },
+        {
           field: 'sex',
           label: this.$t('pages.admin.sheep.table.sex')
         },

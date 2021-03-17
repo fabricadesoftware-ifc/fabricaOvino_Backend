@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "rest_framework",
     "drf_yasg",
+    # "drf_spectacular",
     "backend.core",
 ]
 
@@ -102,6 +103,7 @@ REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
     "TEST_REQUEST_DEFAULT_FORMAT": "json",
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissions",),
+    # "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     # "DEFAULT_PAGINATION_CLASS": "backend.core.pagination.CustomPageNumberPagination",
     # "PAGE_SIZE": 2,
 }

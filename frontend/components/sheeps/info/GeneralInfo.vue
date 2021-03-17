@@ -56,6 +56,22 @@
           </option>
         </b-select>
       </b-field>
+      <b-field
+        :label="$t('pages.lots.forms.lot.label')"
+        class="sheep-form-fields"
+      >
+        <b-select
+          v-model="sheep.lots"
+          :placeholder="$t('pages.lots.forms.placeholder')"
+          icon="alpha-c-circle-outline"
+          :disabled="!edit"
+          required
+        >
+          <option v-for="lot in lots" :key="lot.id" :value="lot.id">
+            {{ lot.name }}
+          </option>
+        </b-select>
+      </b-field>
       <b-field :label="$t('pages.admin.sheep.forms.birthday.label')">
         <b-datepicker
           v-model="birthday"
@@ -136,7 +152,8 @@ export default {
   },
   computed: {
     ...mapState('categories', ['categories']),
-    ...mapState('breeds', ['breeds'])
+    ...mapState('breeds', ['breeds']),
+    ...mapState('lots', ['lots'])
   },
 
   methods: {
