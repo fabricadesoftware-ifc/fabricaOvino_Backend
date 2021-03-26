@@ -37,3 +37,10 @@ O projeto já contém um arquivo `launch.json` com as configurações de debug p
 Os arquivos de tradução do projeto se encontram no diretório `locales/`. Eles podem ser editados à mão, com a ajunda do `npm run lintfix` para consertar erros.
 
 Para uma experiência mais "sofisticada, este editor pode ser usado: https://github.com/jcbvm/i18n-editor. Basta usar a função "Import project" e escolher o diretório `locales/`.
+
+
+## Diagrama de como estão organizados nossos módulos
+
+Alguns dos itens que estão ali ainda não estão totalmente prontos ou criados, sendo assim é necessário verificar e realizar a criação/atualização deles. 
+
+* https://drive.google.com/file/d/1wILZtGvS_hRvXy6-bPWsgKBBYo_fWyhT/view?usp=sharing
