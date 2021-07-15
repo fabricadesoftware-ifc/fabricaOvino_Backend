@@ -1,9 +1,10 @@
 import os
 from datetime import timedelta
 
+from django.utils.translation import gettext_lazy as _
+
 import environ
 from corsheaders.defaults import default_headers
-from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,6 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_extensions",
     "rest_framework",
     "drf_yasg",
     "backend.core",
@@ -57,18 +59,15 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-            ],
+            ]
         },
-    },
+    }
 ]
 
 WSGI_APPLICATION = "backend.wsgi.application"
 
 
-AUTHENTICATION_BACKENDS = (
-    "rules.permissions.ObjectPermissionBackend",
-    "django.contrib.auth.backends.ModelBackend",
-)
+AUTHENTICATION_BACKENDS = ("rules.permissions.ObjectPermissionBackend", "django.contrib.auth.backends.ModelBackend")
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
@@ -81,15 +80,10 @@ AUTH_USER_MODEL = "core.User"
 
 LOGIN_URL = "/api/v1/signin"
 
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
-}
+SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(minutes=60), "REFRESH_TOKEN_LIFETIME": timedelta(days=2)}
 
 CORS_ORIGIN_WHITELIST = env("CORS_ORIGIN_WHITELIST", list, ["http://localhost:3000", "http://127.0.0.1:3000"])
-CORS_ALLOW_HEADERS = list(default_headers) + [
-    "accept-language",
-]
+CORS_ALLOW_HEADERS = list(default_headers) + ["accept-language"]
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
@@ -98,10 +92,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-LANGUAGES = [
-    ("en", _("English")),
-    ("pt-br", _("Portuguese")),
-]
+LANGUAGES = [("en", _("English")), ("pt-br", _("Portuguese"))]
 
 STATIC_URL = "/api/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
@@ -116,3 +107,5 @@ REST_FRAMEWORK = {
 }
 
 SWAGGER_SETTINGS = {"SECURITY_DEFINITIONS": {"Bearer": {"type": "apiKey", "name": "Authorization", "in": "header"}}}
+
+GRAPH_MODELS = {"all_applications": True, "group_models": True}

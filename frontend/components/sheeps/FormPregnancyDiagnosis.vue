@@ -74,6 +74,9 @@ export default {
     ...mapState('auth', ['user']),
     ...mapGetters('sheeps', ['notPregnantSheeps'])
   },
+  created() {
+    this.getSheeps()
+  },
   methods: {
     ...mapActions('sheeps', ['getSheeps']),
     reset() {
