@@ -1,10 +1,9 @@
 import os
 from datetime import timedelta
 
-from django.utils.translation import gettext_lazy as _
-
 import environ
 from corsheaders.defaults import default_headers
+from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -82,7 +81,9 @@ LOGIN_URL = "/api/v1/signin"
 
 SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(minutes=60), "REFRESH_TOKEN_LIFETIME": timedelta(days=2)}
 
-CORS_ORIGIN_WHITELIST = env("CORS_ORIGIN_WHITELIST", list, ["http://localhost:3000", "http://127.0.0.1:3000"])
+CORS_ORIGIN_WHITELIST = env(
+    "CORS_ORIGIN_WHITELIST", list, ["http://localhost:8100", "http://localhost:3000", "http://127.0.0.1:3000"]
+)
 CORS_ALLOW_HEADERS = list(default_headers) + ["accept-language"]
 
 LANGUAGE_CODE = "en-us"
