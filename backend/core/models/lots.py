@@ -1,5 +1,4 @@
 from django.db import models
-from .sheep import Sheep
 
 
 class Lots(models.Model):
