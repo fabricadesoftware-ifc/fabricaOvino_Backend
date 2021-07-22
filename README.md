@@ -42,22 +42,3 @@ Configure os hooks de commit para executar verificações de código antes de fa
 ```sh
 pre-commit install
 ```
-
-### Frontend
-
-Requisitos:
-
-* [Node.js](https://nodejs.org/)
-
-```sh
-# Todas as operações do frontend devem ser feitas a partir deste diretório
-cd frontend
-
-# Instalar as dependências
-npm install
-# Executar em modo de desenvolvimento
-npm run dev
-```
-
-O frontend responde localmente na porta 3000: http://localhost:3000/. Para mais detalhes sobre o seu funcionamento, leia o [README do diretório frontend](frontend/README.md).
-
