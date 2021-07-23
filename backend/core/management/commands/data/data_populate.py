@@ -251,9 +251,6 @@ lots = [
 sheeps = [
     {
         "earringNumber": "301",
-        "breed": 1,
-        "category": 1,
-        "lots": 1,
         "birthday": "2021-01-01",
         "sex": "M",
         "teethQuantity": 20,

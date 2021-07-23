@@ -2,9 +2,9 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth.hashers import make_password
 
 from .data.data_populate import (
-    breeds, categorys, feeds, lots, users)
+    breeds, categorys, feeds, lots, users, sheeps)
 from backend.core.models import (
-    Breed, Category, Feed, Lots, User)
+    Breed, Category, Feed, Lots, User, Sheep)
 
 
 class Command(BaseCommand):
@@ -16,6 +16,7 @@ class Command(BaseCommand):
         save_feed(feeds)
         save_lot(lots)
         save_user(users)
+        save_sheep(sheeps)
 
 
 def save_breed(data):
@@ -62,3 +63,25 @@ def save_user(data):
             user.save()
         except Exception as e:
             print("USER: ", e, type(e))
+
+
+def save_sheep(data):
+    for s in data:
+        try:
+
+            breed_id = 5
+            category_id = 36
+            lots_id = 1
+
+            breed_instance = Breed.objects.get(pk=breed_id)
+            category_instance = Category.objects.get(pk=category_id)
+            lots_instance = Lots.objects.get(pk=lots_id)
+
+            s["breed"] = breed_instance
+            s["category"] = category_instance
+            s["lots"] = lots_instance
+
+            sheep = Sheep(**s)
+            sheep.save()
+        except Exception as e:
+            print("SHEEP: ", e, type(e))
