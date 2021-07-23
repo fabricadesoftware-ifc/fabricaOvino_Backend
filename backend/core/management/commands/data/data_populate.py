@@ -59,6 +59,139 @@ breeds = [
         "name": "Lacaune",
         "nickname": "",
     },
+    {
+        "name": "Dorset",
+        "nickname": "",
+    },
+    {
+        "name": "Ryeland",
+        "nickname": "",
+    },
+    {
+        "name": "Zwartbles",
+        "nickname": "",
+    },
+    {
+        "name": "Katadhin",
+        "nickname": "",
+    },
+    {
+        "name": "Polypay",
+        "nickname": "",
+    },
+    {
+        "name": "Soay Sheep",
+        "nickname": "",
+    },
+    {
+        "name": "Meatmaster",
+        "nickname": "",
+    },
+    {
+        "name": "Wiltipoll",
+        "nickname": "",
+    },
+    {
+        "name": "Welsh Mountain Badger Faced",
+        "nickname": "",
+    },
+    {
+        "name": "Southdown",
+        "nickname": "",
+    },
+    {
+        "name": "Uda",
+        "nickname": "",
+    },
+    {
+        "name": "Southdown Babydoll",
+        "nickname": "",
+    },
+    {
+        "name": "Pelibuey",
+        "nickname": "",
+    },
+    {
+        "name": "Hebridean",
+        "nickname": "",
+    },
+    {
+        "name": "Polled Dorset",
+        "nickname": "",
+    },
+    {
+        "name": "Shropshire",
+        "nickname": "",
+    },
+    {
+        "name": "Barbados Blackbelly",
+        "nickname": "",
+    },
+    {
+        "name": "Rambouillet",
+        "nickname": "",
+    },
+    {
+        "name": "California Red",
+        "nickname": "",
+    },
+    {
+        "name": "Harri",
+        "nickname": "",
+    },
+    {
+        "name": "Easycare",
+        "nickname": "",
+    },
+    {
+        "name": "Assaf",
+        "nickname": "",
+    },
+    {
+        "name": "Lonk",
+        "nickname": "",
+    },
+    {
+        "name": "Chios",
+        "nickname": "",
+    },
+    {
+        "name": "East Friesian",
+        "nickname": "",
+    },
+    {
+        "name": "Shetlandan",
+        "nickname": "",
+    },
+    {
+        "name": "Charollais",
+        "nickname": "",
+    },
+    {
+        "name": "Cheviot",
+        "nickname": "",
+    },
+    {
+        "name": "Marco Polo Sheep",
+        "nickname": "",
+    },
+    {
+        "name": "Île-de-France",
+        "nickname": "",
+    },
+    {
+        "name": "Romney Marsh",
+        "nickname": "",
+    },
+    {
+        "name": "Australian White Sheep",
+        "nickname": "",
+    },
+    {
+        "name": "Icelandic",
+        "nickname": ""
+    }
+
 ]
 
 categorys = [
@@ -112,6 +245,22 @@ lots = [
     {
         "name": "lote 6",
         "date": "2021-07-14T15:44:50Z",
+    }
+]
+
+sheeps = [
+    {
+        "earringNumber": "301",
+        "breed": 1,
+        "category": 1,
+        "lots": 1,
+        "birthday": "2021-01-01",
+        "sex": "M",
+        "teethQuantity": 20,
+        "birth": None,
+        "pregnant": False,
+        "lactating": False,
+        "weight": 100.0,
     }
 ]
 
