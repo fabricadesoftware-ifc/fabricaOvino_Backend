@@ -248,11 +248,55 @@ lots = [
     }
 ]
 
+preg_diagonis = [
+    {
+        "sheep": 2,
+        "user": 2,
+        "date": "2021-07-14T15:44:50Z",
+        "diagnosis": True
+    },
+    {
+        "sheep": 3,
+        "user": 2,
+        "date": "2021-07-16T13:10:00Z",
+        "diagnosis": False
+    }
+]
+
 sheeps = [
     {
         "earringNumber": "301",
+        "breed": 5,
+        "category": 1,
+        "lots": 1,
         "birthday": "2021-01-01",
         "sex": "M",
+        "teethQuantity": 20,
+        "birth": None,
+        "pregnant": False,
+        "lactating": False,
+        "weight": 100.0,
+    },
+{
+        "earringNumber": "302",
+        "breed": 1,
+        "category": 2,
+        "lots": 2,
+        "birthday": "2019-04-20",
+        "sex": "F",
+        "teethQuantity": 18,
+        "birth": None,
+        "pregnant": True,
+        "lactating": False,
+        "weight": 100.0,
+    },
+{
+        "earringNumber": "303",
+        "breed": 2,
+        "category": 3,
+        "lots": 5,
+        "birthday": "2017-06-05",
+        "sex": "F",
         "teethQuantity": 20,
         "birth": None,
         "pregnant": False,
