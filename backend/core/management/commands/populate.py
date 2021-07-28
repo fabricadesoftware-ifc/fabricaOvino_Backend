@@ -2,9 +2,9 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth.hashers import make_password
 
 from .data.data_populate import (
-    breeds, categorys, feeds, lots, preg_diagonis, users, shearings, sheeps)
+    births, birth_sheeps, breeds, categorys, feeds, lots, preg_diagonis, users, shearings, sheeps)
 from backend.core.models import (
-    Breed, Category, Feed, Lots, PregnancyDiagnosis, User, Shearing, Sheep)
+    Birth, Breed, Category, Feed, Lots, PregnancyDiagnosis, User, Shearing, Sheep)
 
 
 class Command(BaseCommand):
@@ -19,6 +19,24 @@ class Command(BaseCommand):
         save_sheep(sheeps)
         save_pregnancy_diagnosis(preg_diagonis)
         save_shearing(shearings)
+        save_birth(births, birth_sheeps)
+
+
+def save_birth(data, data_sheeps):
+    for b in data:
+        try:
+            sheep_instance = Sheep.objects.get(pk=b["sheep"])
+            user_instance = User.objects.get(pk=b["user"])
+
+            b["sheep"] = sheep_instance
+            b["user"] = user_instance
+
+            birth = Birth(**b)
+            birth.save()
+
+            save_sheep(data_sheeps)
+        except Exception as e:
+            print("BIRTH: ", e, type(e))
 
 
 def save_breed(data):
@@ -49,9 +67,9 @@ def save_feed(data):
 
 
 def save_lot(data):
-    for l in data:
+    for ld in data:
         try:
-            lot = Lots(**l)
+            lot = Lots(**ld)
             lot.save()
         except Exception as e:
             print("LOTS: ", e, type(e))
@@ -100,13 +118,19 @@ def save_shearing(data):
 def save_sheep(data):
     for s in data:
         try:
+            if s["birth"] is not None:
+                birth_instance = Birth.objects.get(pk=s["birth"])
+                s["birth"] = birth_instance
+
+            if s["lots"] is not None:
+                lots_instance = Lots.objects.get(pk=s["lots"])
+                s["lots"] = lots_instance
+
             breed_instance = Breed.objects.get(pk=s["breed"])
             category_instance = Category.objects.get(pk=s["category"])
-            lots_instance = Lots.objects.get(pk=s["lots"])
 
             s["breed"] = breed_instance
             s["category"] = category_instance
-            s["lots"] = lots_instance
 
             sheep = Sheep(**s)
             sheep.save()

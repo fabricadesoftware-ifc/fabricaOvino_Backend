@@ -1,3 +1,55 @@
+births = [
+    {
+        "sheep": 3,
+        "user": 2,
+        "date": "2018-05-14T03:25:00Z",
+        "newborns_quantity": 3,
+        "observations": ""
+    }
+]
+
+birth_sheeps = [
+    {
+        "earringNumber": "304",
+        "breed": 2,
+        "category": 2,
+        "lots": 5,
+        "birthday": "2018-05-14",
+        "sex": "M",
+        "teethQuantity": 15,
+        "birth": 1,
+        "pregnant": False,
+        "lactating": False,
+        "weight": 98.0,
+    },
+    {
+        "earringNumber": "305",
+        "breed": 2,
+        "category": 2,
+        "lots": 5,
+        "birthday": "2018-05-14",
+        "sex": "F",
+        "teethQuantity": 17,
+        "birth": 1,
+        "pregnant": False,
+        "lactating": False,
+        "weight": 95.0,
+    },
+    {
+        "earringNumber": "306",
+        "breed": 2,
+        "category": 1,
+        "lots": 5,
+        "birthday": "2018-05-14",
+        "sex": "F",
+        "teethQuantity": 19,
+        "birth": 1,
+        "pregnant": False,
+        "lactating": False,
+        "weight": 102.0,
+    }
+]
+
 breeds = [
     {
         "name": "Dorper",
@@ -217,7 +269,8 @@ feeds = [
     },
     {
         "name": "MINER SAL",
-        "description": "Ração de pronto uso, auxilia no desenvolvimento de carcaça, ganho de peso, e aumento da taxa de prenhes",
+        "description": "Ração de pronto uso, auxilia no desenvolvimento de carcaça, ganho de peso, "
+                       "e aumento da taxa de prenhes",
     },
 ]
 
@@ -310,7 +363,7 @@ sheeps = [
         "lactating": False,
         "weight": 100.0,
     },
-{
+    {
         "earringNumber": "302",
         "breed": 1,
         "category": 2,
@@ -323,7 +376,7 @@ sheeps = [
         "lactating": False,
         "weight": 100.0,
     },
-{
+    {
         "earringNumber": "303",
         "breed": 2,
         "category": 3,
