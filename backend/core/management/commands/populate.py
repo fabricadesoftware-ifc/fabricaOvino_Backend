@@ -2,9 +2,9 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth.hashers import make_password
 
 from .data.data_populate import (
-    breeds, categorys, feeds, lots, preg_diagonis, users, sheeps)
+    breeds, categorys, feeds, lots, preg_diagonis, users, shearings, sheeps)
 from backend.core.models import (
-    Breed, Category, Feed, Lots, PregnancyDiagnosis, User, Sheep)
+    Breed, Category, Feed, Lots, PregnancyDiagnosis, User, Shearing, Sheep)
 
 
 class Command(BaseCommand):
@@ -17,7 +17,8 @@ class Command(BaseCommand):
         save_lot(lots)
         save_user(users)
         save_sheep(sheeps)
-        save_pregnance_diagnosis(preg_diagonis)
+        save_pregnancy_diagnosis(preg_diagonis)
+        save_shearing(shearings)
 
 
 def save_breed(data):
@@ -56,7 +57,7 @@ def save_lot(data):
             print("LOTS: ", e, type(e))
 
 
-def save_pregnance_diagnosis(data):
+def save_pregnancy_diagnosis(data):
     for p in data:
         try:
             sheep_instance = Sheep.objects.get(pk=p["sheep"])
@@ -65,8 +66,8 @@ def save_pregnance_diagnosis(data):
             p["sheep"] = sheep_instance
             p["user"] = user_instance
 
-            preg_diagonise = PregnancyDiagnosis(**p)
-            preg_diagonise.save()
+            preg_diagnose = PregnancyDiagnosis(**p)
+            preg_diagnose.save()
         except Exception as e:
             print("PREGNANCY_DIAGNOSIS: ", e, type(e))
 
@@ -79,6 +80,21 @@ def save_user(data):
             user.save()
         except Exception as e:
             print("USER: ", e, type(e))
+
+
+def save_shearing(data):
+    for s in data:
+        try:
+            sheep_instance = Sheep.objects.get(pk=s["sheep"])
+            user_instance = User.objects.get(pk=s["user"])
+
+            s["sheep"] = sheep_instance
+            s["user"] = user_instance
+
+            shearing = Shearing(**s)
+            shearing.save()
+        except Exception as e:
+            print("SHEARING: ", e, type(e))
 
 
 def save_sheep(data):

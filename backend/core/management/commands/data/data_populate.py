@@ -263,6 +263,39 @@ preg_diagonis = [
     }
 ]
 
+shearings = [
+    {
+        "sheep": 1,
+        "user": 2,
+        "date": "2020-04-16T13:10:00Z",
+        "amountOfWool": 4.7
+    },
+    {
+        "sheep": 1,
+        "user": 2,
+        "date": "2021-06-16T15:00:15Z",
+        "amountOfWool": 4.9
+    },
+    {
+        "sheep": 2,
+        "user": 2,
+        "date": "2020-04-16T09:40:45Z",
+        "amountOfWool": 4.4
+    },
+    {
+        "sheep": 2,
+        "user": 2,
+        "date": "2021-05-25T16:56:33Z",
+        "amountOfWool": 4.7
+    },
+    {
+        "sheep": 3,
+        "user": 2,
+        "date": "2021-04-16T14:40:17Z",
+        "amountOfWool": 5.2
+    }
+]
+
 sheeps = [
     {
         "earringNumber": "301",
