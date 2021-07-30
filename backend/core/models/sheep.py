@@ -23,4 +23,3 @@ class Sheep(models.Model):
     )
     pregnant = models.BooleanField(default=False)
     lactating = models.BooleanField(default=False)
-    weight = models.FloatField(default=0)

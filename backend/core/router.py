@@ -14,3 +14,4 @@ router.register(r"pregnancy-diagnosis", views.PregnancyDiagnosisViewSet, basenam
 router.register(r"shearing", views.ShearingViewSet, basename="shearing")
 router.register(r"sheeps", views.SheepViewSet, basename="sheep")
 router.register(r"users", views.UserViewSet, basename="user")
+router.register(r"weight", views.WeightViewSet, basename="weight")

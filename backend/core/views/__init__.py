@@ -9,3 +9,4 @@ from .pregnancyDiagnosis import PregnancyDiagnosisViewSet
 from .shearing import ShearingViewSet
 from .sheep import SheepViewSet
 from .user import UserViewSet
+from .weight import WeightViewSet

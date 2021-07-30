@@ -15,3 +15,4 @@ from .user import (
     UserSerializer,
     UserUpdateSerializer,
 )
+from .weight import WeightSerializer, WeightDetailSerializer

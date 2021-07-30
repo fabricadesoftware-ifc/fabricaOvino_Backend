@@ -7,3 +7,4 @@ from .pregnancyDiagnosis import PregnancyDiagnosis
 from .shearing import Shearing
 from .sheep import Sheep
 from .user import User
+from .weight import Weight
