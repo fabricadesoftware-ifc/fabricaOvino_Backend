@@ -1,10 +1,10 @@
-from rest_framework import status, viewsets
+from rest_framework import mixins, status, viewsets
 from rest_framework.response import Response
 from backend.core.models import Shearing, Sheep
-from backend.core.serializers import ShearingSerializer
+from backend.core.serializers import ShearingSerializer, ShearingDetailSerializer
 
 class ShearingViewSet(viewsets.ModelViewSet):
-    lookup_field = "id" 
+    lookup_field = "id"
     queryset = Shearing.objects.all()
     serializer_class = ShearingSerializer
 
@@ -14,3 +14,22 @@ class ShearingViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class ShearingEarringNumber(mixins.ListModelMixin, viewsets.GenericViewSet):
+    lookup_field = "id"
+    queryset = Shearing.objects.all()
+    serializer_class = ShearingDetailSerializer
+
+    def get(self):
+        sheeps = Sheep.objects.all()
+        result = []
+
+        for shearing in self.get_queryset():
+            for sheep in sheeps:
+                if shearing.sheep == sheep.id:
+                    shearing.sheep = sheep.earringNumber
+                    serializer = self.get_serializer(shearing)
+                    result.append(serializer.data)
+
+        return Response(result, status.HTTP_200_OK)

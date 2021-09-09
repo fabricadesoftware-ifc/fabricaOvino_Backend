@@ -6,6 +6,6 @@ from .group import GroupViewSet
 from .lots import LotsViewSet
 from .permission import PermissionViewSet
 from .pregnancyDiagnosis import PregnancyDiagnosisViewSet
-from .shearing import ShearingViewSet
+from .shearing import ShearingViewSet, ShearingEarringNumber
 from .sheep import SheepViewSet
 from .user import UserViewSet
