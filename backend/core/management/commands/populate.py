@@ -1,14 +1,24 @@
-from django.core.management.base import BaseCommand
 from django.contrib.auth.hashers import make_password
+from django.core.management.base import BaseCommand
+
+from backend.core.models import Birth, Breed, Category, Feed, Lots, PregnancyDiagnosis, Shearing, Sheep, User
 
 from .data.data_populate import (
-    births, birth_sheeps, breeds, categorys, feeds, lots, preg_diagonis, users, shearings, sheeps)
-from backend.core.models import (
-    Birth, Breed, Category, Feed, Lots, PregnancyDiagnosis, User, Shearing, Sheep)
+    birth_sheeps,
+    births,
+    breeds,
+    categorys,
+    feeds,
+    lots,
+    preg_diagonis,
+    shearings,
+    sheeps,
+    users,
+)
 
 
 class Command(BaseCommand):
-    help = 'Populate database'
+    help = "Populate database"
 
     def handle(self, *args, **options):
         save_breed(breeds)
@@ -23,7 +33,7 @@ class Command(BaseCommand):
 
 
 def save_birth(data, data_sheeps):
-    for b in data:
+    for b in 10:
         try:
             sheep_instance = Sheep.objects.get(pk=b["sheep"])
             user_instance = User.objects.get(pk=b["user"])

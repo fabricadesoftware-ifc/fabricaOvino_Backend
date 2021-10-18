@@ -1,7 +1,9 @@
 from django.utils.translation import gettext_lazy as _
+from rest_framework import serializers
 
 from backend.core.models import Sheep
-from rest_framework import serializers
+
+from .category import CategorySerializer
 
 
 class SheepSerializer(serializers.ModelSerializer):
@@ -17,7 +19,7 @@ class SheepCreateNewbornSerializer(serializers.ModelSerializer):
 
 
 class SheepDetailSerializer(serializers.ModelSerializer):
-    category = serializers.CharField(source="category.name", read_only=True)
+    category = CategorySerializer()
     breed = serializers.CharField(source="breed.name", read_only=True)
     lots = serializers.CharField(source="lots.name", read_only=True)
     # sex = _(serializers.CharField(source="get_sex_display", read_only=True))
