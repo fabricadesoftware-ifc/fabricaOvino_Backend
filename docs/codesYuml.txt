@@ -1,0 +1,42 @@
+Diagrama de Classes 1 
+
+[Sheep]<-++[Shearing]
+[Lots]<-++[Sheep]
+[Breed]<-++[Sheep]
+[Category]<-++[Sheep]
+[Birth]<-<>[Sheep]
+[Birth]++-[User]
+[PregnancyDiagnosis]++-[User]
+[Shearing]++-[User]
+[Female]<-++[PregnancyDiagnosis]
+[Sheep]^-[Female]
+[Sheep]^-[Male]
+
+Diagrama de Classes 2 - Com Atributos
+
+[Sheep]<-++[Shearing]
+[Lots|#id; +name; +date]<-++[Sheep]
+[Breed|#id; +name; +nickname]<-++[Sheep]
+[Category|#id; +name]<-++[Sheep]
+[Birth|#id; +date; +newborns_quantity; +observations]++-[Sheep]
+[Birth]++-[User|#id;+name;+username;+email;+password]
+[PregnancyDiagnosis|#id;+date;+diagnosis]++-[User]
+[Shearing|#id;+amountOfWool;+date]++-[User]
+[Female]<-++[PregnancyDiagnosis]
+[Sheep|#earingNumber;+birthday;+teeth_quantity;+pregnant;+lactating;+weight]^-[Female]
+[Sheep]^-[Male]
+
+Diagrama de caso de uso
+[User]-(Login)
+[User]-(Management)
+(Management)>(Sheeps)
+(Sheeps)<(Lots)
+(Sheeps)<(Categories)
+(Sheeps)<(Breeds)
+[User]-(Birth Management)
+(Birth Management)>Birth
+(Birth Management)>Pregnancy Diagnosis
+[User]-(Sheep Management)
+(Sheep Management)>(Shearing)
+(Sheep Management)>(Place Lot)
+(Login)<(Auth Service)
